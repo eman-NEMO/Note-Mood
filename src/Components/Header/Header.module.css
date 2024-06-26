@@ -1,0 +1,63 @@
+.head {
+   height: 60px !important;
+}
+.pos {
+  margin-left: 80%;
+  margin-top: 2%;
+  color: black;
+}
+.around {
+  border-radius: 40%;
+  font-size: 22px;
+}
+.around:hover {
+  /* border: 5px var(--loginButton) solid; */
+  background-color: var(--loginButton);
+  color: white;
+  transition: all 1s;
+}
+/* Default logo size */
+.logo {
+  width: 50%;
+}
+
+/* Larger phones to small tablets: 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .logo {
+    width: 60%;
+  }
+}
+
+/* Small phones: up to 480px */
+@media(max-width: 480px) {
+  .logo {
+    width: 100% !important;
+    /* background-color: black; */
+  }
+ 
+
+}
+
+/* Small desktops: 769px to 992px */
+@media (min-width: 769px) and (max-width: 992px) {
+  .logo {
+    width: 70%;
+    /* background-color: rgb(203, 68, 68); */
+  }
+}
+
+/* Medium desktops: 993px to 1200px */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .logo {
+    width: 60%;
+    /* background-color: rgb(132, 71, 114); */
+  }
+}
+
+/* Large desktops: greater than 1200px */
+@media (min-width: 1201px) {
+  .logo {
+    width: 50%;
+    /* background-color: rgb(164, 130, 209); */
+  }
+}

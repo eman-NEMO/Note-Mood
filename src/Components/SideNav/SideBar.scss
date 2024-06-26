@@ -1,0 +1,100 @@
+
+// .over{
+//   z-index:0;
+//   // position: fixed;
+// }
+ .Side_Nav_ID{
+  //  position: fixed;
+  .custom-menu {
+    height: 100vh;
+    // scroll-behavior: auto;
+    // position: fixed;
+    // z-index: -111;
+    // transition: all .4s;
+  }
+  .custom-sidebar.collapsed {
+    width: 85px; /* Adjust the width for the collapsed state */
+    //transition: width 0.5s ease;
+}
+.menu-item-text-active{
+  text-decoration: none  !important;
+  color:  #6956e5;
+  font-weight: 600;
+}
+.menu-item-text{
+  text-decoration: none  !important;
+  color: #7C7C7C;
+  font-weight: 600;
+}
+// .custom-sidebar.expanded {
+//   transition: width 0.5s ease !important;
+//     width: 250px !important; /* Adjust the width for the expanded state */
+
+// }
+  .menu-icon {
+    margin-right: 20px;
+    width: 24px !important;
+   
+  }
+ 
+ 
+  .help{
+    width: 30px;
+  }
+  .logo{
+    width: 43px !important;
+    
+  }
+
+  .collapse-button {
+    cursor: pointer;
+  }
+
+  .open-close{
+    display: flex;
+    margin-left: 30px;
+    color: #6956e5;
+    margin-top: 30px;
+  }
+  
+  
+//   .over{
+//       z-index:0;
+//  }
+//  .text-decoration-none{
+//     color: black !important;
+//     font-weight: bold;
+//  }
+
+  .note_mood_title{
+    color: black !important;
+    font-weight: bold !important;
+    font-size: 30px !important;
+  }
+
+
+ }
+ /* Add to your existing CSS file or a <style> tag */
+ .full-screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11111; /* Adjust as needed to be higher than anything else */
+  overflow: hidden; /* Prevents scrolling */
+}
+
+.log_out_text {
+  font-size: 28px !important;
+  font-weight: bold;
+  color: white; /* Assuming you want white text */
+}
+.MuiCircularProgress-svg {
+  color: #6956e5  !important; /* Set your desired color */
+}
+

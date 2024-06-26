@@ -1,0 +1,24 @@
+/* Container holding both SideNav and Outlet */
+.d-flexx {
+    // z-index: 0;
+    display: flex;
+    height: 100vh; /* Adjust based on your layout needs */
+    overflow: hidden !important; /* Prevents the main container from scrolling */
+}
+
+/* Styling for the SideNav component */
+.side-nav {
+    // z-index: 0;
+  //  width: 250px; /* Or your specific fixed width */
+   height: 100%; /* Full height */
+//   overflow-y: auto; /* Allows scrolling inside SideNav if needed */
+}
+
+/* Styling for the Outlet component */
+.outlet-container {
+    // z-index: 0;
+    flex-grow: 1; /* Takes up the remaining width */
+    overflow-y: auto; 
+    overflow-x: hidden;/* Enables vertical scrolling */
+    //height: 100%; /* Full height */
+}

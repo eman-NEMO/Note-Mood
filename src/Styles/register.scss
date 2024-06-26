@@ -1,0 +1,174 @@
+@import "./variables.scss";
+
+#regester_id{
+    //  overflow-y: hidden;
+    .gender{
+        height: 50px !important;
+        background-color:$SecundColor;
+        width: 30% !important;
+    }
+    .box{
+        margin-top: 10% !important;
+    }
+    .mainColor{
+        color: $MainColor;
+        font-weight: 650;
+        font-size: 16px;
+       
+    }
+    .form-control,.form-select {
+        height: 50px !important;
+        border: none !important;
+        background-color: $SecundColor !important;
+        border-color: initial;
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: initial !important;
+        border: none;
+    
+    }
+    .form-control,.form-select:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: initial !important;
+      }
+      .margin{
+        margin-top:5% !important;
+      }
+      .marg{
+        margin-top: 7% !important;
+      }
+      .bold{
+        font-weight: bold;
+      }
+      .bold-light{
+        font-weight: 500;
+      }
+      .fontSize{
+        font-size: 17px !important;
+      }
+      // Customize radio button appearance
+      input[type="radio"] {
+        appearance: none; /* Remove default appearance */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 16px; /* Adjust size of radio button */
+        height: 16px;
+        border-radius: 50%; /* Make it circular */
+        border: 2px solid #000; /* Add border */
+        position: relative; /* Set position to relative */
+      }
+      
+      /* Style the inner circle when radio button is checked */
+      input[type="radio"]:checked::before {
+        content: ''; /* Add empty content */
+        display: block;
+        width: 15px; /* Match outer circle width */
+        height: 15px; /* Match outer circle height */
+        background-color: #000; /* Color of inner circle */
+        border-radius: 60%; /* Make it circular */
+        position: absolute; /* Set position to absolute */
+        top: 50%; /* Move to vertical center */
+        left: 50%; /* Move to horizontal center */
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+      }
+      
+      
+    .buton {
+    background-color: var(--loginButton) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 22px !important;
+    width: 35% !important;
+  //  border: 80%;
+  }
+  .AlredyHaveAcc {
+    padding-left: 4% !important;
+    
+   // margin:  10px 10px;
+   // font-weight: bold;
+  }
+  .AngerPos{
+    
+    top: -1%;
+    left: 97% !important;
+    top: 5%;
+  }
+  .Anger_size{
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .NormalPos{
+    top: -2%;
+    left: 94% !important;
+  }
+  .AngerSize{
+    width: 90%;
+  }
+  .HappyPos{
+     top: 78% !important;
+     left: 3%;
+  }
+  .SadPos{
+    top: 87%;
+    left:8%;
+  }
+  .alertSize{
+    height: 50px;
+  }
+  .alertDateBirth{
+    font-size: 11px;
+    font-weight: bold;
+    // width: 50px;
+    height: 50px;
+  }
+  .birth{
+    width: 30% !important;
+  }
+  .input-error ,.form-control:focus.input-error{
+    border: 1px solid red !important; /* Change the color and style as needed */
+  }
+  
+  .error-message {
+    display: block; /* Ensure it is a block element */
+    width: 100%;    /* Take the full width */
+    margin-top: 0.25rem; /* Adjust margin as needed */
+    color: red;     /* Text color for error */
+    font-size: 0.875rem; /* Adjust font size as needed */
+}
+
+    .margin_birth{
+      margin-top: 8% !important;
+    }
+
+
+    @media (max-width: 767px) {
+      .invisible-on-small-screens {
+        visibility: hidden;
+      }
+    }
+    
+    .sinUp_font_size{
+      margin-top: 4% !important;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .link_color{
+      color:rgba(105, 86, 229, 1) !important;
+       
+    }   
+}
+// body {
+//   overflow-y: auto;
+// }
+
+// /* Hide overflow on larger screens */
+// @media (min-width: 768px) {  /* Adjust breakpoint as needed */
+//   body {
+//     overflow-y: hidden;
+//   }
+// }
+
+// .container{
+//   width: 90% !important;
+// }

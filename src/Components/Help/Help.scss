@@ -1,0 +1,197 @@
+#Main_Help_page{
+    // .accordion-wrapper {
+    //     visibility: hidden;
+    //     opacity: 0;
+    //     transition: opacity 0.5s, visibility 0.5s;
+    // }
+    
+
+    .mainCon {
+        // background-image: url('../../Assets/Line-Shape2\ mirror.svg');
+        background-image: url('../../Assets/blur2.svg');
+        background-size: cover !important;
+        background-position: 100% 100% !important;
+        // width:50px;
+       // background-color:rgba(4, 4, 4, 0.632);
+        background-repeat: no-repeat !important;
+        // height: 100vh;  // Makes the body at least the height of the viewport
+    }
+    .container p {
+        font-size: 15px;
+        margin-top: 0;     /* Removes space above the paragraph */
+        margin-bottom: 0;  /* Removes space below the paragraph */
+    }
+    h1{
+        font-size: 50px !important;
+        font-weight: bolder !important;
+    }
+
+    // .conscroll{
+    //     // overflow-x: scroll;
+    //     overflow-y: scroll ;
+    //     height: 100vh;
+    // }
+    // .conscroll::-webkit-scrollbar {
+    //     display: none;
+    //   }
+      
+      
+    /* Specific width for .specificContainer */
+    // .specificContainer {
+    //     width: 2000% !important; /* Set to whatever width you prefer */
+    //     margin: 0 auto !important; /* Center the container */
+    // }
+    
+    // /* Responsive width adjustments */
+    // @media (max-width: 768px) {
+    //     .specificContainer {
+    //         width: 100% !important; /* Full width on smaller screens */
+    //     }
+    // }
+    .help{
+        font-size: 32px !important;
+        font-weight: bold;
+        
+    }
+    .Icons_title{
+        font-weight: bold !important;
+        font-size: 27px !important;
+    }
+    
+    .accordion_title{
+        font-weight: bold !important;
+        font-size: 19px;
+        // color: white;
+    }
+    
+    /* Remove default arrows */
+    .accordion-button::after {
+        display: none;
+    }
+    
+    /* Add custom icons at the end of the button */
+    .accordion-button::before {
+        font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands'; /* Use correct Font Awesome family */
+        font-weight: 900; /* Needed for the solid icons in Font Awesome 5 */
+        content: "\f068"; /* FontAwesome minus icon */
+        position: absolute;
+        right: 16px; /* Adjust spacing to the right edge */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%);
+        
+    }
+    
+    .accordion-button.collapsed::before {
+        content: "\f067"; /* FontAwesome plus icon when collapsed */
+    }
+    /* CSS to change the color of the accordion title when expanded */
+    .accordion-button:not(.collapsed) .accordion_title {
+        color: rgba(105, 86, 229, 1); /* Change to your desired color */
+    }
+    /* Change the color of the title and add a border when the accordion is expanded */
+.accordion-button:not(.collapsed) {
+    color:  rgba(105, 86, 229, 1); /* Change to your desired title color */
+    border: 1px solid  rgba(105, 86, 229, 1); /* Change to your desired border color */
+}
+
+    /* Optional: adjust spacing and alignment */
+    .accordion-button {
+        justify-content: space-between; /* Spreads the text and icon */
+        position: relative; /* Needed for absolute positioning of the icon */
+        padding-right: 40px; /* Add padding to ensure text does not overlap icon */
+    }
+    .accordion-body {
+        overflow: auto; /* Adds scrollbars if content overflows */
+        padding: 15px; /* Add more padding if needed */
+    }
+    
+    .accordion-body img {
+        max-width: 100%; /* Ensures images do not exceed the container width */
+        height: auto; /* Maintains aspect ratio */
+        display: block; /* Removes bottom space/margin of images */
+    }
+    
+    .accordion-body .row {
+        margin-right: 0; /* Removes default right margin */
+        margin-left: 0; /* Removes default left margin */
+    }
+    
+    .accordion-body .col-xl-12, .accordion-body .col-md-12 {
+        padding-right: 15px; /* Adjusts padding for internal columns if needed */
+        padding-left: 15px; /* Adjusts padding for internal columns if needed */
+    }
+    /* Styles for the accordion header when it is active (i.e., when the accordion is open) */
+    // .accordion-button:not(.collapsed) {
+    //     background-color: none !important;
+    //     // background-color:rgba(105, 86, 229, 1); /* Active background color */
+    //     color: black; /* Text color for active state */
+    //     border-color:rgba(105, 86, 229, 1); /* Border color when active */
+    // }
+    // .accordion-button:not(.collapsed)  {
+    //     border: 1px solid  rgba(105, 86, 229, 1); /* Change the color to your desired border color */
+    //     // border-radius: 5px; /* Optional: Adds rounded corners */
+    //     // margin-bottom: 10px; /* Adds space between accordion items */
+    // }
+
+    .accordion-button:not(.collapsed) {
+        // border: 1px black !important;
+        background-color: #fff; /* Set to your preferred default background */
+        color: #000; /* Set to your preferred default text color */
+      }
+      
+      .accordion-button:focus {
+        box-shadow: none; /* Removes focus outline */
+      }
+    .Main_Help_page{
+        z-index: -1 !important;
+    }
+    // styles for all accordion buttons */
+    // .accordion-button:hover {
+    //     color: white !important;
+    //     background-color: rgba(105, 86, 229, 1); /* Lighter yellow on hover */
+    // }
+    
+    /* Removing hover effect entirely when accordion is open */
+    // .accordion-button:not(.collapsed):hover {
+    //     background-color: rgba(105, 86, 229, 1); /* Keep the same color as active state on hover */
+    // }
+    
+    /* Optional: Custom style for the accordion collapse content */
+    .accordion-collapse {
+        border: 1px solid rgba(105, 86, 229, 1); /* Yellow border for the content area */
+    }
+}
+
+
+
+
+/* Custom focus style for accordion headers */
+/* Remove focus and active styles for accordion buttons */
+// .accordion-button:focus, .accordion-button:active {
+//     box-shadow: none !important ; /* Removes the default focus shadow */
+//     background-color: transparent !important; /* Removes the background color change on focus/active */
+//     border-color: inherit !important; /* Resets the border color or you can set a specific color */
+// }
+
+
+/* Ensure you load the Font Awesome CSS in your project for these codes to work */
+
+
+/* Ensure you load the Font Awesome CSS in your project for these codes to work */
+/* Styles the scrollbar itself */
+::-webkit-scrollbar {
+    width: 8px; /* scrollbar width */
+    height: 8px; /* scrollbar height for horizontal scroll */
+    background-color: rgba(0,0,0,0.1); /* scrollbar background */
+}
+
+/* Styles the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.4); /* draggable part color */
+    border-radius: 4px; /* rounded corners for the draggable part */
+}
+
+/* Styles the part of the scrollbar track where the thumb doesn't reach */
+::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0.1); /* track color */
+}

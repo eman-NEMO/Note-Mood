@@ -1,0 +1,234 @@
+#PopUpdate{
+ .emojy_size{
+    width: 8% !important;
+ }
+ .point{
+    cursor: pointer;
+ }
+    .ModContainer{
+  
+        // background-position-x: center;
+        // background-position-y: top;
+        // background-position: left;
+         z-index: 1111;
+        //  background-repeat: no-repeat;
+       
+       
+          background-color: rgba(0,0,0,.6);
+         
+         width: 100%;
+         height: 100%;
+         position: fixed;
+     
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+     }
+     .ModContent{
+         
+         overflow: hidden;
+         width: 50%;
+         height: 70%;
+         background-color: white;
+     }
+     .mared {
+         top: 64%;
+         left: 15%;
+         width: 11%;
+       //  background-color:aqua ;
+     }
+     
+     .pen {
+         top: 73%;
+         left: 72%;
+         width: 10%;
+     }
+     .close{
+      left: 71%;
+      top: 17%;
+      cursor: pointer;
+      .close_width{
+          width: 40px !important;
+    }
+   // width: 200px !important;
+   
+  }
+     
+     @media (max-width: 768px) {
+      .ModContent{
+        width: 95%;
+        height: 70%;
+        // background-color: rebeccapurple;
+        // background-color: red;
+      } /* Adjust the breakpoint as needed */
+         .mared  {
+             top: 80%;
+             width: 15%;
+             left: 8%;
+         
+         }
+         .pen{
+             width: 15%;
+             left: 73%;
+             top: 82%;
+         }
+         .close{
+          left: 85%;
+          .close_width{
+            left: 69%;
+            top: 19%;
+             width: 80% !important;
+            //  background-color: black;
+       }
+         }
+        //  .ModContent{
+        //     width: 80%;
+        //     height: 70%;
+        //    // background-color: white;
+        //  }
+     }
+     
+     @media (min-width: 769px) and (max-width: 992px) { /* Adjust the breakpoints as needed */
+      .mared{
+        width: 13%;
+        left: 9%;
+        top: 70%;
+        //background-color: red;
+    }
+    .ModContent{
+      width: 65%;
+      // background-color: red;
+      // height: 70%;
+      // background-color: rgb(29, 46, 102);
+    }
+    .pen {
+      // background-color: aqua;
+      //   top: 40%;
+         width: 12%;
+         top: 75%;
+         left: 79% ;
+       //  background-color: rebeccapurple;
+       //  background-color: aqua; /* Set width to 15% for medium-sized screens */
+     }
+     .close{
+      left: 75%;
+      // background-color: aquamarine;
+      .close_width{
+         width: 95% !important;
+       }
+    
+     }
+ }
+     
+     /* Add more media queries for other screen sizes if necessary */
+     
+     .masaka{
+         width:70px;
+         top: 8%;
+         left:60%;
+     }
+     
+     
+     .write_journal{
+         margin-top: 30px;
+     }
+
+
+
+
+}
+
+.pop_up_form{
+  margin-top: 0% !important;
+  margin-left: 3% !important;
+  .datePicker {
+    width: 200px !important;
+    margin-right: 20px;
+   // height: 100vh !important;
+  }
+  .customTimePicker {
+    width: 200px;
+    height: 40px;
+    
+  }
+  .title {
+   
+    height: 50px !important;
+   
+    width: 90%;
+    // font-weight: bold;
+    font-size: 20px;
+    border: none !important;
+    background-color: var(--backgroundColorLoginInput) !important;
+  
+    border-color: initial;
+  }
+  .title ,.content:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: initial !important;
+  }
+  .journal_title , .content_title{
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .content{
+    width: 95%;
+    border: none !important;
+    background-color: var(--backgroundColorLoginInput) !important;
+    border-color: initial;
+  }
+  .alert{
+    width: 90%;
+    height: 50px;
+  }
+  .submit_btn{
+    width: 15% !important;
+    background-color: rgba(105, 86, 229, 1) !important ;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+    margin-right: 30px;
+    margin-top: 15px;
+  
+  }
+  .Delete_btn{
+    width: 15% !important;
+    
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+    margin-right: 30px;
+    margin-top: 15px;
+  
+  }
+  .submit_btn:hover{
+    color: white !important;
+
+  }
+
+
+
+}
+
+.date-time-picker {
+  display: flex !important;
+  gap: 20px !important;  // Adds space between the date and time pickers
+  align-items: center !important; 
+  .MuiTextField-root {
+    margin-top: 12 !important; 
+} 
+}
+
+
+
+
+
+
+
+
