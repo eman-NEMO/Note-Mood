@@ -7,6 +7,7 @@ import * as Yup from "yup"
 import './ResetPassword.scss'
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 import { useNavigate } from 'react-router-dom';
 export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +18,7 @@ export default function ResetPassword() {
   const token = queryParams.get('token');
   const [err,setError]=useState(null)
   let navigate =useNavigate()
-
+  const {base ,setBase}=useBaseUrl()
 
 
 //   async function ResetPassword(values){
@@ -76,7 +77,7 @@ async function ResetPassword(values) {
   setIsloading(true); // Assuming setIsLoading updates a loading state
 
   try {
-      const response = await axios.post(`http://localhost:5289/api/Auth/ResetPassword`, {
+      const response = await axios.post(`${base}/api/Auth/ResetPassword`, {
           password: values.password,
           confirmPassword: values.ResetPassword, // Ensure this matches your form field for confirmPassword
           token: token, // Make sure token and email are being correctly passed

@@ -135,7 +135,7 @@
      
      
      .write_journal{
-         margin-top: 30px;
+         margin-top: 4% !important;
      }
 
 
@@ -189,17 +189,19 @@
   }
   .submit_btn{
     width: 15% !important;
+    padding: 1% !important;
     background-color: rgba(105, 86, 229, 1) !important ;
     color: white;
     font-weight: bold;
     overflow: hidden;
-    margin-right: 30px;
+    margin-right: 6% !important;
     margin-top: 15px;
+
   
   }
   .Delete_btn{
     width: 15% !important;
-    
+    padding: 1% !important;
     color: white;
     font-weight: bold;
     overflow: hidden;
@@ -207,10 +209,13 @@
     margin-top: 15px;
   
   }
-  .submit_btn:hover{
+  .btn:hover{
     color: white !important;
-
   }
+  // .submit_btn::hover{
+  //   color: white !important;
+
+  // }
 
 
 

@@ -21,10 +21,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import{useCloseJournalsUpdate} from '../../../Context/JournalCloseUpdate';
 
 import {useIdJournal} from '../../../Context/IdContext'
-
+import {useBaseUrl} from '../../../Context/BaseUrlContext'
 dayjs.extend(customParseFormat);
 export default function PopUpdateForm() {
-   
+  const {base ,setBase}=useBaseUrl()
     const { journals, setJournals} = useJournals();
     const  {clos ,setClose}=useCloseJournals()
     const  {closUpdate ,setCloseUpdate}=useCloseJournalsUpdate()
@@ -42,32 +42,72 @@ export default function PopUpdateForm() {
     //   console.log(id)
 
 
-    const x = Yup.object().shape({
+    const validationSchema = Yup.object().shape({
       title: Yup.string().required('Title is required'),
-      content:Yup.string().required('Journal content is required ')
+      content: Yup.string().required('Journal content is required'),
+      Date: Yup.date()
+        .nullable()
+        .test(
+          'date-valid',
+          'Invalid date',
+          value => !value || dayjs(value).isValid()
+        )
+        .test(
+          'date-future',
+          'Date cannot be in the future',
+          value => !value || dayjs().isAfter(dayjs(value))
+        ),
+      Time: Yup.string()
+        .nullable()
+        .test(
+          'time-format',
+          'Invalid time format',
+          value => !value || dayjs(value, 'HH:mm:ss', true).isValid()
+        )
+        .test(
+          'time-future',
+          'Time cannot be in the future',
+          function (value) {
+            const { Date: date } = this.parent;
+            if (!value || !date) return true;
+    
+            const selectedDate = dayjs(date);
+            const currentTime = dayjs();
+    
+            // If the selected date is today, validate time
+            if (selectedDate.isSame(currentTime, 'day')) {
+              return currentTime.isAfter(dayjs().startOf('day').add(dayjs(value, 'HH:mm:ss').hour(), 'hour').add(dayjs(value, 'HH:mm:ss').minute(), 'minute'));
+            }
+    
+            // If the selected date is in the past, any time is valid
+            return true;
+          }
+        ),
     });
 
  
 
         async  function JournalUpdate(values){
-
-         
-          console.log("ghsfgsj",values)
+          console.log("values",values)
              const token = localStorage.getItem('userToken');
-             console.log(token)
-             console.log("vlues",values)
+           
+           
        
              if(values.Time===null&&values.Date===null){
-               toast.error('Time and Date Are reqired');
-               return
+              //  toast.error('Time and Date Are reqired');
+              values.Date=specJournal.date
+              values.Time=specJournal.time
+              //  return
              }
              if(values.Time===null){
-               toast.error('Time is reqired');
-               return
+              //  toast.error('Time is reqired');
+              //  return
+              values.Time=specJournal.time
              }
              if(values.Date===null){
-               toast.error('Date is reqired');
-               return
+              //  toast.error('Date is reqired');
+              //  return
+              values.Date=specJournal.date
              }
              const updatedValues = {
               id: id, 
@@ -75,11 +115,14 @@ export default function PopUpdateForm() {
               content: values.content,
               date:values.Date,
               time: values.Time,
+              overallSentiment:specJournal.overallSentiment
               
           };
           console.log("updated values",updatedValues)
+          setSpecLoading(true)
              try {
-               const response = await axios.put('http://localhost:5289/api/Entry/Update', updatedValues, {
+              // console.log(updatedValues);
+               const response = await axios.put(`${base}/api/Entry/Update`, updatedValues, {
                  headers: {
                  'Authorization': `Bearer ${token}`,
                  "Content-Type":'application/json',
@@ -105,6 +148,7 @@ export default function PopUpdateForm() {
      
                 
              }
+             setSpecLoading(false)
      
                return response.data;
              } catch (error) {
@@ -114,6 +158,7 @@ export default function PopUpdateForm() {
                 icon: 'error',
                 confirmButtonText: 'Ok'
             })
+            setSpecLoading(false)
                throw error; 
              }
            
@@ -135,7 +180,7 @@ export default function PopUpdateForm() {
         //setCloseUpdate(false)
         if(result.value){
            try {
-             const response = await axios.delete('http://localhost:5289/api/Entry/Delete',{
+             const response = await axios.delete(`${base}/api/Entry/Delete`,{
               params: { id: id },
               headers: {
                 'id':id,
@@ -174,10 +219,22 @@ export default function PopUpdateForm() {
         content: '',
         Date:null,
         Time: null,
+      
       },
-      validationSchema: x,
+      validationSchema: validationSchema,
       onSubmit:JournalUpdate  
   })
+  const handleSubmit = () => {
+    if (!formik.isValid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid input',
+        text: formik.errors.Date || formik.errors.Time,
+      });
+    } else {
+      formik.handleSubmit();
+    }
+  };
   useEffect(() => {
  
    
@@ -194,7 +251,7 @@ export default function PopUpdateForm() {
 <form onSubmit={formik.handleSubmit}>
 <div className="pop_up_form mt-2">
   
-     <div className="date-time-picker">
+     <div className="date-time-picker me-2 mt-2 mb-2">
      {/* {console.log(id)} */}
        {update?<LocalizationProvider dateAdapter={AdapterDayjs} >
        {/* <h5>{specJournal.date}</h5>  */}
@@ -262,14 +319,14 @@ export default function PopUpdateForm() {
             className="form-control content"
             id="content"
             rows="7"
-            style={{ maxHeight: ` ${formik.errors.title||formik.errors.title ?'100px':'150px'}` , overflowY: 'auto',height:` ${formik.errors.title||formik.errors.title ?'100px':'150px'}` }}
+            style={{ maxHeight: ` ${formik.errors.title||formik.errors.title ?'100px':'150px'}` , overflowY: 'auto',height:` ${formik.errors.content||formik.errors.content ?'100px':'150px'}` }}
             value={formik.values.content} name='content'  onChange={formik.handleChange} onBlur={formik.handleBlur}
           ></textarea>}
-              {(formik.errors.content && formik.touched.content) ?   <h6  className="text-danger"><span>*!</span>{formik.errors.title}</h6> : null}
+              {(formik.errors.content && formik.touched.content) ?   <h6  className="text-danger"><span>*!</span>{formik.errors.content}</h6> : null}
       </div>
       <div className="d-flex justify-content-end">
     {!update?<button type="button" className={` btn w-50 Delete_btn bg-danger`} onClick={()=>{JournalDelete()}}> Delete </button>:''}
-     {update?  <button type="submit" className={`btn w-50 submit_btn`}> Save </button>:''}
+     {update? specLoading ?<button type="button" className={`btn w-50 submit_btn`}> <i className=" fa-solid fa-spinner fa-spin "></i> </button>:<button type="submit" onClick={handleSubmit} className={`btn w-50 submit_btn`}> Save </button>:''}
       {update? '':<button type="button" className={` btn w-50 submit_btn me-5`} onClick={()=>{setUpdate(true)}}> Update </button>}
        </div>
     </div>

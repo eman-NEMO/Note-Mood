@@ -21,15 +21,15 @@ import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
 import './PopUp.scss'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {useBaseUrl} from '../../../Context/BaseUrlContext'
 dayjs.extend(customParseFormat);
 export default function DatePickerMaterialUI() {
-   
+  const {base ,setBase}=useBaseUrl()
     const { journals, setJournals } = useJournals();
     const  {clos ,setClose}=useCloseJournals()
  
   const [selectedDate, setSelectedDate] = useState();
-
+  const [loading , setLoading]=useState();
   const handleDateChange = (newValue) => {
 
    // Ensure the new value is valid
@@ -50,42 +50,66 @@ export default function DatePickerMaterialUI() {
     
       console.log(newValue.format('HH:mm:ss')); // This will output time in "20:15:00" format
   };
-    const x = Yup.object().shape({
-      title: Yup.string().required('Title is required'),
-      content:Yup.string().required('Journal content is required ')
-    });
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().required('Title is required'),
+    content: Yup.string().required('Journal content is required'),
+    Date: Yup.date()
+      .nullable()
+      .required('Date is required')
+      .test(
+        'date-future',
+        'Date cannot be in the future',
+        value => !value || dayjs().isAfter(dayjs(value))
+      ),
+    Time: Yup.string()
+      .nullable()
+      .required('Time is required')
+      .test(
+        'time-format',
+        'Invalid time format',
+        value => dayjs(value, 'HH:mm:ss', true).isValid()
+      )
+      .test(
+        'time-future',
+        'Time cannot be in the future',
+        function (value) {
+          const { Date: date } = this.parent;
+          if (!value || !date) return true;
+  
+          const selectedDate = dayjs(date);
+          const currentTime = dayjs();
+  
+          // If the selected date is today, validate time
+          if (selectedDate.isSame(currentTime, 'day')) {
+            return currentTime.isAfter(dayjs().startOf('day').add(dayjs(value, 'HH:mm:ss').hour(), 'hour').add(dayjs(value, 'HH:mm:ss').minute(), 'minute'));
+          }
+  
+          // If the selected date is in the past, any time is valid
+          return true;
+        }
+      ),
+  });
   async  function JournalSubmit(values){
      console.log(values)
         const token = localStorage.getItem('userToken');
         console.log(token)
         console.log(values)
-        // if(values.title===null&&values.content===null){
-        //   toast.error('title and content Are reqired',{position: "top-center",});
+    
+        // if(values.Time===null&&values.Date===null){
+        //   toast.error('Time and Date Are reqired',{position: "top-center",});
         //   return
         // }
-        // if(values.title===null){
-        //   toast.error('title is reqired',{position: "top-center",});
+        // if(values.Time===null){
+        //   toast.error('Time is reqired',{position: "top-center",});
         //   return
         // }
-        // if(values.content===null){
-        //   toast.error(' content is reqired',{position: "top-center",});
+        // if(values.Date===null){
+        //   toast.error('Date is reqired',{position: "top-center",});
         //   return
         // }
-        
-        if(values.Time===null&&values.Date===null){
-          toast.error('Time and Date Are reqired',{position: "top-center",});
-          return
-        }
-        if(values.Time===null){
-          toast.error('Time is reqired',{position: "top-center",});
-          return
-        }
-        if(values.Date===null){
-          toast.error('Date is reqired',{position: "top-center",});
-          return
-        }
+        setLoading(true);
         try {
-          const response = await axios.post('http://localhost:5289/api/Entry/Create', values, {
+          const response = await axios.post(`${base}/api/Entry/Create`, values, {
             headers: {
           'Authorization': `Bearer ${token}`,
            "ngrok-skip-browser-warning" : "ssdf",
@@ -105,10 +129,12 @@ export default function DatePickerMaterialUI() {
 
            
         }
+        setLoading(false);
 
           return response.data;
         } catch (error) {
           console.error('Error creating entry:', error);
+          setLoading(false)
           throw error; 
         }
       
@@ -123,10 +149,20 @@ export default function DatePickerMaterialUI() {
         
       
       },
-      validationSchema: x,
+      validationSchema: validationSchema,
       onSubmit:JournalSubmit  
   })
-  
+  const handleSubmit = () => {
+    if (!formik.isValid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid input',
+        text: formik.errors.Date || formik.errors.Time,
+      });
+    } else {
+      formik.handleSubmit();
+    }
+  };
     // useEffect(() => {
     //     // This function will run whenever selectedDate changes
     //     console.log("Selected Date:", selectedDate);
@@ -137,7 +173,7 @@ export default function DatePickerMaterialUI() {
       <form onSubmit={formik.handleSubmit}>
        <div className="pop_up_form">
   
-     <div className="date-time-picker">
+     <div className="date-time-picker me-2 mt-2 mb-2">
      <LocalizationProvider dateAdapter={AdapterDayjs} >
       <DatePicker
         label="Date"
@@ -188,12 +224,12 @@ export default function DatePickerMaterialUI() {
               value={formik.values.content} name='content' onChange={formik.handleChange} onBlur={formik.handleBlur}
             ></textarea>
              {formik.errors.content && formik.touched.content && (
-                //  toast.error('content is reqired',{position: "top-center",})
+              
      <h6  className="text-danger"><span>*!</span>{formik.errors.content}</h6>
     )}
       </div>
        <div className="d-flex justify-content-end">
-       <button type="submit" className={` btn w-50 submit_btn`}> Save </button>
+        {loading? <button type="button" className={` btn w-50 submit_btn`}><i className=" fa-solid fa-spinner fa-spin "></i></button>: <button type="submit" onClick={handleSubmit} className={` btn w-50 submit_btn`}> Save </button>}
        </div>
     </div>
 

@@ -36,34 +36,35 @@ import 'rsuite/dist/rsuite.min.css'; // or 'rsuite/dist/styles/rsuite-default.cs
 import { DateRangePicker } from 'rsuite';
 import { addDays } from 'date-fns';
 import search from '../../Assets/search.svg'
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 export default function JournalPage() {
-  
-const predefinedRanges = [
-  {
-    label: 'Today',
-    value: [new Date(), new Date()],
-    placement: 'left'
-  },
-  {
-    label: 'Yesterday',
-    value: [addDays(new Date(), -1), addDays(new Date(), -1)],
-    placement: 'left'
-  },
-  {
-    label: 'Last 7 Days',
-    value: [addDays(new Date(), -7), new Date()],
-    placement: 'left'
-  },
-  {
-    label: 'Last 30 Days',
-    value: [addDays(new Date(), -30), new Date()],
-    placement: 'left'
-  }
-];
+  const {base ,setBase}=useBaseUrl()
+  const predefinedRanges = [
+    {
+      label: 'Today',
+      value: [new Date(), new Date()],
+      placement: 'left'
+    },
+    {
+      label: 'Yesterday',
+      value: [addDays(new Date(), -1), addDays(new Date(), -1)],
+      placement: 'left'
+    },
+    {
+      label: 'Last 7 Days',
+      value: [addDays(new Date(), -7), new Date()],
+      placement: 'left'
+    },
+    {
+      label: 'Last 30 Days',
+      value: [addDays(new Date(), -30), new Date()],
+      placement: 'left'
+    }
+  ];
   const [expanded, setExpanded] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   // const { popUp, setPopUp } = useData();
-  const { journals, setJournals ,zIndex,setZIndex} = useJournals();
+  const { journals, setJournals, zIndex, setZIndex } = useJournals();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { id, setId } = useIdJournal()
@@ -77,7 +78,7 @@ const predefinedRanges = [
     const token = localStorage.getItem('userToken');
     //console.log(token)// Retrieve the token from local storage
     try {
-      const response = await axios.get('http://localhost:5289/api/Entry/GetAll', {
+      const response = await axios.get(`${base}/api/Entry/GetAll`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           "ngrok-skip-browser-warning": "sdfsdf",
@@ -95,8 +96,8 @@ const predefinedRanges = [
       throw error; // Handle errors or re-throw as needed
     }
   }
-  let navigate=useNavigate()
-  function navigateSearch(){
+  let navigate = useNavigate()
+  function navigateSearch() {
 
     navigate('/search')
   }
@@ -122,13 +123,24 @@ const predefinedRanges = [
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  const toggleOptions = () => {
-    setShowOptions(!showOptions);
-  };
-  const toggleSearch = () => {
-    setExpanded(!expanded);
-  };
-
+  // const toggleOptions = () => {
+  //   setShowOptions(!showOptions);
+  // };
+  // const toggleSearch = () => {
+  //   setExpanded(!expanded);
+  // };
+  function getEmotionImage(emotion) {
+    switch (emotion) {
+      case 'Positive':
+        return happy;
+      case 'Negative':
+        return sad;
+      case 'Neutral':
+        return normal;
+      default:
+        return normal; // Default image if none of the cases match
+    }
+  }
 
   const handleJournalClick = (ID) => {
 
@@ -165,57 +177,15 @@ const predefinedRanges = [
       >
         <div className={`Journal_page_Id container `} id='Journal_page_Id'>
 
-          <div className='Journal_font d-flex row '>
-            <div className='  col-lg-6'>
-              <div className='ps-5  d-flex'>  <img src={journal} alt="" className='mt-3  book_size' />
-                <h3 className='mt-3 ms-3 bold Journal_font'>My Journaling Space </h3></div></div>
-            {/* <div className='ms-5 mt-2'>
-         <ReactSearchBox
-        placeholder="Search ....."
-        value="Doe"
-        // leftIcon={ />}
-        // data={this.data}
-   
-        callback={(record) => console.log(record)}
-      />
-            <FontAwesomeIcon icon={faSearch} className=''/>
-         </div> */}
-            <div className='col-lg-6 mt-2 '>
-
-               <div className='d-flex search_margin' onClick={()=>{navigateSearch()}}>  <img src={search} alt="" /></div>
-
-              {/* <div className='search_width ps-5'>
-                <ReactSearchBox
-
-                  placeholder="Search..."
-
-                  leftIcon={
-                    <div className='d-flex justify-content-center align-items-end mt-2'>
-                      <div> <FontAwesomeIcon icon={faSearch} style={{ fontSize: '20px' }} /></div>
-                    </div>
-                  }
-                  iconBoxSize='50px'
-                />
-
-              </div> */}
-              {/* <div className='ps-2 pe-5 mt-2 '> */}
-
-              {/* <DateRangePicker showOneCalendar ranges={[]} format="MM-dd-yyyy" /> */}
-              {/* </div> */}
-
+          <div className='d-flex align-items-center row'>
+            <div className=' col-md-10 col-xl-10 col-sm-10 col-10  col-lg-10 '>
+              <div className=' d-flex'>  <img src={journal} alt="" className='mt-3  book_Icon_size' />
+                <h3 className='mt-3 ms-3 bold journal_page_title_size'>My Journaling Space </h3></div></div>
+            <div className='col-lg-2 col-md-2 col-sm-2  col-2 mt-2 col-xl-2 '>
+              <div className='search_margin' onClick={() => { navigateSearch() }}>  <img src={search} alt="Search Icon" className='search_icon_width' /></div>
             </div>
-
-
-
-
-
           </div>
-
           <div className='container ' >
-
-
-
-
             <div className=' mt-4 '>
 
 
@@ -229,18 +199,24 @@ const predefinedRanges = [
                     viewport={{ once: false }}
                     variants={journalVariants}
                     onClick={() => handleJournalClick(journal.id)}
-                    className='journal_1 mt-2 j_1_color'
+                  // className='journal_1 mt-2 j_1_color'
                   >
                     <div >
-                      <div className='journal_1 mt-1 j_1_color  mt-3' >
+                      <div className={` mt-1 mt-3  ${journal.overallSentiment === "Positive" ? "journal_positive" :
+                          journal.overallSentiment === "Negative" ? "journal_negative" :
+                            " journal_neutral"
+                        }`} >
                         <div className="row " onClick={() => handleJournalClick(journal.id)}>
-                          <div className="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-center">
-                            <img src={happy} alt="" className='emo_size' />
+                          <div className="col-md-3 col-lg-2 col-xl-2 d-flex col-sm-12 col-12 justify-content-center align-items-center">
+                            <img src={getEmotionImage(journal.overallSentiment)} alt="" className='emo_size' />
                           </div>
-                          <div className="col-md-10 col-lg-10 col-xl-10">
+                          <div className="col-md-9 col-lg-10 col-xl-10 col-sm-12 col-12">
                             <div >
                               <div className='d-flex mt-3 ms-3 journal_font_Date_time'><p className='me-5'>{journal.date}</p> <p>{journal.time}</p></div>
-                              <h4 className='ms-3 Journal_font_title'>{journal.title}</h4>
+                              <h5 className={`ms-3  ${journal.overallSentiment === "Positive" ? "positive_title" :
+                                  journal.overallSentiment === "Negative" ? "negative_title" :
+                                    "neutral_title "
+                                }`}>{journal.title}</h5>
                               {journal.content.length > 200 ? <p className='me-3 ms-3 journal_font_content'>{journal.content.substring(0, 200)}<span>......<span className='see_more'> See More</span></span></p> : <p className='me-3 ms-3 journal_font_content'>{journal.content}</p>}
                             </div>
                           </div>
@@ -268,7 +244,7 @@ const predefinedRanges = [
 
           </div>
           <div className=' fixed-button-container text-center '  >
-            <div className={` d-flex align-items-center`}> <button onClick={() => { setClose(true)}} className='btn maincolor rounded-1' ><i class="fa-solid fa-plus  m-1" style={{ color: "white" }}></i> New Journal</button></div>
+            <div className={` d-flex align-items-center`}> <button onClick={() => { setClose(true) }} className='btn maincolor rounded-1' ><i class="fa-solid fa-plus  m-1" style={{ color: "white" }}></i> New Journal</button></div>
           </div>
         </div>
       </motion.div>

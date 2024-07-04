@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import pattern from '../../Assets/pattern.svg'
 import young_girl from '../../Assets/young-girl.png'
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 function ProfilePage() {
   const [showPassword, setShowPassword] = useState(false);
   const [profileImage, setProfileImage] = useState(young_girl);
@@ -22,6 +23,7 @@ function ProfilePage() {
   const [loading, setLoading] = useState(false);
   const [Update_loading, Update_setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const {base ,setBase}=useBaseUrl()
   let navigate = useNavigate()
   const { data, Days, mon, year, } = useData();
   const handleImageChange = (event) => {
@@ -60,7 +62,7 @@ function ProfilePage() {
 
 
     try {
-      const response = await axios.put('http://localhost:5289/api/Profile/Update', updatedValues, {
+      const response = await axios.put(`${base}/api/Profile/Update`, updatedValues, {
         headers: {
           'Authorization': `Bearer ${token}`,
           "Content-Type": 'application/json'
@@ -102,7 +104,7 @@ function ProfilePage() {
     const token = localStorage.getItem('userToken');
     console.log(token)
     try {
-      const response = await axios.get('http://localhost:5289/api/Profile/GetProfile', {
+      const response = await axios.get(`${base}/api/Profile/GetProfile`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           "ngrok-skip-browser-warning": "sdfsdf",

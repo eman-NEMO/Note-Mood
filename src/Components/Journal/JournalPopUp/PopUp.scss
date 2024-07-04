@@ -45,17 +45,19 @@
          left: 72%;
          width: 10%;
      }
+
      .close{
-         left: 71.5%;
-         top: 17%;
-         cursor: pointer;
-         .close_width{
-             width: 100px !important;
-       }
-      // width: 200px !important;
-      
-     }
-     
+      left: 71%;
+      top: 17%;
+      cursor: pointer;
+      .close_width{
+          width: 40px !important;
+    }
+  }
+
+
+
+   
      @media (max-width: 768px) { 
       
       .ModContent{

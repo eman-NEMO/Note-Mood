@@ -9,11 +9,16 @@ import close from '../../../Assets/ph_x-bold.svg'
 import PopUpdateForm from './PopUpdateForm'
 import { motion } from 'framer-motion';
 import happy from '../../../Assets/happy 1.svg'
+import normal from '../../../Assets/Normal 1.svg'
+import sad from '../../../Assets/sad image.svg'
 import{useCloseJournalsUpdate} from '../../../Context/JournalCloseUpdate'
 import {useIdJournal} from '../../../Context/IdContext'
+import {useBaseUrl} from '../../../Context/BaseUrlContext'
 export default function PopUpupdate() {
+  const {base ,setBase}=useBaseUrl()
   const  {closUpdate ,setCloseUpdate}=useCloseJournalsUpdate()
   const {id ,setId,specJournal,setSpecJournal}=useIdJournal()
+  const {journalDate ,setJournalDate,journalTime ,setJournalTime}=useBaseUrl()
   const pageTransition = {
     in: {
       opacity: 1,
@@ -23,6 +28,19 @@ export default function PopUpupdate() {
       opacity: 0,
     }
   };
+  function getEmotionImage(emotion) {
+    switch (emotion) {
+      case 'Positive':
+        return happy;
+      case 'Negative':
+        return sad;
+      case 'Neutral':
+        return normal;
+      default:
+        return normal; // Default image if none of the cases match
+    }
+  }
+
   const [isLoading, setisLoading] = useState(false);
   const [selectedDate, setSelectedDate] = useState();
   const [selectedtime, setSelectedTime] = useState();
@@ -34,7 +52,7 @@ export default function PopUpupdate() {
     try {
         const token = localStorage.getItem('userToken');
         console.log(journalId.id)
-        const response = await axios.get(`http://localhost:5289/api/Entry/GetEntry`, {
+        const response = await axios.get(`${base}/api/Entry/GetEntry`, {
             params: { id: journalId },
             headers: {
                 // Example header that might be required by your ngrok setup or API
@@ -54,7 +72,7 @@ export default function PopUpupdate() {
     fetchJournalEntry(journalId)
         .then(data => {
           console.log("jjj",data)
-            setSpecJournal(data); // Set the fetched journals to state
+            setSpecJournal(data); 
             setSpecLoading(false);
             // setCloseUpdate(true)
            
@@ -83,16 +101,16 @@ export default function PopUpupdate() {
       exit="out"
      // variants={pageVariants}
       variants={pageTransition} 
-      transition={{ type: "tween", duration: .4 }}
+      transition={{ type: "tween", duration: .4 ,delay:.3}}
     >
 
-   {isLoading? 
+   {isLoading ? 
    <div className='POP' id='PopUpdate'>
-    {closUpdate? <div className='ModContainer  '>
+    {closUpdate && !specLoading? <div className='ModContainer  '>
       
     <div className='ModContent rounded-4'>
        <div className='d-flex '>
-         <img src={happy} alt="" className='m-3 emojy_size'  />
+         <img src={getEmotionImage(specJournal.overallSentiment)} alt="" className='m-3 emojy_size'  />
          <h4 className='write_journal'>{specJournal.title}</h4>
            
        </div>

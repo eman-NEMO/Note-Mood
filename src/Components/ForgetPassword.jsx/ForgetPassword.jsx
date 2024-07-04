@@ -8,8 +8,9 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 export default function ForgetPassword() {
-
+  const {base ,setBase}=useBaseUrl()
 
 
     const pageTransition = {
@@ -33,7 +34,7 @@ export default function ForgetPassword() {
         console.log(values)
  
         setIsloading(true)
-        const response = await axios.post(`http://localhost:5289/api/Auth/ForgotPassword?email=${encodeURIComponent(values.email)}`).catch((error)=>{
+        const response = await axios.post(`${base}/api/Auth/ForgotPassword?email=${encodeURIComponent(values.email)}`).catch((error)=>{
        
          Swal.fire({
              title: 'Error!',

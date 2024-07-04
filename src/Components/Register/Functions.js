@@ -5,13 +5,14 @@ import axios from 'axios'
 import { UserContext } from '../../Context/UserContext.js'
 import { Navigate, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 const useData = () => {
   const [data, setData] = useState([]);
   const [Days, setDays] = useState([]);
   const [mon, setMon] = useState([]);
   const [year, setYear] = useState([]);
 
-
+  // const {base ,setBase}=useBaseUrl()
 
   const daysOfMonth = Array.from({ length: 31 }, (_, i) => i + 1);
 
@@ -81,10 +82,11 @@ const useSignUpForm = () => {
 
 
 async function  Submit(vales){
+  const {base ,setBase}=useBaseUrl()
   console.log(vales)
   // vales.month=2;
     setIsloading(true)
-     let{data}= await  axios.post('http://localhost:5289/api/Auth/register',vales).catch((error)=>{
+     let{data}= await  axios.post(`${base}/api/Auth/register`,vales).catch((error)=>{
       console.log(error.response)
       Swal.fire({
         title: 'Error!',

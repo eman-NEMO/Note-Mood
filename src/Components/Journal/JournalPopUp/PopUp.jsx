@@ -41,7 +41,7 @@ export default function PopUp() {
       exit="out"
      // variants={pageVariants}
       variants={pageTransition} 
-      transition={{ type: "tween", duration: .6 }}
+      transition={{ type: "tween", duration: .5 ,delay:.3}}
     >
 
    {isLoading? 
@@ -55,7 +55,8 @@ export default function PopUp() {
            
        </div>
        <PopUpform/>
-       <div className='position-absolute close' onClick={()=>{setClose(false)}}> <i className="fa-regular fa-circle-xmark close_width fa-2xl" style={{color: '#12151c'}}></i></div>
+       <div className='position-absolute close' onClick={()=>{setClose(false)}}> <img src={close} alt="" className='close_width' /></div>
+       {/* <div className='position-absolute close' onClick={()=>{setClose(false)}}> <i className="fa-regular fa-circle-xmark close_width fa-2xl" style={{color: '#12151c'}}></i></div> */}
     </div>
     <img src={mared} alt=""  className='position-absolute mared' />
     <img src={pen} alt="" className='position-absolute pen'  />

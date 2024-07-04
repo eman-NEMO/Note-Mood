@@ -22,6 +22,7 @@ import ResetPassword from './Components/ResetPassword/ResetPassword'
 import ChangePassword from "./Components/ChangePassword/ChangePassword.jsx";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute.jsx";
 import Search from "./Components/Search/Search.jsx";
+import Topics from "./Components/Topics/Topics.jsx";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
       {path:'chart',element:<ProtectedRoute><ChartPage/></ProtectedRoute>},
       {path:'report',element:<ProtectedRoute><Report/></ProtectedRoute>},
       {path:'help',element:<ProtectedRoute><Help/></ProtectedRoute>},
+      {path:'topics',element:<ProtectedRoute><Topics/></ProtectedRoute>},
       {path:'JournalDetails/:id',element:<ProtectedRoute><JournalDetails/></ProtectedRoute>},
       {path:'settings',element:<ProtectedRoute><Settings/></ProtectedRoute>},
      

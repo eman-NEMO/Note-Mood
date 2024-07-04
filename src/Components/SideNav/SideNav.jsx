@@ -3,13 +3,15 @@ import './SideBar.scss';
 import journal from '../../Assets/jouranl.svg'
 import logo from '../../Assets/logo-ver2.png'
 import help from '../../Assets/help.svg'
-import setting from '../../Assets/setting.svg'
+import setting from '../../Assets/profile1.svg'
 import chart from '../../Assets/chart.svg'
+import topics from '../../Assets/topics.svg'
+import topics_colored from '../../Assets/toics_colored.svg'
 import report from '../../Assets/report_small.svg'
 import journal_color from '../../Assets/simple-icons_livejournal.svg'
 import logo_color from '../../Assets/logo-ver2.png'
 import help_color from '../../Assets/help_icon.svg'
-import setting_color from '../../Assets/setting_icon.svg'
+import setting_color from '../../Assets/profile_colored.svg'
 import chart_color from '../../Assets/chart_icon.svg'
 import report_color from '../../Assets/report icon.svg'
 import { useState } from 'react';
@@ -43,9 +45,10 @@ export default function SideNav() {
         { path: "/journal", icon: journal, iconActive: journal_color, text: "Journal" },
         { path: "/chart", icon: chart, iconActive: chart_color, text: "Chart" },
         { path: "/report", icon: report, iconActive: report_color, text: "Report" },
+        { path: "/topics", icon: topics, iconActive: topics_colored, text: "Help" },
         { path: "/help", icon: help, iconActive: help_color, text: "Help" },
-        // { path: "/report", icon: help, iconActive: help_color, text: "Help" },
-        { path: "/settings", icon: setting, iconActive: setting_color, text: "Settings" },
+     
+        { path: "/settings", icon: setting, iconActive: setting_color, text: "Profile" },
        
     ];
     const menuLogout=[

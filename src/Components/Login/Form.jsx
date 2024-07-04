@@ -9,9 +9,10 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../Context/UserContext.js'
 import './Login.scss'
 import Swal from 'sweetalert2'
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 import { TextField, Button, CircularProgress } from '@mui/material';
 export default function Form() {
-   
+    const {base ,setBase}=useBaseUrl()
     let {setUserToken}=useContext(UserContext)
     let navigate=useNavigate();
    
@@ -30,7 +31,7 @@ export default function Form() {
        // console.log(values)
 
        setIsloading(true)
-       let{data}= await  axios.post('http://localhost:5289/api/Auth/login',values).catch((error)=>{
+       let{data}= await  axios.post(`${base}/api/Auth/login`,values).catch((error)=>{
        
         Swal.fire({
             title: 'Error!',

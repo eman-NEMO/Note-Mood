@@ -15,12 +15,13 @@ import {JournalCloseContextProvider }from './Context/JournalCloseContext.js'
 import { JournalCloseUpdateProvider } from './Context/JournalCloseUpdate.js';
 
 import {IdContextProvider} from './Context/IdContext.js'
+import {BaseUrlProvider} from './Context/BaseUrlContext.js'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let queryClient=new QueryClient()
 root.render(
   // <React.StrictMode>
   <QueryClientProvider client={queryClient}> 
-       
+     <BaseUrlProvider>
   <JournalProvider>
   <JournalCloseUpdateProvider>
     <IdContextProvider>
@@ -34,6 +35,7 @@ root.render(
    </IdContextProvider>
    </JournalCloseUpdateProvider>
   </JournalProvider>
+  </BaseUrlProvider>  
   <ReactQueryDevtools  position='bottom-right'/>
    
   

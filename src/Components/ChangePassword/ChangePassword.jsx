@@ -9,21 +9,25 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 export default function ChangePassword() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
   const [isloading,setIsloading]=useState(false)
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const email = queryParams.get('email');
   const token = queryParams.get('token');
   const [err,setError]=useState(null)
+  const {base ,setBase}=useBaseUrl()
   let navigate =useNavigate()
 
   async function loginSubmit(values){
     console.log(values)
     let message="";
     // setIsloading(true)
-    let response = await  axios.post('http://localhost:5289/api/Auth/ChangePassword',values).catch((error)=>{
+    let response = await  axios.post(`${base}/api/Auth/ChangePassword`,values).catch((error)=>{
      console.log("errors",error.response.data)
  
     if(error.response.data==="Invalid email"){
@@ -163,19 +167,21 @@ const pageTransition = {
     <div className='container '  id='Change_page'>
     <div className='d-flex justify-content-center align-items-center margin_top'>
             <div className='text-center'><div className=''><img src={key} alt="" className='spinning-image ' /></div>
-             <div><h2>Change Password</h2></div>
-             <div><p>No worries we will send you Reset instructions</p></div></div></div>
+             <div className='mt-3'><h2>Change Password</h2></div>
+             <div className='mt-4'><p>No worries we will send you Reset instructions</p></div></div></div>
     
     
     
         
-             <div className="  d-flex  justify-content-center">
-                    <div className=" width_emil ">
+             <div className="mt-4 ">
+                    <div className="  ">
                       
                         <form className="" onSubmit={formik.handleSubmit}>
       
-                        <div className="mb-2 " id='emaill'>
-    <label htmlFor="Email1" className={`form-label NameColor`}>Email</label>
+ <div className='row ps-5 pe-5 mb-4'>
+ <div className="mb-2 col-md-12 col-sm-12 col-12 col-lg-6 col-xl-6  d-flex justify-content-center" id='emaill'>
+   <div className='w-100'>
+   <label htmlFor="Email1" className={`form-label NameColor`}>Email</label>
     <input
         type="email"
         className={`form-control label ${formik.errors.Email&&formik.touched.Email ? 'input-error' : ''}`}
@@ -189,11 +195,15 @@ const pageTransition = {
     {formik.errors.Email && formik.touched.Email && (
          <div className="text-danger small mt-1">  <h6><span>*!</span>{formik.errors.Email}</h6></div>
     )}
+   </div>
 </div>
 
 
-<div className="mb-2 mt-3 " id='passwordd'>
-    <label htmlFor="CurrentPassword" className={`form-label NameColor`}>Current Password </label>
+<div className="mb-2  col-md-12 col-sm-12 col-12 col-lg-6 col-xl-6  d-flex justify-content-center  " id='passwordd'>
+   <div className='w-100'>
+
+
+   <label htmlFor="CurrentPassword" className={`form-label NameColor`}>Current Password </label>
     <div className="d-flex position-relative">
         <input
             type={showPassword ? 'text' : 'password'}
@@ -210,13 +220,18 @@ const pageTransition = {
             : <i onClick={() => setShowPassword(!showPassword)} className={`fa-regular fa-eye-slash position-absolute end-0 top-50 translate-middle-y`}></i>
         }
     </div>
-    {/* Optionally, replace the alert with subtler text or remove it entirely */}
+   
     {formik.errors.CurrentPassword && formik.touched.CurrentPassword && (
         <div className="text-danger small mt-1"><h6><span>*!</span>{formik.errors.CurrentPassword}</h6></div>
     )}
-</div>  
- <div className="mb-2 mt-3 " id='passwordd'>
-    <label htmlFor="NewPassword" className={`form-label NameColor`}> New Password</label>
+   </div>
+</div> 
+    
+    </div> 
+<div className='row ps-5 pe-5'>
+     <div className="mb-2 mt-3 col-md-12 col-sm-12 col-12 col-lg-6 col-xl-6  d-flex justify-content-center " id='passwordd'>
+ <div className='w-100'>
+ <label htmlFor="NewPassword" className={`form-label NameColor`}> New Password</label>
     <div className="d-flex position-relative">
         <input
             type={showPassword ? 'text' : 'password'}
@@ -228,18 +243,21 @@ const pageTransition = {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
         />
-        {showPassword
-            ? <i onClick={() => setShowPassword(!showPassword)} className={`fa-regular fa-eye position-absolute end-0 top-50 translate-middle-y `}></i>
-            : <i onClick={() => setShowPassword(!showPassword)} className={`fa-regular fa-eye-slash position-absolute end-0 top-50 translate-middle-y`}></i>
+        {showPassword1
+            ? <i onClick={() => setShowPassword1(!showPassword1)} className={`fa-regular fa-eye position-absolute end-0 top-50 translate-middle-y `}></i>
+            : <i onClick={() => setShowPassword1(!showPassword1)} className={`fa-regular fa-eye-slash position-absolute end-0 top-50 translate-middle-y`}></i>
         }
     </div>
-    {/* Optionally, replace the alert with subtler text or remove it entirely */}
     {formik.errors.NewPassword && formik.touched.NewPassword && (
         <div className="text-danger small mt-1"><h6><span>*!</span>{formik.errors.NewPassword}</h6></div>
     )}
+ </div>
+    
+   
 </div>
-    <div className="mb-3  mt-3" id='passwordd'>
-    <label htmlFor="ConfirmPassword" className={`form-label NameColor`}> Confirm Password</label>
+    <div className="mb-3  mt-3 col-md-12 col-sm-12 col-12 col-lg-6 col-xl-6  d-flex justify-content-center" id='passwordd'>
+       <div className='w-100'>
+       <label htmlFor="ConfirmPassword" className={`form-label NameColor`}> Confirm Password</label>
     <div className="d-flex position-relative">
         <input
             type={showPassword ? 'text' : 'ResetPassword'}
@@ -251,22 +269,29 @@ const pageTransition = {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
         />
-        {showPassword
-            ? <i onClick={() => setShowPassword(!showPassword)} className={`fa-regular fa-eye position-absolute end-0 top-50 translate-middle-y `}></i>
-            : <i onClick={() => setShowPassword(!showPassword)} className={`fa-regular fa-eye-slash position-absolute end-0 top-50 translate-middle-y`}></i>
+        {showPassword2
+            ? <i onClick={() => setShowPassword2(!showPassword2)} className={`fa-regular fa-eye position-absolute end-0 top-50 translate-middle-y `}></i>
+            : <i onClick={() => setShowPassword2(!showPassword2)} className={`fa-regular fa-eye-slash position-absolute end-0 top-50 translate-middle-y`}></i>
         }
     </div>
-    {/* Optionally, replace the alert with subtler text or remove it entirely */}
     {formik.errors.ConfirmPassword && formik.touched.ConfirmPassword && (
         <div className="text-danger small mt-1"><h6><span>*!</span>{formik.errors.ConfirmPassword}</h6></div>
     )}
+       </div>
+ 
+   
+</div>
 </div>
            
-                        
+        <div className='row d-flex justify-content-center mt-5'>
+            <div className='btton_width'>
+                                
          {
             isloading? <button className={` spinner btn w-100  buton`}><i className=" fa-solid fa-spinner fa-spin "></i></button>:   <div><button  className={`btn w-100  buton`} type='submit'>Change Password</button> </div>
           }
-          {/* disabled={!(formik.dirty&&formik.isValid)} */}
+        
+            </div>
+        </div>
                       
                         </form>
                       

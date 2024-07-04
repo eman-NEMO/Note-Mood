@@ -1,0 +1,163 @@
+.topics-container {
+    .topic-header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #6B52AE; // Adjust this color as per your design
+    }
+  
+    .topics-list {
+      max-height: 300px; // Set your desired max-height here
+      overflow-y: auto; // Enable vertical scrolling
+  
+      .topic-item {
+        .topic-name {
+          font-size: 16px;
+          color: #333;
+        }
+  
+        
+  
+        .topic-percentage,
+        .topic-journals {
+          font-size: 14px;
+          color: #555;
+        }
+      }
+    }
+  
+    .side-girl-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .progress {
+      background-color: #CCCCCC;
+      // border-radius: 0.25rem;
+      overflow: hidden;
+      height: 15px; /* Control the height here */
+       width: 60% !important;
+    }
+    
+    .progress-bar {
+      background-color: #6956E5;
+      height: 100%; /* Ensure it fills the progress container */
+      transition: width 0.6s ease;
+    }
+    .back_ground_color{
+      background-color: #F9F9F9;
+    }
+    .box1{
+      background-image: url('../../Assets/blue_box.svg');
+       
+      background-size: cover !important;
+      background-position: 100% 100% !important;
+      // width:50px;
+      height: 115px !important;
+      width: 80% !important;
+      background-repeat: no-repeat !important;
+      
+    }
+    .box2{
+      background-image: url('../../Assets/green_box.svg');
+       
+      background-size: cover !important;
+      background-position: 100% 100% !important;
+      height: 150px !important;
+      width: 80% !important;
+     
+      background-repeat: no-repeat !important;
+    }
+    .box3{
+      background-image: url('../../Assets/yellow_box.svg');
+      height: 115px !important;
+      width: 80% !important;
+      background-size: cover !important;
+      background-position: 100% 100% !important;
+      // width:50px;
+     
+      background-repeat: no-repeat !important;
+    }
+
+
+
+
+
+
+
+
+
+
+    .box {
+
+      // position: relative;
+      // width: 100%;
+      // height: 200px;
+      // background-color: lightgrey;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // overflow: hidden;
+
+
+      position: relative;
+      // background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      overflow: hidden;
+      transition: background 0.3s ease;
+  }
+  
+  .overlay {
+
+
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: bottom 0.5s ease;
+
+    
+      background: rgba(231, 228, 228, 0.5);
+      color: white;
+     
+      border-radius: 8px;
+  }
+  
+  .box:hover .overlay {
+     bottom: 0;
+  }
+  
+  .overlay .row {
+      width: 100%;
+  }
+  
+  .overlay .col-md-4,
+  .overlay .col-sm-4,
+  .overlay .col-4,
+  .overlay .col-lg-4,
+  .overlay .col-xl-4 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .overlay img {
+      max-width: 50px;
+      margin-bottom: 10px;
+  }
+  
+  .overlay p {
+      margin: 0;
+      font-size: 1.2em;
+  }
+    
+  }
+  

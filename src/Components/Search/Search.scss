@@ -131,39 +131,159 @@
     p+p {
         margin-top: 0 !important;
     }
+
+
+
+    @media (max-width: 576px) {
+      /* Extra small devices (phones, 576px and down) */
+      .image_size{
+        width: 30% !important;
+      }
+      .text_search{
+        margin-top: 1.5% !important;
+        color: rgba(105, 86, 229, 1);
+        font-size: 30px !important;
+        font-weight: bold;
+      }
+      .words_width{
+        width: 100% !important
+        ;
+      }
+      .form_width{
+        width: 100% !important;
+      }
+      
+    }
     
-}
-
-.blue_back_ground{
-
-  background-image:url('../../Assets/blur2.svg');
-  position: absolute;
-
-  background-size: cover !important;
-  background-position: 100% 100% !important;
-  // width:50px;
+    @media (min-width: 577px) and (max-width: 768px) {
  
-  background-repeat: no-repeat !important;
-  // background-color: red;
-  // background-color: #c3c1c1;
-  width: 100vw;
-  height: 70vh !important;
-  z-index: -1;
+      .image_size{
+        width: 25% !important;
+      }
+      .text_search{
+        margin-top: 1.5% !important;
+        color: rgba(105, 86, 229, 1);
+        font-size: 40px !important;
+        font-weight: bold;
+      }
+      .words_width{
+        width: 70% !important
+        ;
+      }
+      .form_width{
+        width: 100% !important;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 992px) {
+      .image_size{
+        width: 20% !important;
+      }
+      .text_search{
+        margin-top: 1.5% !important;
+        color: rgba(105, 86, 229, 1);
+        font-size: 42px !important;
+        font-weight: bold;
+      }
+      .words_width{
+        width: 70% !important
+        ;
+       
+      }
 
-}
-.search_color{
-  color: rgba(105, 86, 229, 1);
-}
+      .form_width{
+        width: 80% !important;
+      }
+    }
+    
+    @media (min-width: 993px) {
+      /* Large devices (desktops, 992px and up) */
+      .image_size{
+        width: 10% !important;
+      }
+      .text_search{
+        // font-family: 'Inter';
+        
+        margin-top: 1.5% !important;
+        color: rgba(105, 86, 229, 1);
+        font-size: 43px !important;
+        font-weight: bold;
+      }
+      .words_width{
+        width: 50% !important
+        ;
+      }
+      .form_width{
+        width: 75% !important;
+      }
+    }
 
-/* Styling focus state of the input field */
-input.form-control:focus {
-  outline: none;  /* Removes the default focus outline */
-  border-color: #ff0000; /* Sets the border color to red */
-  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25); /* Adds a red glow around the input */
-}
+    .submit_btn{
+      width: 20% !important;
+      // padding: 1% !important;
+      background-color: rgba(105, 86, 229, 1) !important ;
+      color: white;
+      font-weight: bold;
+      // overflow: hidden;
+      // margin-right: 1% !important;
+      // margin-top: 5% !important;
+  
+    
+    }
+    
 
-.e-daterangepicker.e-popup .e-footer .e-btn.e-apply.e-flat.e-primary:disabled, .e-daterangepicker.e-popup .e-footer .e-btn.e-apply.e-flat.e-primary:disabled, .e-daterangepicker.e-popup .e-footer .e-css.e-btn.e-apply.e-flat.e-primary:disabled, .e-daterangepicker.e-popup .e-footer .e-css.e-btn.e-apply.e-flat.e-primary:disabled {
-  background-color: brown;
-  border-color: black;  
+
+    .blue_back_ground{
+
+      background-image:url('../../Assets/blur2.svg');
+     
+    
+      background-size: cover !important;
+      background-position: 100% 100% !important;
+      // width:50px;
+     
+      background-repeat: no-repeat !important;
+      // background-color: red;
+      // background-color: #c3c1c1;
+      // width: 100vw;
+      height:55vh !important;
+      // background-color: black !important;
+      // z-index: -1;
+    
+    }
+    
+    .search_color{
+      color: rgba(105, 86, 229, 1);
+      font-family: "Inter", sans-serif;
+    }
+    
+    /* Styling focus state of the input field */
+    input.form-control:focus {
+      outline: none;  /* Removes the default focus outline */
+      border-color: rgba(105, 86, 229, 1); /* Sets the border color to red */
+      box-shadow:none; /* Adds a red glow around the input */
+    }
+    
+    .e-daterangepicker.e-popup .e-footer .e-btn.e-apply.e-flat.e-primary:disabled, .e-daterangepicker.e-popup .e-footer .e-btn.e-apply.e-flat.e-primary:disabled, .e-daterangepicker.e-popup .e-footer .e-css.e-btn.e-apply.e-flat.e-primary:disabled, .e-daterangepicker.e-popup .e-footer .e-css.e-btn.e-apply.e-flat.e-primary:disabled {
+      background-color:rgba(105, 86, 229, 1);
+      border-color: black;  
+    }
+    // .text_search{
+    //   margin-top: 1.5% !important;
+    //   color: rgba(105, 86, 229, 1);
+    //   font-size: 45px !important;
+    //   font-weight: bold;
+    // }
+    .grey_color{
+      // font-family: "Inter";
+      color: #7C7C7C;
+      font-size: medium;
+      font-size: 16px !important;
+      font-weight: 500;
+    }
+    .pointer{
+      cursor: pointer;
+    }
+    
 }
 

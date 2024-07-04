@@ -12,39 +12,59 @@ import { set } from 'rsuite/esm/internals/utils/date';
 import happy from '../../Assets/happy 1.svg'
 import { motion } from 'framer-motion';
 import blure from '../../Assets/blur2.svg'
-
+import {useBaseUrl} from '../../Context/BaseUrlContext'
 import search from '../../Assets/search_page.svg'
+import green_colored from '../../Assets/New folder/happy-1.svg'
+import green from '../../Assets/New folder/happy-1 1.svg';
+import blue from '../../Assets/New folder/sad-1 1.svg'
+import blue_colored from '../../Assets/New folder/sad-1.svg'
+import yellow from '../../Assets/New folder/Normal-1.svg'
+import resetEmotions from '../../Assets/resetemotion.svg'
+import yellow_colored from '../../Assets/New folder/Normal-1 1.svg'
+
+import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
+import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
+
 export default function Search() {
   // State for storing search input
   const [query, setQuery] = useState('');
+  const [first, setFirst] = useState(false);
   // State for storing date range
+  const {base ,setBase}=useBaseUrl()
   const [journals,setJournals]=useState([])
   const [dateRange, setDateRange] = useState([null, null]);
+  const [emotion,setemotion]=useState(null)
   useEffect(() => {
     handleSearch();
-  }, [query, dateRange]);
+  }, [query, dateRange,emotion]);
+
 
 async function handleSearch() {
+  console.log(emotion)
     // console.log(query,dateRange)
     const params = {};
     // params.query = 'kkk';
-    if (query) params.query = query;
+    if (query) params.Query = query;
     // dateRange[0]='2024-6-18';
     // dateRange[1]='2024-6-25';
     // console.log(dateRange[0],dateRange[1],"kkkk")
     if(dateRange!==null){
     if (dateRange[0] && dateRange[1]) {
-        params.startdate = dayjs(dateRange[0]).format('YYYY-M-DD');
-        params.enddate = dayjs(dateRange[1]).format('YYYY-M-DD');
+        params.StartDate = dayjs(dateRange[0]).format('YYYY-M-DD');
+        params.EndDate = dayjs(dateRange[1]).format('YYYY-M-DD');
     }
+  }
+  if(emotion!==null){
+    params.SentimentName=emotion;
   }
     console.log("params",params)
     try {
         const token = localStorage.getItem('userToken'); // Assuming the token is stored in localStorage
-        const response = await axios.get('http://localhost:5289/api/Entry/Search', {
+        const response = await axios.get(`${base}/api/Entry/Search`, {
             params,
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization':` Bearer ${token}`
             }
         });
         setJournals(response.data)
@@ -53,6 +73,7 @@ async function handleSearch() {
         console.error('Error fetching data:', error);
         // Handle errors
     }
+    
 };
 const journalVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -69,14 +90,42 @@ const journalVariants = {
     }
   };
 
+  const variants = {
+    fromTop: {
+        hidden: { opacity: 0, y: -50 },
+        visible: { opacity: 1, y: 0 }
+    },
+    fromBottom: {
+        hidden: { opacity: 0, y: 350},
+        visible: { opacity: 1, y: 0 }
+    },
+    fromIts: {
+        hidden: { opacity: 0, y: 0 },
+        visible: { opacity: 1, y: 0 }
+    },
+    fromLeft: {
+        hidden: { opacity: 0, x: -100 },
+        visible: { opacity: 1, x: 0 }
+    },
+    fromRight: {
+        hidden: { opacity: 0, x: 100 },
+        visible: { opacity: 1, x: 0 }
+    }
+};
+
   const handleSearchChange = (event) => {
     setQuery(event.target.value);
-    // console.log("ff",query)
-    // console.log("Search Query: ", value);
-    handleSearch()
+    setFirst(true)
+    // handleSearch()
   };
+  function handlemotion(emo){
+    // console.log(emo)
+       setemotion(emo)
+       setFirst(true)
+      //  handleSearch()
+  }
   const handleDateRangeChange = (event) => {
-    // console.log("event",event[0])
+    
       if(event!==null){
         if (event.length=== 2) {
             const formattedStart = dayjs(event[0]).format('YYYY-MM-DD');
@@ -84,13 +133,14 @@ const journalVariants = {
             setDateRange([event[0],event[1]]);
             
             console.log("Formatted Date Range: ", formattedStart, formattedEnd);
-            handleSearch()
+            // handleSearch()
           }
       }
       else{
           setDateRange(null,null);
-          handleSearch()
+          // handleSearch()
       }
+      setFirst(true)
   };
 
   return (
@@ -102,28 +152,53 @@ const journalVariants = {
     exit="out"
    // variants={pageVariants}
     variants={pageTransition} 
-    transition={{ type: "tween", duration: .7 ,delay:.3 }}
+    transition={{ type: "tween", duration: .7 ,delay:.2 }}
   >
-    <div className='blue_back_ground'></div>
-    <div className='container ' id='searchPage'>
 
+    <div className='container' id='searchPage'>
+    <div className='blue_back_ground '>
            <div className=' mt-5 '>
+           <motion.div variants={variants.fromTop} initial="hidden" animate="visible" transition={{ delay: .7,duration:.4}}> 
            <div className='d-flex justify-content-center'>
-                <img src={search} alt=""  />
+             <img src={search} alt="" className='image_size'  /> 
+              
               </div>
-                 <div className='d-flex justify-content-center'><h3>Search For Journals </h3></div>
+              </motion.div>
+              <motion.div variants={variants.fromIts} initial="hidden" animate="visible" transition={{ delay: 1.2,duration:.4}}> 
+                 <div className='d-flex justify-content-center '><h3 className='text_search'>Search For Journals </h3></div>
 
-
-                 <div className='d-flex justify-content-center text-center '><p className=''>find your missed journals! just need to write what you remember of their content, and you can also use the date.</p></div>
+                
+                 <div className='d-flex justify-content-center text-center  grey_color '><p className=' words_width'>find your missed journals! just need to write what you remember of their content, and you can also use the date and emotions.</p></div>
+                 </motion.div>
            </div>
 
 
 
-
+        
        <div className='padding'>
        <div className='row '>
+       <motion.div variants={variants.fromIts} initial="hidden" animate="visible" transition={{ delay: 1.7,duration:.4}}> 
+           <div className='row'>
+           <div className='col-md-12 col-xl-12 col-lg-12 col-sm-12 mt-4 me-5 d-flex justify-content-center align-items-center '>
+          <DateRangePicker
+            showOneCalendar
+            // onChange={handleDateRangeChange}
+            format="MM-dd-yyyy"
+            onChange={handleDateRangeChange}
+            // value={dateRange}
+            // onChange={handleDateRangeChange}
+          />
+         
+           <div className='ms-3 me-2 pointer' onClick={()=>{handlemotion('Positive')}}> <img src={green_colored} alt="" /></div>
+           <div className='ms-3 me-2 pointer' onClick={()=>{handlemotion('Neutral'); }}> <img src={yellow} alt="" /></div>
+           <div className='ms-3 me-2 pointer' onClick={()=>{handlemotion('Negative'); }}> <img src={blue_colored} alt="" /></div>
+           <div className='ms-3 me-2 pointer' onClick={()=>{handlemotion(null); }}> <img src={ resetEmotions} alt="" /></div>
+        </div>
+           </div>
+           </motion.div>
+           <motion.div variants={variants.fromIts} initial="hidden" animate="visible" transition={{ delay: 1.9,duration:.4}}> 
         <div className='mt-4 col-md-12 col-xl-12 col-lg-12 col-sm-12 d-flex justify-content-center '>
-             <div className=' w-75'>
+             <div className='form_width'>
              <input
             className='form-control'
             placeholder="Search..."
@@ -139,24 +214,18 @@ const journalVariants = {
           />
              </div>
         </div>
-        <div className='col-md-12 col-xl-12 col-lg-12 col-sm-12 mt-4  d-flex justify-content-center '>
-          <DateRangePicker
-            showOneCalendar
-            // onChange={handleDateRangeChange}
-            format="MM-dd-yyyy"
-            onChange={handleDateRangeChange}
-            // value={dateRange}
-            // onChange={handleDateRangeChange}
-          />
-        </div>
+        </motion.div>
+        
+      
       </div>
-
+        
        </div>
-
-
+  
+       </div>
+       
   {/* {console.log(journals.length)} */}
    <div className='container'>
-      <div className='p-5'>
+      <div className='ps-5 pe-5 pb-5'>
 
 
 
@@ -192,9 +261,11 @@ const journalVariants = {
                     </motion.div>
                 ))
               ) : (
+                // <motion.div variants={variants.fromLeft} initial="hidden" animate="visible" transition={{ delay: 1,duration:.4}}>
                 <div> 
-                  {/* <h5 className='centered-content mt-2'>No Journal Yet !</h5> */}
+                  {first?   <motion.div variants={variants.fromLeft} initial="hidden" animate="visible" transition={{ delay: 1,duration:.4}}> <div className='d-flex justify-content-center align-items-center  mt-5'> <h5 className='centered-content mt-2'>No Matching Journal !</h5></div></motion.div>:''}
                 </div>
+           
 
               )}
       </div>

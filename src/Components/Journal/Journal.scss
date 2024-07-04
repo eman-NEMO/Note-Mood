@@ -20,108 +20,108 @@
 .pointer{
   cursor: pointer;
 }
-.j_1_color{
-  background-color: rgb(248, 255, 246);
-  font-size: 14px;
-}
-.j_2_color{
-  background-color: rgb(254, 255, 246);
-  font-size: 14px;
-}
-.j_3_color{
-background-color: rgb(246, 248, 255);
-font-size: 14px;
-}
 .emo_size{
   width: 70%;
 }
 
-.journal_1 {
+%journal {
   position: relative;
   font-family: 'Inter', sans-serif;
-  // background-color: black;
+  font-size: 14px;
+}
+.journal_positive{
+  @extend %journal;
+  background-color:  rgb(248, 255, 246);
+}
+.journal_negative{
+  @extend %journal;
+  background-color:rgb(246, 248, 255);
+}
+.journal_neutral{
+  @extend %journal;
+  background-color:rgb(254, 255, 246);
 }
 
-.journal_1::after {
+%baseLineAfter{
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 1px;
+  height: 1.5px;
+}
+.journal_positive::after {
+  @extend %baseLineAfter;
   background: repeating-linear-gradient(
     to right,
-       black,
-    black 5px,   /* Length of the dash */
+    #03964C,
+    #03964C 5px,   /* Length of the dash */
     transparent 5px,
     transparent 12px  /* Length of the gap */
   );
 }
-
-.Journal_font{
-  font-size: 30px;
-  // background-color: black;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
+.journal_neutral::after {
+  @extend %baseLineAfter;
+  background: repeating-linear-gradient(
+    to right,
+   #F0B518,
+   #F0B518 5px,   /* Length of the dash */
+    transparent 5px,
+    transparent 12px  /* Length of the gap */
+  );
 }
-.Journal_font_title{
-  font-size: 24px;
-  // size: 50px;
-  // background-color: black;
-  font-family: "Inter", sans-serif;
+.journal_negative::after {
+  @extend %baseLineAfter;
+  background: repeating-linear-gradient(
+    to right,
+   #0455AE,
+   #0455AE 5px,   /* Length of the dash */
+    transparent 5px,
+    transparent 12px  /* Length of the gap */
+  );
+}
+%baseFont{
+  color: #7C7C7C;
   font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
+  font-family: "Inter", sans-serif;
 }
 .journal_font_content{
+  @extend %baseFont;
   size: 15px;
-  color: #7C7C7C;
   line-height: 18.15px;
-  // background-color: black;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 500;
-  // font-style: normal;
-  // font-variation-settings: "slnt" 0;
+  
 }
 .journal_font_Date_time{
+  @extend %baseFont;
   size: 12px;
-  color: #7C7C7C;
   line-height: 14.52px;
-  // background-color: black;
+  font-weight: 600;
+}
+%Journal_font_title{
+  font-size: 25px;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
-  // font-style: normal;
-  // font-variation-settings: "slnt" 0;
 }
-// .plus{
-//   font-size: 22px !important;
-//   font-weight: bold;
-//   // padding: 0%;
-//   // margin-right: 3% !important;
-// }
-// body{
-//   position: relative;
-// }
+.neutral_title{
+  @extend %Journal_font_title;
+  color: #F0B518;
+}
+.positive_title{
+  @extend %Journal_font_title;
+  color: #03964C;
+}
+.negative_title{
+  @extend %Journal_font_title;
+  color: #0455AE;
+}
+
 .maincolor{
   background-color:rgba(105, 86, 229, 1) !important;
   color: white !important;
   font-size: 18px !important;
   font-weight: 645;
-  // padding: 0%;
-   
-  // z-index: ;
-  // width: 15% !important;
-  // font-weight: bold !important;
-  // position: absolute;
-  // top: 95%;
-  // left: 90%;
-  // margin-bottom: 10%;
+
 }
 
 
@@ -132,85 +132,183 @@ font-size: 14px;
 .container {
   width: 90% !important;
   height: 80vh;
-  // z-index: -1;
-  // background-color: black;
+
   overflow-x: scroll;
-  overflow-y: scroll ;  // You might want to adjust or remove this if you don't need a specific height
+  overflow-y: scroll ;  
 }
 .container::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge, and Firefox */
+
 .container {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
 }
 
-// body, html {
-//   height: 100%;
-//   max-height: 90;
-//   overflow-y: auto !important;  // Allows scroll on the entire page
-//   margin: 0;         // Resets default margin
-// }
+
 .centered-content {
+
   display: flex;
   justify-content: center;
   align-items: center;
-//  margin-left: 90%;
-  // width: 80%;
-  //   height: 50%;
- /* Take full width for proper centering */
+
 }
 
-.centered-image {
-  width: 35%;
+
+
+
+
+.book_Icon_size{
+  width: 37px !important;
+} 
+.journal_page_title_size{
+  font-size: 32px !important;
+}
+// .search_margin{
+//   margin-left: 30% !important;
+//   cursor: pointer;
+//   background-color: tomato;
+// }
+// .search_icon_width{
+//   width: 20% !important;
   
-  /* Adjust based on your design needs */
-   /* Optional: Ensure it doesn't get too large on big screens */
+// }
+
+.emo_size{
+  width: 70%;
 }
-
 .fixed-button-container {
-margin-left: 80% !important;
-
+  margin-left: 80% !important;
   margin-top: 1%;
 
-  // position: absolute;
- 
-  // // width: 200px !important;
-  // // top: 50% !important;  // This makes the button fixed relative to the viewport
-  // right: 151px;      // Distance from the right edge of the viewport
-  // bottom: 10px;     // Distance from the bottom of the viewport
-    // Ensures it's above other elements
 }
+// .centered-image {
+//   width: 35%;
 
-}
-// .JournalPageBody {
-//   // height: 100%;
-//   // scroll-behavior: auto;
-//   overflow-y: scroll ;  // Allows scroll on the entire page
-//   // margin: 0;         // Resets default margin
 // }
-// .btn{
-//   width: 50px;
-// }
-.search-input {
-  // width: 100%;
-  // padding: 8px 10px;
-  // margin: 10px 0;
-  // box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+@media (max-width: 576px) {
+  /* Extra small devices (phones, 576px and down) */
+  .book_Icon_size{
+    width: 20px !important;
+  } 
+  .journal_page_title_size{
+    font-size: 20px !important;
+    // background-color: #0455AE;
+  }
+  .search_margin{
+    margin-left: 17% !important;
+    cursor: pointer;
+  }
+  .search_icon_width{
+    width: 100% !important;
+  }
+  .emo_size{
+    width: 45%;
+  }
+  .fixed-button-container {
+    margin-left: 50% !important;
+    margin-top: 1%;
+  
+  }
+  .centered-image {
+    margin-top: 20% !important;
+    width: 100%;
+  
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Small devices (landscape phones, 576px and up) */
+  .book_Icon_size{
+    width: 25px !important;
+  } 
+  .journal_page_title_size{
+    font-size: 25px !important;
+  }
+  .search_margin{
+    margin-left: 17% !important;
+    cursor: pointer;
+  }
+  .search_icon_width{
+    width: 80% !important;
+  }
+  .emo_size{
+    width: 37%;
+  }
+  .fixed-button-container {
+    margin-left: 60% !important;
+    margin-top: 1%;
+  
+  }
+  .centered-image {
+    margin-top: 12% !important;
+    width: 80%;
+  
+  }
+  
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  /* Medium devices (tablets, 768px and up) */
+  .book_Icon_size{
+    width: 30px !important;
+  } 
+  .journal_page_title_size{
+    font-size: 30px !important;
+  }
+  .search_margin{
+    margin-left: 17% !important;
+    cursor: pointer;
+  }
+  .search_icon_width{
+    width: 60% !important;
+  }
+  .fixed-button-container {
+    margin-left: 70% !important;
+    margin-top: 1%;
+  
+  }
+  .centered-image {
+    margin-top: 5% !important;
+    width: 70%;
+  
+  
+  }
+}
+
+@media (min-width: 993px) {
+  /* Large devices (desktops, 992px and up) */
+  .book_Icon_size{
+    width: 37px !important;
+  } 
+  .journal_page_title_size{
+    font-size: 32px !important;
+  }
+  .search_margin{
+    margin-left: 35% !important;
+    cursor: pointer;
+    
+  }
+  .search_icon_width{
+    width: 45% !important;
+  }
+  .centered-image {
+   
+    width: 40%;
+  
+  
+  }
+}
+
 }
 
 
 
-.book_size{
-  width: 37px !important;
- 
 
-} 
-.search_margin{
-  margin-left: 80% !important;
-  cursor: pointer;
-}
+
+
+
+
+
+
