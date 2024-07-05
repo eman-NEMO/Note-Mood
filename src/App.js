@@ -44,7 +44,7 @@ function App() {
     {path:'forgetPassword',element:<ForgetPassword/>},
     {path:'search',element:<Search/>},
     {path:'changePassword',element:<ProtectedRoute><ChangePassword/></ProtectedRoute>},
-    {path:'api/Auth/ResetPassword',element:<ProtectedRoute><ResetPassword/></ProtectedRoute>},
+    {path:'api/Auth/ResetPassword',element:<ResetPassword/>},
    
     
   ])

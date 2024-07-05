@@ -15,7 +15,7 @@ const MoodBarChart = () => {
   const [isVisible, setIsVisible] = useState(false);
   const chartRef = useRef(null);
   const { ChartPageData, setChartPageData } = useBaseUrl();
-
+  const {base ,setBase}=useBaseUrl()
   useEffect(() => {
     loadImages();
     setupIntersectionObserver();
@@ -77,7 +77,7 @@ const MoodBarChart = () => {
     try {
       const token = localStorage.getItem('userToken');
       const response = await axios.get(
-        'https://localhost:7234/api/Sentiment/DailySentimentCounts',
+        `${base}/api/Sentiment/DailySentimentCounts`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -43,19 +43,16 @@ export default function DatePickerMaterialUI() {
   };
   const [time, setTime] = useState();
 
-  const handleTimeChange = (newValue) => {
-  
-   
-      setTime(newValue);
-    
-      console.log(newValue.format('HH:mm:ss')); // This will output time in "20:15:00" format
-  };
   const validationSchema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
     content: Yup.string().required('Journal content is required'),
     Date: Yup.date()
       .nullable()
-      .required('Date is required')
+      .test(
+        'date-valid',
+        'Invalid date',
+        value => !value || dayjs(value).isValid()
+      )
       .test(
         'date-future',
         'Date cannot be in the future',
@@ -63,11 +60,10 @@ export default function DatePickerMaterialUI() {
       ),
     Time: Yup.string()
       .nullable()
-      .required('Time is required')
       .test(
         'time-format',
         'Invalid time format',
-        value => dayjs(value, 'HH:mm:ss', true).isValid()
+        value => !value || dayjs(value, 'HH:mm:ss', true).isValid()
       )
       .test(
         'time-future',
@@ -95,18 +91,7 @@ export default function DatePickerMaterialUI() {
         console.log(token)
         console.log(values)
     
-        // if(values.Time===null&&values.Date===null){
-        //   toast.error('Time and Date Are reqired',{position: "top-center",});
-        //   return
-        // }
-        // if(values.Time===null){
-        //   toast.error('Time is reqired',{position: "top-center",});
-        //   return
-        // }
-        // if(values.Date===null){
-        //   toast.error('Date is reqired',{position: "top-center",});
-        //   return
-        // }
+     
         setLoading(true);
         try {
           const response = await axios.post(`${base}/api/Entry/Create`, values, {

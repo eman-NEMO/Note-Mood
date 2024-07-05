@@ -1,4 +1,5 @@
 
+
 // .background{
 //   width: 100vw;
 //   height: 100vh;
@@ -105,24 +106,25 @@
     width: 30px !important;
     height: 30px !important;
   }
-  .gender{
+  .genderr{
     height: 50px !important;
     background-color:rgba(249, 249, 249, 1);
     // background-color:rgba(251, 251, 251, 0.824);
     
-    width: 20% !important;
+    width: 50% !important;
+    // padding: 1% !important;
 }
-// .Main_con_color{
-//   background-image: url('../../Assets/pattern.svg');
-//   // background-position: 100% 100%;
-//   background-size: cover !important;
-//   background-position: center !important;
-//   // width:50px;
-//  // background-color:rgba(4, 4, 4, 0.632);
-//   background-repeat: no-repeat !important;
-//     // z-index: -1;
-//    // background-color: #eee;
-// }
+.Main_con_color{
+  // background-image: url('../../Assets/pattern.svg');
+  // background-position: 100% 100%;
+  background-size: cover !important;
+  background-position: center !important;
+  // width:50px;
+ // background-color:rgba(4, 4, 4, 0.632);
+  background-repeat: no-repeat !important;
+    // z-index: -1;
+   // background-color: #eee;
+}
 // .card{
 //     border: none !important;
 //     background-color:rgb(249, 249, 249) !important;
@@ -197,10 +199,245 @@ color:  #7C7C7C !important;
 //     font-size: 50px;
 // }
 
-.card-body{
-  box-shadow: #7C7C7C;
-  // border: none !important;
-  // box-shadow: 2px #7C7C7C !important;
-      // background-color: rgba(249, 249, 249, 1) !important;
+// .card-body{
+//   border: none !important;
+//   // box-shadow: 2px #7C7C7C !important;
+// }
 }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // .background{
+// //   width: 100vw;
+// //   height: 100vh;
+// //   background-color: rgba(105, 86, 229, 1);
+// //   position: absolute;
+// //   z-index: -1;
+// // }
+// // .background1{
+// //   width: 5vw;
+// //   height: 100vh;
+// //   background-color: rgba(105, 86, 229, 1);
+// //   position: absolute;
+// //   z-index: -1;
+// // }
+// // .background2{
+// //   width: 5vw;
+// //   height: 100vh;
+// //   margin-left:90%;
+// //   background-color: rgba(105, 86, 229, 1);
+// //   position: absolute;
+// //   z-index: -1;
+// // }
+// // .background3{
+// //   width: 100vw;
+// //   height: 13vh;
+// //   margin-top:40%;
+// //   background-color: rgba(105, 86, 229, 1);
+// //   position: absolute;
+// //   z-index: -1;
+// // }
+// #Profile_id{
+
+//   // background-color: #7C7C7C;
+// // .Setting_page{
+     
+// //     // z-index: 0;
+// // }
+
+
+// .Margin_top{
+//     margin-top: 4% !important;
+// }
+// .Card_info{
+//     height: 420px !important;
+//     margin-top: 9% !important;
+
+// }
+// .Card_2_info{
+//       // border: none !important;
+//     // margin-top: 4.5% !important;
+//     // height: 500px !important;
+// }
+// .form-control,.form-select {
+//     height: 50px !important;
+//     border: none !important;
+//     background-color: rgba(249, 249, 249, 1) !important;
+//     border-color: initial;
+//     outline: none !important;
+//     box-shadow: none !important;
+//     border-color: initial !important;
+//     border: none;
+
+// }
+// .form-control,.form-select:focus {
+//     outline: none !important;
+//     box-shadow: none !important;
+//     border-color: initial !important;
+//   }
+
+
+//   input[type="radio"] {
+//     appearance: none; /* Remove default appearance */
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//      width: 16px; /* Adjust size of radio button */
+//     height: 16px;
+//     border-radius: 50%; /* Make it circular */
+//     border: 2px solid #000; /* Add border */
+//     position: relative; /* Set position to relative */
+//   }
+
+//   input[type="radio"]:checked::before {
+//     content: ''; /* Add empty content */
+//     display: block;
+//     width: 15px; /* Match outer circle width */
+//     height: 15px; /* Match outer circle height */
+//     background-color: #000; /* Color of inner circle */
+//     border-radius: 60%; /* Make it circular */
+//     position: absolute; /* Set position to absolute */
+//     top: 50%; /* Move to vertical center */
+//     left: 50%; /* Move to horizontal center */
+//     transform: translate(-50%, -50%); /* Center horizontally and vertically */
+//   }
+//   .input-error ,.form-control:focus.input-error{
+//     border: 1px solid red !important; /* Change the color and style as needed */
+//   }
+// .Profile_style{
+//     font-size: 32px !important;
+//     font-weight: bold;
+// }
+//   .info_icon_size{
+//     margin-top: 3px !important;
+//     margin-right: 6px !important;
+//     width: 30px !important;
+//     height: 30px !important;
+//   }
+//   .gender{
+//     height: 50px !important;
+//     background-color:rgba(249, 249, 249, 1);
+//     // background-color:rgba(251, 251, 251, 0.824);
+    
+//     width: 20% !important;
+// }
+// // .Main_con_color{
+// //   background-image: url('../../Assets/pattern.svg');
+// //   // background-position: 100% 100%;
+// //   background-size: cover !important;
+// //   background-position: center !important;
+// //   // width:50px;
+// //  // background-color:rgba(4, 4, 4, 0.632);
+// //   background-repeat: no-repeat !important;
+// //     // z-index: -1;
+// //    // background-color: #eee;
+// // }
+// // .card{
+// //     border: none !important;
+// //     background-color:rgb(249, 249, 249) !important;
+// //     // box-shadow: 1px;
+// // }
+// .buton {
+//     background-color: var(--loginButton) !important;
+//     color: white !important;
+//     font-weight: bold !important;
+//     font-size: 17px !important;
+//     // width: 20% !important;
+//   //  border: 80%;
+//   }
+//   .butonn {
+//     // background-color: var(--loginButton) !important;
+//     color: white !important;
+//     font-weight: bold !important;
+//     font-size: 17px !important;
+//     // width: 20% !important;
+//   //  border: 80%;
+//   }
+// // .input-error ,.form-control:focus.input-error{
+// //     border: 1px solid red !important; /* Change the color and style as needed */
+// //   }
+  
+// .half-underline ,.half-underline2 {
+//     position: relative; /* Essential for positioning the pseudo-element */
+//     font-weight: bold;   /* Make the text bold */
+// }
+
+// .half-underline::after {
+//     content: '';        /* Necessary for the pseudo-element to display */
+//     position: absolute; /* Position relative to the h1 */
+//     bottom: 0;          /* Align it to the bottom of the text */
+//     left: 0;            /* Start from the left edge of the text */
+//     width: 7%;         /* Cover only half the width of the text */
+//     height: 3px;        /* Height of the underline */
+//     background-color: rgba(105, 86, 229, 1); /* Red color, change as needed */
+// }
+// .half-underline2::after {
+//     //  margin-top: 2px !important;   
+//     content: '';        /* Necessary for the pseudo-element to display */
+//     position: absolute; /* Position relative to the h1 */
+//     bottom: 0;          /* Align it to the bottom of the text */
+//     left: 0;            /* Start from the left edge of the text */
+//     width: 100%;         /* Cover only half the width of the text */
+//     height: 3px;        /* Height of the underline */
+//     background-color:#F0B518; /* Red color, change as needed */
+// }
+// .Font_des{
+//     font-size: 17px !important;
+//     font-weight: bold !important;
+//     // color:  rgba(105, 86, 229, 1) ;
+// //    color: rgba(46, 45, 52, 0.724); /* Red color, change as needed */
+//     // color: ;
+// }
+// .card_font{
+// color:  #7C7C7C !important;
+// }
+// .profile_img_size{
+//     width: 50px;
+//     height: 50px;
+// }
+// .hr_color{
+//     color:  rgba(105, 86, 229, 1) !important;
+//     // font-weight: bold;
+//     // height: 2px !important;
+// }
+// // .col-md-3{
+// //     color:  rgba(105, 86, 229, 1);
+// //     font-weight: bold !important;
+// //     font-size: 50px;
+// // }
+
+// .card-body{
+//   box-shadow: #7C7C7C;
+//   // border: none !important;
+//   // box-shadow: 2px #7C7C7C !important;
+//       // background-color: rgba(249, 249, 249, 1) !important;
+// }
+// }

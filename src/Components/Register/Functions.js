@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from 'axios'
 import { UserContext } from '../../Context/UserContext.js'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
 const useData = () => {

@@ -2,9 +2,7 @@ import React from "react";
 
 import Form from "./Form";
 import Image from "./Image";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
-import { motion } from 'framer-motion';
+
 
 
 
@@ -21,15 +19,7 @@ export default function Login() {
     //     //   y: "100%"
     //     }
     //   };
-    const variantsLeft = {
-      hidden: { x: -300, opacity: 0 },
-      visible: { x: 0, opacity: 1 }
-  };
-
-  const variantsRight = {
-      hidden: { x: 1000, opacity: 0 },
-      visible: { x: 0, opacity: 1 }
-  };
+ 
     return (
     //     <>
     //     <motion.div

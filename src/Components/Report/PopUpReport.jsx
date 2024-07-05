@@ -16,6 +16,7 @@ import { motion } from 'framer-motion';
 export default function PopUpReport() {
     const {ReportPageData,setReportPageData}=useBaseUrl()
     const {closeTimePopReport,setTimePopReport}=useBaseUrl()
+    const {base ,setBase}=useBaseUrl()
     // const {LineChartData,setLineChartData}=useBaseUrl()
     const validationSchema = Yup.object().shape({
         startDate: Yup.date()
@@ -75,7 +76,7 @@ export default function PopUpReport() {
         if (values.endDate) params.endDate = values.endDate.format('YYYY-MM-DD');
 
         const response = await 
-          axios.get('https://localhost:7234/api/AspectAnalysis/EntitySentimentPercentage', {
+          axios.get(`${base}/api/AspectAnalysis/EntitySentimentPercentage`, {
             headers: {
               'Authorization': `Bearer ${token}`
             },
@@ -119,7 +120,7 @@ export default function PopUpReport() {
   };
 
   return (
-    <div id='popUpChart'>
+    <div id='popUpReport'>
            <motion.div
         className='container '
         initial="out"

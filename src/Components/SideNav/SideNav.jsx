@@ -141,7 +141,7 @@ export default function SideNav() {
   </MenuItem>
 ))}
 
-<MenuItem className='menu-item mt-3 ms-2' onClick={logOut}>
+<MenuItem className='menu-item mt-3 ms-2 menu-item-text' onClick={logOut}>
                     {logoutLoading ? (
                         <div className='d-flex align-items-center full-screen-overlay'>
                             <CircularProgress size={50} color='success' /> {/* MUI Circular Progress */}
@@ -149,7 +149,7 @@ export default function SideNav() {
                         </div>
                     ) : (
                         <>
-                            <img src={log_out} alt="Log Out Icon" className="menu-icon" />
+                            <img src={log_out} alt="Log Out Icon   " className="menu-icon " />
                             {menuLogout[0].text}
                         </>
                     )}

@@ -7,7 +7,7 @@ export function useBaseUrl() {
 }
 
 export const BaseUrlProvider = ({ children }) => {
-      const [base,setBase]=useState('https://localhost:7234')
+      const [base,setBase]=useState('https://notemoodapibackend.azurewebsites.net')
       const [ChartPageData,setChartPageData]=useState([])
       const [TopicsPageData,setTopicsPageData]=useState([])
       const [ReportPageData,setReportPageData]=useState([])
@@ -17,9 +17,9 @@ export const BaseUrlProvider = ({ children }) => {
       const [LineChartData,setLineChartData]=useState([])
      const [journalDate ,setJournalDate]=useState(null)
      const [journalTime ,setJournalTime]=useState(null)
-
+     const [show,setshow]=useState(true)
     return (
-        <BaseUrl.Provider value={{closeTimePopTopics,setTimePopTopics,TopicsPageData,setTopicsPageData,journalDate ,setJournalDate,journalTime ,setJournalTime,closeTimePopReport,setTimePopReport,ReportPageData,setReportPageData,LineChartData,setLineChartData, base,setBase,ChartPageData,setChartPageData,closeTimePop,setTimePop}}>
+        <BaseUrl.Provider value={{show,setshow,closeTimePopTopics,setTimePopTopics,TopicsPageData,setTopicsPageData,journalDate ,setJournalDate,journalTime ,setJournalTime,closeTimePopReport,setTimePopReport,ReportPageData,setReportPageData,LineChartData,setLineChartData, base,setBase,ChartPageData,setChartPageData,closeTimePop,setTimePop}}>
             {children}
         </BaseUrl.Provider>
     );

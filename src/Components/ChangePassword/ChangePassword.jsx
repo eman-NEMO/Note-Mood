@@ -27,7 +27,12 @@ export default function ChangePassword() {
     console.log(values)
     let message="";
     // setIsloading(true)
-    let response = await  axios.post(`${base}/api/Auth/ChangePassword`,values).catch((error)=>{
+    let response = await  axios.post(`${base}/api/Auth/ChangePassword`,values,{
+        headers: {
+            'Authorization': `Bearer ${token}`,
+          
+            }
+    }).catch((error)=>{
      console.log("errors",error.response.data)
  
     if(error.response.data==="Invalid email"){
@@ -92,34 +97,6 @@ export default function ChangePassword() {
         //   }
 
     }
-
-      
-     //  if(data.message=='Login successful'){
-     //   setIsloading(false)
-     //   localStorage.setItem('userToken',data.token);
-     //   setUserToken(data.token)
-     //   setError(false)
-     //   navigate('/journal')
-     //  }
-//    console.log(response)
-//      if (response.data === 'Password changed successfully') {
-//          Swal.fire({
-//              title: 'Success!',
-//              text: response.data,
-//              icon: 'success',
-//              confirmButtonText: 'Ok'
-//          }).then((result) => {
-//              if (result.isConfirmed) {
-              
-            
-              
-                
-//                 //  setTimeout(() => navigate('/setting'), 500); // Navigate after a short delay
-//              }
-//          });
-// //      }
-
-
  }
 
 
@@ -150,7 +127,7 @@ const pageTransition = {
     },
     out: {
       opacity: 0,
-    //   y: "100%"
+  
     }
   };
   return (
@@ -168,7 +145,7 @@ const pageTransition = {
     <div className='d-flex justify-content-center align-items-center margin_top'>
             <div className='text-center'><div className=''><img src={key} alt="" className='spinning-image ' /></div>
              <div className='mt-3'><h2>Change Password</h2></div>
-             <div className='mt-4'><p>No worries we will send you Reset instructions</p></div></div></div>
+             <div className='mt-4'><p> Follow these steps to update your password:</p></div></div></div>
     
     
     

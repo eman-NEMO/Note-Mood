@@ -12,13 +12,14 @@ export default function LayoutSide() {
   const { closUpdate, setCloseUpdate } = useCloseJournalsUpdate()
   const {closeTimePop,setTimePop}=useBaseUrl()
   const {closeTimePopReport,setTimePopReport}=useBaseUrl()
+  const {closeTimePopTopics,setTimePopTopics}=useBaseUrl()
   return (
    <>
     <div className={`d-flexx ${zIndex?'z-0':''}`}>
-    <div className={`side-nav ${clos ||closUpdate||closeTimePop||closeTimePopReport ?'z-0':''}`}>
+    <div className={`side-nav ${clos ||closUpdate||closeTimePop||closeTimePopReport||closeTimePopTopics ?'z-0':''}`}>
         <SideNav />
     </div>
-    <div className={`outlet-container ${clos||closUpdate||closeTimePop||closeTimePopReport ? 'z-0':''}`}>
+    <div className={`outlet-container ${clos||closUpdate||closeTimePop||closeTimePopReport||closeTimePopTopics ? 'z-0':''}`}>
     <Outlet />
     </div>
 </div>

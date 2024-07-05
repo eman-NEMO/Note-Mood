@@ -12,6 +12,7 @@ import { useBaseUrl } from '../../Context/BaseUrlContext';
 Chart.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
+    const {base ,setBase}=useBaseUrl()
     const { ChartPageData, setChartPageData } = useBaseUrl()
     const [data, setData] = useState({
         labels: ['Positive', 'Neutral', 'Negative'],
@@ -61,7 +62,7 @@ const PieChart = () => {
     const fetchData = async () => {
         const token = localStorage.getItem('userToken');
         try {
-            const response = await axios.get('https://localhost:7234/api/Sentiment/DailySentimentCounts', {
+            const response = await axios.get(`${base}/api/Sentiment/DailySentimentCounts`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (response.data && Array.isArray(response.data)) {

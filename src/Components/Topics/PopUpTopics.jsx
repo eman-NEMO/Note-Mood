@@ -13,6 +13,7 @@ import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useBaseUrl } from '../../Context/BaseUrlContext';
 import { motion } from 'framer-motion';
+import './Topics.scss'
 export default function PopUpReport() {
     const { base } = useBaseUrl();
     const {closeTimePopTopics,setTimePopTopics}=useBaseUrl()
@@ -127,7 +128,7 @@ export default function PopUpReport() {
   };
 
   return (
-    <div id='popUpChart'>
+    <div id='popUpTopics'>
            <motion.div
         className='container '
         initial="out"
@@ -137,7 +138,7 @@ export default function PopUpReport() {
         variants={pageTransition}
         transition={{ type: "tween", duration: .6 }}
       >
-      <div className='overlay'>
+      <div className='overlayy'>
         <div className='content rounded-4'>
           <form onSubmit={formik.handleSubmit}>
             <div className=''>

@@ -20,17 +20,50 @@ import help_2 from '../../Assets/help_new_journal.svg'
 import help_3 from '../../Assets/help_date_time.svg'
 import help_4 from '../../Assets/help_save_btn.svg'
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
+import happy from '../../Assets/happy 1.svg'
+import normal from '../../Assets/Normal 1.svg'
+import sad from '../../Assets/sad image.svg'
+import { useEffect,useState,useRef } from 'react'
 
 export default function Help() {
+  const [isAccordionVisible, setIsAccordionVisible] = useState(false);
+  const accordionRef = useRef(null);
+  const timeoutRef = useRef(null); // For managing the timeout
 
+  useEffect(() => {
+      const observer = new IntersectionObserver(entries => {
+          const entry = entries[0];
+          if (entry.isIntersecting) {
+              // Set a delay before showing the accordion
+              timeoutRef.current = setTimeout(() => {
+                  setIsAccordionVisible(true);
+              }, 2500); // Delay in milliseconds
+          } else {
+              setIsAccordionVisible(false);
+              if (timeoutRef.current) {
+                  clearTimeout(timeoutRef.current); // Clear the timeout if element goes out of view
+              }
+          }
+      }, { threshold: 0.1 });
+
+      if (accordionRef.current) {
+          observer.observe(accordionRef.current);
+      }
+
+      return () => {
+          observer.disconnect();
+          if (timeoutRef.current) {
+              clearTimeout(timeoutRef.current); // Cleanup the timeout
+          }
+      };
+  }, []);
   const variants = {
     fromTop: {
         hidden: { opacity: 0, y: -100 },
         visible: { opacity: 1, y: 0 }
     },
     fromBottom: {
-        hidden: { opacity: 0, y: 350},
+        hidden: { opacity: 0, y: 200},
         visible: { opacity: 1, y: 0 }
     },
     fromIts: {
@@ -72,8 +105,8 @@ export default function Help() {
 <div className=' container conscroll '>
     <div className='mainCon'>
     <div className='d-flex m-3'>
-       <img src={helpCenter} alt="" />
-      <p className='help ms-3'>Help Center</p>
+       <img src={helpCenter} alt="" className='help_Icon_size' />
+      <p className='help ms-3 Help_page_title_size'>Help Center</p>
     </div>
    <div className="container">
    
@@ -91,11 +124,11 @@ export default function Help() {
                   </motion.div>
 
                   <motion.div variants={variants.fromLeft} initial="hidden" animate="visible" transition={{ delay: 1.4 ,duration:.5 , type:'keyframes'}}>
-                  <p>We understand that sometimes you may encounter difficulties or have questions while using</p>
+                  <p className='gray_color'>We understand that sometimes you may encounter difficulties or have questions while using</p>
                  
                   </motion.div>
                   <motion.div variants={variants.fromLeft} initial="hidden" animate="visible" transition={{ delay: 1.7 ,duration:.5 , type:'keyframes'}}>
-                  <p>our platform, and we’re here to assist you every step of the way.</p>
+                  <p className='gray_color'>our platform, and we’re here to assist you every step of the way.</p>
                  
                   </motion.div>
               
@@ -110,35 +143,35 @@ export default function Help() {
          <div className='row mt-5 d-flex justify-content-center'>
              
        
-         <div className='col-xl-4 col-md-4 col-lg-4 col-sm-12 text-center'>
+         <div className='col-xl-4 col-md-4 col-lg-4 col-sm-12 text-center mt-3'>
          <motion.div variants={variants.fromIts} initial="hidden" animate="visible" transition={{ delay: 1.9 ,duration:.5 , type:'keyframes'}}>
                      <div className='text-center ps-3 pe-3'>
                      <div className=' d-flex justify-content-center'><img src={write_journal} alt="" className=''/></div>
                   <div className=' d-flex justify-content-center mt-2 '><p className='Icons_title'>Write Journals</p></div>
-                 <div className=' d-flex justify-content-center ps-5 pe-5'><p>Write your diary journal easily at any time.</p></div>
+                 <div className=' d-flex justify-content-center ps-5 pe-5 gray_color'><p>Write your diary journal easily at any time.</p></div>
                      </div>
                      </motion.div>
                  </div>
                  
             
         
-                 <div className='col-xl-4 col-md-4 col-lg-4 col-sm-12'>
+                 <div className='col-xl-4 col-md-4 col-lg-4 col-sm-12 mt-3'>
 
                  <motion.div variants={variants.fromIts} initial="hidden" animate="visible" transition={{ delay: 2.2 ,duration:.5 , type:'keyframes'}}>
                     <div className='  text-center ps-3 pe-3'>
                     <div className=' d-flex justify-content-center'><img src={know_yourself} alt="" className=''/></div>
                   <div className=' d-flex justify-content-center mt-2'><p className='Icons_title'>Know Yourself</p></div>
-                 <div className=' d-flex justify-content-center ps-5 pe-5'><p>Get deeply insights about yourself from your journals.</p></div>
+                 <div className=' d-flex justify-content-center ps-5 pe-5 gray_color'><p>Get deeply insights about yourself from your journals.</p></div>
                     </div>
                     </motion.div>
                  </div>
            
-                 <div className='col-xl-4 col-md-4 col-lg-4 col-sm-12 '>
+                 <div className='col-xl-4 col-md-4 col-lg-4 col-sm-12 mt-3 '>
                  <motion.div variants={variants.fromIts} initial="hidden" animate="visible" transition={{ delay: 2.5 ,duration:.5 , type:'keyframes'}}>
                    <div className=' text-center ps-3 pe-3'>  
                     <div className=' d-flex justify-content-center'><img src={search} alt="" className=''/></div>
                   <div className=' d-flex justify-content-center mt-2'><p className='Icons_title'>Journaling Search </p></div>
-                 <div className=' d-flex justify-content-center ps-5 pe-5'><p>Search about any old journals easily in efficient way.</p></div></div>
+                 <div className=' d-flex justify-content-center ps-5 pe-5 gray_color'><p>Search about any old journals easily in efficient way.</p></div></div>
                  </motion.div>
                  </div>
        
@@ -148,11 +181,14 @@ export default function Help() {
    </div>
     </div>
 
-<div className='container mt-5 mb-5 '>
+<div className='container mt-5 mb-5 ' style={{marginTop:'50%'}} >
+{true&&(  
+   <motion.div variants={variants.fromIts} initial="hidden" animate="visible" transition={{ delay: 3 ,duration:.5 , type:'keyframes'}}>
   <div className='row '>
-    <div className='col-lg-6 col-xl-6 col-sm-12'>
+    <div className='col-lg-6 col-xl-6 col-sm-12' >
  
       <div className="accordion " id="accordionExample1" >
+      <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 1.5 ,duration:.5 , type:'keyframes'}}>
         <div className="accordion-item mt-5">
           <h2 className="accordion-header" id="headingOne1">
             <button className="accordion-button  collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
@@ -164,7 +200,7 @@ export default function Help() {
             <div className="accordion-body">
              <div> 
                    <div className='row'>
-                    <div className='col-xl-12 col-md-12'>
+                    <div className='col-xl-12 col-md-12 gray_color'>
                          <div> <p>Think of this website as your personal reflection pool, allowing you to write down thoughts, feelings, and experiences, analyzing them to uncover hidden patterns and improve self-understanding.</p></div>
                    
                     </div>
@@ -173,7 +209,8 @@ export default function Help() {
             </div>
           </div>
         </div>
-        {/* </ScrollAnimation> */}
+       </motion.div>
+       <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 1.7 ,duration:.5 , type:'keyframes'}}>
         <div className="accordion-item mt-5">
           <h2 className="accordion-header" id="headingTwo1">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
@@ -183,7 +220,7 @@ export default function Help() {
           <div id="collapseTwo1" className="accordion-collapse collapse" aria-labelledby="headingTwo1" data-bs-parent="#accordionExample1">
             <div className="accordion-body">
             <div> 
-                   <div className='row'>
+                   <div className='row gray_color'>
                     <div className='col-xl-12 col-md-12'>
 
 
@@ -199,6 +236,8 @@ export default function Help() {
             </div>
           </div>
         </div>
+        </motion.div>
+        <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 1.9 ,duration:.5 , type:'keyframes'}}>
         <div className="accordion-item mt-5 ">
           <h2 className="accordion-header" id="headingThree1">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
@@ -209,7 +248,7 @@ export default function Help() {
           <div id="collapseThree1" className="accordion-collapse collapse" aria-labelledby="headingThree1" data-bs-parent="#accordionExample1">
             <div className="accordion-body">
             <div> 
-                   <div className='row'>
+                   <div className='row gray_color'>
                     <div className='col-xl-12 col-md-12'>
 
 
@@ -222,12 +261,50 @@ export default function Help() {
             </div>
           </div>
         </div>
+        </motion.div>
+
+
+
+
+
+        <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 2.1 ,duration:.5 , type:'keyframes'}}>
+        <div className="accordion-item mt-5 ">
+          <h2 className="accordion-header" id="headingFour1">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour1" aria-expanded="false" aria-controls="collapseFour1">
+            <p className='accordion_title'>Wondering Why Something Looks 
+            Different?
+            </p>
+            </button>
+          </h2>
+          <div id="collapseFour1" className="accordion-collapse collapse" aria-labelledby="headingThree1" data-bs-parent="#accordionExample1">
+            <div className="accordion-body">
+            <div> 
+                   <div className='row gray_color'>
+                    <div className='col-xl-12 col-md-12'>
+
+
+                      <div> <p>We analyze your journals using clever technology, but there might be occasional  mistakes and might take a little extra time.  To improve accuracy, we use a special technique (like looking for similar words) but even that can have limitations.  Don't worry, we're constantly learning and getting better! If something seems off or takes a bit longer to analyze, don't worry, feel free to double-check your entries for a clearer picture.
+                      </p></div>
+                   
+                    </div>
+                   </div>
+             </div>
+            </div>
+          </div>
+        </div>
+        </motion.div>
+
+
+
+
+
       </div>
 
     </div>
 
     <div className='col-lg-6 col-xl-6 col-sm-12'>
       <div className="accordion" id="accordionExample2">
+      <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 1.5 ,duration:.5 , type:'keyframes'}}>
         <div className="accordion-item mt-5">
           <h2 className="accordion-header" id="headingOne2">
             <button className="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2">
@@ -237,7 +314,7 @@ export default function Help() {
           <div id="collapseOne2" className="accordion-collapse collapse " aria-labelledby="headingOne2" data-bs-parent="#accordionExample2">
             <div className="accordion-body">
             <div> 
-                   <div className='row'>
+                   <div className='row gray_color'>
                     <div className='col-xl-12 col-md-12'>
 
 
@@ -257,6 +334,8 @@ export default function Help() {
             </div>
           </div>
         </div>
+        </motion.div>
+        <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 1.7 ,duration:.5 , type:'keyframes'}}>
         <div className="accordion-item mt-5">
           <h2 className="accordion-header" id="headingTwo2">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
@@ -267,7 +346,7 @@ export default function Help() {
           <div id="collapseTwo2" className="accordion-collapse collapse" aria-labelledby="headingTwo2" data-bs-parent="#accordionExample2">
             <div className="accordion-body">
             <div> 
-                   <div className='row'>
+                   <div className='row gray_color'>
                     <div className='col-xl-12 col-md-12'>
 
 
@@ -280,6 +359,8 @@ export default function Help() {
             </div>
           </div>
         </div>
+        </motion.div>
+        <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 1.9 ,duration:.5 , type:'keyframes'}}>
         <div className="accordion-item mt-5">
           <h2 className="accordion-header" id="headingThree2">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
@@ -291,7 +372,7 @@ export default function Help() {
           <div id="collapseThree2" className="accordion-collapse collapse" aria-labelledby="headingThree2" data-bs-parent="#accordionExample2">
             <div className="accordion-body">
             <div> 
-                   <div className='row'>
+                   <div className='row gray_color'>
                     <div className='col-xl-12 col-md-12'>
 
 
@@ -306,9 +387,79 @@ export default function Help() {
             </div>
           </div>
         </div>
+        </motion.div>
+        <motion.div variants={variants.fromBottom} initial="hidden" animate="visible" transition={{ delay: 2.1 ,duration:.5 , type:'keyframes'}}>
+        <div className="accordion-item mt-5">
+          <h2 className="accordion-header" id="headingFour2">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour2" aria-expanded="false" aria-controls="collapseFour2">
+            <p className='accordion_title'>What does the emoji/emotion image 
+mean?
+
+
+
+</p>
+            </button>
+          </h2>
+          <div id="collapseFour2" className="accordion-collapse collapse" aria-labelledby="headingFour2" data-bs-parent="#accordionExample2">
+            <div className="accordion-body">
+            <div> 
+                   <div className='row gray_color'>
+                   <div className='col-xl-4 col-md-4 col-sm-4 col-4 col-lg-4  d-flex  justify-content-center'>
+                           
+                           <div className='text-center'>
+                             <img src={happy} alt="" className='w-100' />
+                             <strong>Good Mood</strong>
+                               <p className=''>
+                             
+                                 <strong> (Positive)</strong>
+                               </p>
+                           </div>
+
+                     
+                   
+                  
+                   </div>
+                    <div className='col-xl-4 col-md-4 col-sm-4 col-4 col-lg-4  d-flex  justify-content-center'>
+                           
+                            <div className='text-center'>
+                              <img src={normal} alt="" className='w-100' />
+                              <strong>Normal Mood</strong>
+                                <p className=''>
+                              
+                                  <strong> (Neutral)</strong>
+                                </p>
+                            </div>
+
+                      
+                    
+                   
+                    </div>
+                    <div className='col-xl-4 col-md-4 col-sm-4 col-4 col-lg-4  d-flex  justify-content-center'>
+                           
+                            <div className='text-center'>
+                              <img src={sad} alt="" className='w-100' />
+                             <strong>Bad Mood</strong>
+                                <p className=''>
+                              
+                                  <strong> (Negative)</strong>
+                                </p>
+                            </div>
+
+                      
+                    
+                   
+                    </div>
+                   </div>
+             </div>
+            </div>
+          </div>
+        </div>
+        </motion.div>
       </div>
     </div>
   </div>
+  </motion.div>
+  )}
 </div>
 
 

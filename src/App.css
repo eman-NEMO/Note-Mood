@@ -5,3 +5,20 @@
   --backgroundColorLoginInput:rgba(249, 249, 249, 1);
 }
 
+
+::-webkit-scrollbar {
+  width: 8px; /* scrollbar width */
+  height: 8px; /* scrollbar height for horizontal scroll */
+  background-color: rgba(0,0,0,0.1); /* scrollbar background */
+}
+
+/* Styles the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.4); /* draggable part color */
+  border-radius: 4px; /* rounded corners for the draggable part */
+}
+
+/* Styles the part of the scrollbar track where the thumb doesn't reach */
+::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0.1); /* track color */
+}

@@ -4,16 +4,11 @@ import journal from '../../Assets/journalbook.svg'
 import './Journal.scss'
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import profile from '../../Assets/profile.svg'
 import happy from '../../Assets/happy 1.svg'
 import normal from '../../Assets/Normal 1.svg'
 import sad from '../../Assets/sad image.svg'
 import PopUp from './JournalPopUp/PopUp';
-import useData from './JournalPopUp/Function.js';
 import './JournalPopUp/PopUp.scss'
-import { useQuery } from "react-query";
 import axios from "axios";
 import { useJournals } from '../../Context/JournalContext';
 import { useCloseJournalsUpdate } from '../../Context/JournalCloseUpdate.js'
@@ -22,45 +17,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import PopUpupdate from './JournalUpdateDelete/PopUpupdate.jsx';
 import { useIdJournal } from '../../Context/IdContext'
 import noNote from '../../Assets/no-notes 11.svg'
-import { Helmet } from 'react-helmet';
-import AOS from 'aos';
+
 import 'aos/dist/aos.css';
-import { Component } from "react";
-import ReactSearchBox from "react-search-box";
-import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
-import 'rsuite/dist/rsuite.min.css'; // or 'rsuite/dist/styles/rsuite-default.css'
-import { DateRangePicker } from 'rsuite';
+
+import 'rsuite/dist/rsuite.min.css'; 
+
 import { addDays } from 'date-fns';
 import search from '../../Assets/search.svg'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
 export default function JournalPage() {
   const {base ,setBase}=useBaseUrl()
-  const predefinedRanges = [
-    {
-      label: 'Today',
-      value: [new Date(), new Date()],
-      placement: 'left'
-    },
-    {
-      label: 'Yesterday',
-      value: [addDays(new Date(), -1), addDays(new Date(), -1)],
-      placement: 'left'
-    },
-    {
-      label: 'Last 7 Days',
-      value: [addDays(new Date(), -7), new Date()],
-      placement: 'left'
-    },
-    {
-      label: 'Last 30 Days',
-      value: [addDays(new Date(), -30), new Date()],
-      placement: 'left'
-    }
-  ];
+ 
   const [expanded, setExpanded] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   // const { popUp, setPopUp } = useData();
@@ -82,10 +49,7 @@ export default function JournalPage() {
         headers: {
           'Authorization': `Bearer ${token}`,
           "ngrok-skip-browser-warning": "sdfsdf",
-          //  accept: 'application/json',
-          //  withCredentials: true,
-
-          // Include the Authorization header
+          
         }
 
       });
@@ -123,12 +87,7 @@ export default function JournalPage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // const toggleOptions = () => {
-  //   setShowOptions(!showOptions);
-  // };
-  // const toggleSearch = () => {
-  //   setExpanded(!expanded);
-  // };
+
   function getEmotionImage(emotion) {
     switch (emotion) {
       case 'Positive':

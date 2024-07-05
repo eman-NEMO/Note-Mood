@@ -1,11 +1,11 @@
 #Main_Help_page{
-    // .accordion-wrapper {
-    //     visibility: hidden;
-    //     opacity: 0;
-    //     transition: opacity 0.5s, visibility 0.5s;
-    // }
-    
-
+ 
+    font-family: 'Inter';
+     .gray_color{
+        color: #7C7C7C;
+        font-weight: 300 !important;
+        font-size: 15px !important;
+     }
     .mainCon {
         // background-image: url('../../Assets/Line-Shape2\ mirror.svg');
         background-image: url('../../Assets/blur2.svg');
@@ -26,28 +26,7 @@
         font-weight: bolder !important;
     }
 
-    // .conscroll{
-    //     // overflow-x: scroll;
-    //     overflow-y: scroll ;
-    //     height: 100vh;
-    // }
-    // .conscroll::-webkit-scrollbar {
-    //     display: none;
-    //   }
-      
-      
-    /* Specific width for .specificContainer */
-    // .specificContainer {
-    //     width: 2000% !important; /* Set to whatever width you prefer */
-    //     margin: 0 auto !important; /* Center the container */
-    // }
-    
-    // /* Responsive width adjustments */
-    // @media (max-width: 768px) {
-    //     .specificContainer {
-    //         width: 100% !important; /* Full width on smaller screens */
-    //     }
-    // }
+
     .help{
         font-size: 32px !important;
         font-weight: bold;
@@ -120,18 +99,7 @@
         padding-right: 15px; /* Adjusts padding for internal columns if needed */
         padding-left: 15px; /* Adjusts padding for internal columns if needed */
     }
-    /* Styles for the accordion header when it is active (i.e., when the accordion is open) */
-    // .accordion-button:not(.collapsed) {
-    //     background-color: none !important;
-    //     // background-color:rgba(105, 86, 229, 1); /* Active background color */
-    //     color: black; /* Text color for active state */
-    //     border-color:rgba(105, 86, 229, 1); /* Border color when active */
-    // }
-    // .accordion-button:not(.collapsed)  {
-    //     border: 1px solid  rgba(105, 86, 229, 1); /* Change the color to your desired border color */
-    //     // border-radius: 5px; /* Optional: Adds rounded corners */
-    //     // margin-bottom: 10px; /* Adds space between accordion items */
-    // }
+   
 
     .accordion-button:not(.collapsed) {
         // border: 1px black !important;
@@ -145,53 +113,86 @@
     .Main_Help_page{
         z-index: -1 !important;
     }
-    // styles for all accordion buttons */
-    // .accordion-button:hover {
-    //     color: white !important;
-    //     background-color: rgba(105, 86, 229, 1); /* Lighter yellow on hover */
-    // }
-    
-    /* Removing hover effect entirely when accordion is open */
-    // .accordion-button:not(.collapsed):hover {
-    //     background-color: rgba(105, 86, 229, 1); /* Keep the same color as active state on hover */
-    // }
-    
-    /* Optional: Custom style for the accordion collapse content */
+
     .accordion-collapse {
         border: 1px solid rgba(105, 86, 229, 1); /* Yellow border for the content area */
     }
+
+
+         
+@media (max-width: 576px) {
+    /* Extra small devices (phones, 576px and down) */
+   
+    .Help_page_title_size{
+      font-size: 20px !important;
+      // background-color: #0455AE;
+      font-family: "Inter", sans-serif;
+    }
+    .help_Icon_size{
+        width: 20px !important;
+      } 
+    
+  }
+  
+  @media (min-width: 577px) and (max-width: 768px) {
+    /* Small devices (landscape phones, 576px and up) */
+   
+    .Help_page_title_size{
+      font-size: 25px !important;
+      font-family: "Inter", sans-serif;
+    }
+    .help_Icon_size{
+        width: 25px !important;
+      } 
+  
+    
+  }
+  
+  @media (min-width: 769px) and (max-width: 992px) {
+    /* Medium devices (tablets, 768px and up) */
+  
+    .Help_page_title_size{
+      font-size: 30px !important;
+      font-family: "Inter", sans-serif;
+    }
+    .help_Icon_size{
+        width: 30px !important;
+      } 
+   
+    
+  }
+  
+  @media (min-width: 993px) {
+    /* Large devices (desktops, 992px and up) */
+   
+    .Help_page_title_size{
+      font-family: "Inter", sans-serif;
+      font-size: 32px !important;
+    }
+    .help_Icon_size{
+        width: 37px !important;
+      } 
+   
+  }
 }
 
 
 
 
-/* Custom focus style for accordion headers */
-/* Remove focus and active styles for accordion buttons */
-// .accordion-button:focus, .accordion-button:active {
-//     box-shadow: none !important ; /* Removes the default focus shadow */
-//     background-color: transparent !important; /* Removes the background color change on focus/active */
-//     border-color: inherit !important; /* Resets the border color or you can set a specific color */
+
+// ::-webkit-scrollbar {
+//     width: 8px; /* scrollbar width */
+//     height: 8px; /* scrollbar height for horizontal scroll */
+//     background-color: rgba(0,0,0,0.1); /* scrollbar background */
 // }
 
+// /* Styles the draggable part of the scrollbar */
+// ::-webkit-scrollbar-thumb {
+//     background-color: rgba(0,0,0,0.4); /* draggable part color */
+//     border-radius: 4px; /* rounded corners for the draggable part */
+// }
 
-/* Ensure you load the Font Awesome CSS in your project for these codes to work */
-
-
-/* Ensure you load the Font Awesome CSS in your project for these codes to work */
-/* Styles the scrollbar itself */
-::-webkit-scrollbar {
-    width: 8px; /* scrollbar width */
-    height: 8px; /* scrollbar height for horizontal scroll */
-    background-color: rgba(0,0,0,0.1); /* scrollbar background */
-}
-
-/* Styles the draggable part of the scrollbar */
-::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.4); /* draggable part color */
-    border-radius: 4px; /* rounded corners for the draggable part */
-}
-
-/* Styles the part of the scrollbar track where the thumb doesn't reach */
-::-webkit-scrollbar-track {
-    background-color: rgba(0,0,0,0.1); /* track color */
-}
+// /* Styles the part of the scrollbar track where the thumb doesn't reach */
+// ::-webkit-scrollbar-track {
+//     background-color: rgba(0,0,0,0.1); /* track color */
+// }

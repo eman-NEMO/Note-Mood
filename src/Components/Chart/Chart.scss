@@ -1,27 +1,4 @@
-.image-container {
-    position: relative;
-    width: 100%;
-    max-width: 300px; /* Adjust based on your needs */
-    overflow: hidden; /* Ensures the overlay doesn't extend beyond the image container */
-  }
-  
-  .image-overlay {
-    position: absolute;
-    bottom: -100%; /* Start from below the image */
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: bottom 1s ease;
-  }
-  
-  .image-container:hover .image-overlay {
-    bottom: 0; /* Slide up to cover the image */
-  }
+#Chart_page{
   
   .image {
     display: block;
@@ -30,40 +7,6 @@
   }
 
 
-  // .chart-container {
-  //   width: 100%;
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  // }
-  
-  // .chart-and-legend {
-  //   display: flex;
-  //   align-items: center;
-  // }
-  
- 
-  
-  // .custom-legend {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   margin-left: 20px !important;
-  // }
-  
-  // .legend-item {
-  //   display: flex;
-  //   align-items: center;
-  //   margin-bottom: 20px;
-  // }
-  
-  // .legend-item img {
-  //   // width: 20px;
-  //   // height: 20px;
-  //   margin-right: 5px;
-  // }
-  
-  
 
 
   .chart-and-legend {
@@ -73,23 +16,7 @@
 
  
   
-  // .legend {
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin-left: 5% !important;
-  // }
-  
-  // .legend-item {
-  //   display: flex;
-  //   align-items: center;
-  //   margin-bottom: 20px;
-  // }
-  
-  // .legend-item img {
-  //   width: 30px;
-  //   height: 30px;
-  //   margin-right: 5px;
-  // }
+ 
   .Img_size_chart {
     width: 3% !important;
     margin-left: 2% !important;
@@ -140,7 +67,7 @@
     }
   }
   .chart-container {
-    border: 2px solid #5A0FC8;
+    border: 2px solid rgba(105, 86, 229, 1) ;
     border-radius: 15px;
     padding: 10px;
     position: relative;
@@ -152,7 +79,7 @@
     top: -21px;
     left: 20px;
     background-color: white;
-    color: #5A0FC8;
+    color: rgba(105, 86, 229, 1) ;
     font-weight: bold;
     padding: 0 10px;
     border-radius: 5px;
@@ -191,6 +118,69 @@
       // background-color: black !important;
  }
    }
+
+
+
+
+
+
+     
+@media (max-width: 576px) {
+  /* Extra small devices (phones, 576px and down) */
+ 
+  .Chart_page_title_size{
+    font-size: 20px !important;
+    // background-color: #0455AE;
+    font-family: "Inter", sans-serif;
+  }
+  .chart_Icon_size{
+      width: 20px !important;
+  }
+  
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Small devices (landscape phones, 576px and up) */
+ 
+  .Chart_page_title_size{
+    font-size: 25px !important;
+    font-family: "Inter", sans-serif;
+  }
+  .chart_Icon_size{
+    width: 25px !important;
+}
+
+  
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  /* Medium devices (tablets, 768px and up) */
+
+  .Chart_page_title_size{
+    font-size: 30px !important;
+    font-family: "Inter", sans-serif;
+  }
+  .chart_Icon_size{
+    width: 30px !important;
+}
+
+  
+}
+
+@media (min-width: 993px) {
+  /* Large devices (desktops, 992px and up) */
+ 
+  .Chart_page_title_size{
+    font-family: "Inter", sans-serif;
+    font-size: 32px !important;
+  }
+  .chart_Icon_size{
+    width: 37px !important;
+}
+
+}
+
+}
 
   #popUpChart{
     // .PopUpButon{

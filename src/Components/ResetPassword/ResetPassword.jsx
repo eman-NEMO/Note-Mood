@@ -11,6 +11,7 @@ import {useBaseUrl} from '../../Context/BaseUrlContext'
 import { useNavigate } from 'react-router-dom';
 export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
   const [isloading,setIsloading]=useState(false)
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -21,57 +22,7 @@ export default function ResetPassword() {
   const {base ,setBase}=useBaseUrl()
 
 
-//   async function ResetPassword(values){
-//     console.log(values)
 
-//     setIsloading(true)
-//     const response = await axios.post(`http://localhost:7234/api/Auth/ResetPassword`,{
-//       "password": values.password,
-//       "confirmPassword": values.ResetPassword,
-//       "token": token,
-//       "email": email,
-//     }).catch((error)=>{
-//       console.log("errore",error)
-//      Swal.fire({
-//          title: 'Error!',
-//          text: error.response || 'Something went wrong!', // Customize based on your API response
-//          icon: 'error',
-//          confirmButtonText: 'Try Again'
-//      });
-//     //  setError(error.response.data);
-    
-    
-//      console.log(error.response.data)
-//      // setError(error.response.data)
-//       setIsloading(false)
-//       }
-//       )
-//     //   console.log(data.message)
-//      //  if(data.message=='Login successful'){
-//      //   setIsloading(false)
-//      //   localStorage.setItem('userToken',data.token);
-//      //   setUserToken(data.token)
-//      //   setError(false)
-//      //   navigate('/journal')
-//      //  }
-//      console.log(response)
-
-//      if (response.status === 200 || response.status===204) {
-//          Swal.fire({
-//              title: 'Success!',
-//              text: response.data,
-//              icon: 'success',
-//              confirmButtonText: 'Ok'
-//          }).then((result) => {
-//              if (result.isConfirmed) {
-//                  setError(false);
-//                  setIsloading(false); 
-//              }
-//          });
-//      }
-
-
-//  }
 async function ResetPassword(values) {
   console.log(values);
   setIsloading(true); // Assuming setIsLoading updates a loading state
@@ -139,7 +90,7 @@ async function ResetPassword(values) {
   return (
     <div className='container '  id='Reset_page'>
     <div className='d-flex justify-content-center align-items-center margin_top'>
-            <div className='text-center'><div className=''><img src={key} alt="" className='' /></div>
+            <div className='text-center'><div className=''><img src={key} alt="" className='spinning-image' /></div>
              <div><h2>Reset Password</h2></div>
              <div><p>No worries we will send you Reset instructions</p></div></div></div>
     
@@ -190,9 +141,9 @@ async function ResetPassword(values) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
         />
-        {showPassword
-            ? <i onClick={() => setShowPassword(!showPassword)} className={`fa-regular fa-eye position-absolute end-0 top-50 translate-middle-y `}></i>
-            : <i onClick={() => setShowPassword(!showPassword)} className={`fa-regular fa-eye-slash position-absolute end-0 top-50 translate-middle-y`}></i>
+        {showPassword1
+            ? <i onClick={() => setShowPassword1(!showPassword1)} className={`fa-regular fa-eye position-absolute end-0 top-50 translate-middle-y `}></i>
+            : <i onClick={() => setShowPassword1(!showPassword1)} className={`fa-regular fa-eye-slash position-absolute end-0 top-50 translate-middle-y`}></i>
         }
     </div>
     {/* Optionally, replace the alert with subtler text or remove it entirely */}

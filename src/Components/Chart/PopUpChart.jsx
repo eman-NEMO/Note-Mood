@@ -17,6 +17,8 @@ export default function PopUpChart() {
     const {ChartPageData,setChartPageData}=useBaseUrl(null)
     const {closeTimePop,setTimePop}=useBaseUrl()
     const {LineChartData,setLineChartData}=useBaseUrl()
+    const {show,setshow}=useBaseUrl()
+    const {base ,setBase}=useBaseUrl()
     const validationSchema = Yup.object().shape({
         startDate: Yup.date()
           .nullable()
@@ -75,13 +77,13 @@ export default function PopUpChart() {
         if (values.endDate) params.endDate = values.endDate.format('YYYY-MM-DD');
 
         const [sentimentCountsResponse, moodPerDayResponse] = await Promise.all([
-          axios.get('https://localhost:7234/api/Sentiment/DailySentimentCounts', {
+          axios.get(`${base}/api/Sentiment/DailySentimentCounts`, {
             headers: {
               'Authorization': `Bearer ${token}`
             },
             params
           }),
-          axios.get('https://localhost:7234/api/Sentiment/MoodPerDay', {
+          axios.get(`${base}/api/Sentiment/MoodPerDay`, {
             headers: {
               'Authorization': `Bearer ${token}`
             },
@@ -100,6 +102,12 @@ export default function PopUpChart() {
         setLineChartData(moodPerDayResponse.data)
         console.log(sentimentCountsResponse.data)
         console.log(moodPerDayResponse.data)
+        if(moodPerDayResponse.data.length>0){
+          setshow(true)
+        }
+        else{
+          setshow(false)
+        }
         // console.log('API Response:', response.data);
 
       } catch (error) {

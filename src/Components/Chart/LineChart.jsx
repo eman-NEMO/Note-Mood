@@ -12,6 +12,8 @@ const MoodLineChart = () => {
   const [chartData, setChartData] = useState({ labels: [], datasets: [] });
   const imagesLoaded = useRef({ positive: null, neutral: null, negative: null });
   const {LineChartData,setLineChartData}=useBaseUrl()
+  const {show,setshow}=useBaseUrl()
+     const {base ,setBase}=useBaseUrl()
   useEffect(() => {
 
     loadImages();
@@ -41,17 +43,28 @@ const MoodLineChart = () => {
   useEffect(() => {
     if (LineChartData.length > 0) {
       processChartData(LineChartData);
+      // setshow(true)
     }
+    // else{
+    //   setshow(false)
+    // }
   }, [LineChartData]);
 
   const fetchData = async () => {
     const token = localStorage.getItem('userToken');
     try {
-      const response = await axios.get('https://localhost:7234/api/Sentiment/MoodPerDay', {
+      const response = await axios.get(`${base}/api/Sentiment/MoodPerDay`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (response.data && Array.isArray(response.data)) {
         setLineChartData(response.data);
+        if(response.data.length>0){
+          setshow(true)
+        }
+        else{
+          setshow(false)
+        }
+     
       } else {
         console.error("Data is not an array:", response.data);
       }

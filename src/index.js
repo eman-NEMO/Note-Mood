@@ -36,7 +36,7 @@ root.render(
    </JournalCloseUpdateProvider>
   </JournalProvider>
   </BaseUrlProvider>  
-  <ReactQueryDevtools  position='bottom-right'/>
+  {/* <ReactQueryDevtools  position='bottom-right'/> */}
    
   
   </QueryClientProvider>
