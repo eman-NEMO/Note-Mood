@@ -97,7 +97,7 @@ export default function DatePickerMaterialUI() {
           const response = await axios.post(`${base}/api/Entry/Create`, values, {
             headers: {
           'Authorization': `Bearer ${token}`,
-           "ngrok-skip-browser-warning" : "ssdf",
+          //  "ngrok-skip-browser-warning" : "ssdf",
             }
           });
           if (response.status === 200 || response.status === 201) {
@@ -116,9 +116,14 @@ export default function DatePickerMaterialUI() {
         }
         setLoading(false);
 
-          return response.data;
+        return response.data;
         } catch (error) {
-          console.error('Error creating entry:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.response.data,
+          });
+          // console.error('Error creating entry:', error);
           setLoading(false)
           throw error; 
         }
@@ -131,7 +136,7 @@ export default function DatePickerMaterialUI() {
         content: '',
         Date: null,
         Time: null,
-        
+   
       
       },
       validationSchema: validationSchema,
