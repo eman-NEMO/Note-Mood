@@ -85,50 +85,95 @@ export default function DatePickerMaterialUI() {
         }
       ),
   });
-  async  function JournalSubmit(values){
-     console.log(values)
-        const token = localStorage.getItem('userToken');
-        console.log(token)
-        console.log(values)
+  // async  function JournalSubmit(values){
+  //    console.log(values)
+  //       const token = localStorage.getItem('userToken');
+  //       console.log(token)
+  //       console.log(values)
     
      
-        setLoading(true);
-        try {
-          const response = await axios.post(`${base}/api/Entry/Create`, values, {
-            headers: {
-          'Authorization': `Bearer ${token}`,
-          //  "ngrok-skip-browser-warning" : "ssdf",
-            }
-          });
-          if (response.status === 200 || response.status === 201) {
-            const newJournal = response.data; // adjust this depending on how the response is structured
-            setJournals(prevJournals => [...prevJournals, newJournal]);
-           setClose(false)
-            Swal.fire({
-              title: 'Success!',
-              text: 'Added Successfully',
-              icon: 'success',
-              confirmButtonText: 'Ok'
-          })
-       //  setClose(true)
+  //       setLoading(true);
+  //       try {
+  //         const response = await axios.post(`${base}/api/Entry/Create`, values, {
+  //           headers: {
+  //         'Authorization': `Bearer ${token}`,
+  //         //  "ngrok-skip-browser-warning" : "ssdf",
+  //           }
+  //         });
+  //         if (response.status === 200 || response.status === 201) {
+  //           const newJournal = response.data; // adjust this depending on how the response is structured
+  //           setJournals(prevJournals => [...prevJournals, newJournal]);
+  //          setClose(false)
+  //           Swal.fire({
+  //             title: 'Success!',
+  //             text: 'Added Successfully',
+  //             icon: 'success',
+  //             confirmButtonText: 'Ok'
+  //         })
+  //      //  setClose(true)
 
            
-        }
-        setLoading(false);
+  //       }
+  //       setLoading(false);
 
-        return response.data;
-        } catch (error) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.response.data,
-          });
-          // console.error('Error creating entry:', error);
-          setLoading(false)
-          throw error; 
-        }
+  //         return response.data;
+  //       } catch (error) {
+  //         console.error('Error creating entry:', error);
+  //         setLoading(false)
+  //         throw error; 
+  //       }
       
+  // }
+
+  async function JournalSubmit(values) {
+    console.log(values);
+    const token = localStorage.getItem('userToken');
+    console.log(token);
+    console.log(values);
+  
+    setLoading(true);
+    try {
+      const response = await axios.post(`${base}/api/Entry/Create`, values, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          // "ngrok-skip-browser-warning" : "ssdf",
+        }
+      });
+      if (response.status === 200 || response.status === 201) {
+        const newJournal = response.data; // adjust this depending on how the response is structured
+        setJournals(prevJournals => [...prevJournals, newJournal]);
+        setClose(false);
+        Swal.fire({
+          title: 'Success!',
+          text: 'Added Successfully',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        });
+        // setClose(true)
+      }
+      setLoading(false);
+      return response.data;
+    } catch (error) {
+      setLoading(false);
+      console.error('Error creating entry:', error);
+  
+      // Extracting the error message from the response or defaulting to a general error message
+      const errorMessage = error.response && error.response.data && error.response.data.message
+                           ? error.response.data.message
+                           : 'Failed to create journal entry.';
+  
+      // Displaying the error message using Swal
+      Swal.fire({
+        title: 'Error!',
+        text: errorMessage,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
+  
+      throw error;  // Throwing error after handling it to maintain the flow
+    }
   }
+  
     let formik = useFormik({
       initialValues: {
         id:1,
