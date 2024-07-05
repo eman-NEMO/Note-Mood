@@ -82,11 +82,11 @@ const useSignUpForm = () => {
 
 
 async function  Submit(vales){
-  const {base ,setBase}=useBaseUrl()
+  // const {base ,setBase}=useBaseUrl()
   console.log(vales)
   // vales.month=2;
     setIsloading(true)
-     let{data}= await  axios.post(`${base}/api/Auth/register`,vales).catch((error)=>{
+     let{data}= await  axios.post(`https://notemoodapibackend.azurewebsites.net/api/Auth/register`,vales).catch((error)=>{
       console.log(error.response)
       Swal.fire({
         title: 'Error!',
