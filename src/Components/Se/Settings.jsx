@@ -268,7 +268,7 @@ const variants = {
     exit="out"
    // variants={pageVariants}
     variants={pageTransition} 
-    transition={{ type: "tween", duration: .7 ,delay:.3 }}
+    transition={{ type: "tween", duration: .7 ,delay:.5 }}
   >
 
     <div className='container Setting_page' id='Profile_id'>
