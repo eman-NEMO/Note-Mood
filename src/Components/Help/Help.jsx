@@ -100,7 +100,7 @@ export default function Help() {
   >
             <Helmet>
     <link rel="icon" href={logo} sizes="10x10" />
-        <title>Help Page</title>
+        <title>Help</title>
        
        
       </Helmet>

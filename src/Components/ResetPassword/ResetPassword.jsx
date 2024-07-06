@@ -93,7 +93,7 @@ async function ResetPassword(values) {
     <>
     <Helmet>
     <link rel="icon" href={logo} sizes="10x10" />
-        <title>Reset Password Page</title>
+        <title>Reset Password</title>
        
        
       </Helmet>

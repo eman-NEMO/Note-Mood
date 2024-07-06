@@ -45,7 +45,7 @@ export default function Login() {
     <>
     <Helmet>
       <link rel="icon" href={logo} sizes="10x10" />
-        <title >Login Page</title>
+        <title >Login</title>
        
        
       </Helmet>

@@ -145,7 +145,7 @@ const journalVariants = {
     <>
           <Helmet>
     <link rel="icon" href={logo} sizes="10x10" />
-        <title>Search Page</title>
+        <title>Search</title>
        
        
       </Helmet>

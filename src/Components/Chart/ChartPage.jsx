@@ -40,7 +40,7 @@ export default function ChartPage ()  {
       >
            <Helmet>
     <link rel="icon" href={logo} sizes="10x10" />
-        <title>Chart Page</title>
+        <title>Chart</title>
        
        
       </Helmet>

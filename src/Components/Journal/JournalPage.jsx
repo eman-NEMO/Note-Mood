@@ -123,7 +123,7 @@ export default function JournalPage() {
     <>
        <Helmet>
     
-        <title>Journal Page</title>
+        <title>Journal</title>
        <link rel="icon" href={logo} sizes="10x10" />
        
       </Helmet>

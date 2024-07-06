@@ -107,7 +107,7 @@ export default function ForgetPassword() {
   >
       <Helmet>
       <link rel="icon" href={logo} sizes="10x10" />
-        <title>Forget Password Page</title>
+        <title>Forget Password</title>
        
        
       </Helmet>

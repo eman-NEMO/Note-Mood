@@ -113,7 +113,7 @@ export default function Topics() {
   >
     <Helmet>
     <link rel="icon" href={logo} sizes="10x10" />
-        <title>Topics Page</title>
+        <title>Topics</title>
        
        
       </Helmet>

@@ -145,7 +145,7 @@ const pageTransition = {
   >
       <Helmet>
       <link rel="icon" href={logo} sizes="10x10" />
-        <title>Change Password Page</title>
+        <title>Change Password</title>
        
        
       </Helmet>

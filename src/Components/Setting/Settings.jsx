@@ -250,7 +250,7 @@ const variants = {
   >
         <Helmet>
     <link rel="icon" href={logo} sizes="10x10" />
-        <title>Profile Page</title>
+        <title>Profile</title>
        
        
       </Helmet>

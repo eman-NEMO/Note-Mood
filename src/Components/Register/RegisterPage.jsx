@@ -86,7 +86,7 @@ export default function RegisterPage() {
         <>
 <Helmet>
 <link rel="icon" href={logo} sizes="10x10" />
-        <title>Register Page</title>
+        <title>Register</title>
        
        
    </Helmet>

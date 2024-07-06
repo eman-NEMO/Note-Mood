@@ -120,7 +120,7 @@ const YourComponent = () => {
       >
            <Helmet>
     <link rel="icon" href={logo} sizes="10x10" />
-        <title>Report Page</title>
+        <title>Report</title>
        
        
       </Helmet>
