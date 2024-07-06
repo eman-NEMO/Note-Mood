@@ -4,7 +4,7 @@
 import React from 'react';
 import './Settting.scss';  // Assume CSS styles are defined here
 import { useState ,useEffect } from 'react';
-import { useData, useSignUpForm } from '../../Components/Register/Functions.js';
+import { useData, useSignUpForm } from '../Register/Functions.js';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from "yup";

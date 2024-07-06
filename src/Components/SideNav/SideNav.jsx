@@ -45,7 +45,7 @@ export default function SideNav() {
         { path: "/journal", icon: journal, iconActive: journal_color, text: "Journal" },
         { path: "/chart", icon: chart, iconActive: chart_color, text: "Chart" },
         { path: "/report", icon: report, iconActive: report_color, text: "Report" },
-        { path: "/topics", icon: topics, iconActive: topics_colored, text: "Help" },
+        { path: "/topics", icon: topics, iconActive: topics_colored, text: "Topics" },
         { path: "/help", icon: help, iconActive: help_color, text: "Help" },
      
         { path: "/settings", icon: setting, iconActive: setting_color, text: "Profile" },
