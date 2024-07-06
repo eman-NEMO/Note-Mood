@@ -147,7 +147,7 @@ export default function RegisterPage() {
         <div className="d-flex position-relative">
             <input
                 type={showPassword ? 'text' : 'password'}
-                className={`form-control bold ${formik.errors.password && formik.touched.password ? 'input-error' : ''}`}
+                className={`form-control  ${formik.errors.password && formik.touched.password ? 'input-error' : ''}`}
                 id="Password1"
                 placeholder="***********"
                 value={formik.values.password}
