@@ -75,6 +75,18 @@ async function handleSearch() {
     }
     
 };
+function getEmotionImage(emotion) {
+  switch (emotion) {
+    case 'Positive':
+      return happy;
+    case 'Negative':
+      return sad;
+    case 'Neutral':
+      return normal;
+    default:
+      return normal; // Default image if none of the cases match
+  }
+}
 const journalVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
@@ -246,7 +258,7 @@ const journalVariants = {
                       <div className='journal_1 mt-1 j_1_color  mt-3' >
                         <div className="row">
                           <div className="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-center">
-                            <img src={happy} alt="" className='emo_size' />
+                            <img src={getEmotionImage(journal.overallSentiment)} alt="" className='emo_size' />
                           </div>
                           <div className="col-md-10 col-lg-10 col-xl-10">
                             <div >

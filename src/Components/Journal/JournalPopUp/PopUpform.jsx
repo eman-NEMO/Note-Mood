@@ -163,7 +163,7 @@ export default function DatePickerMaterialUI() {
                            : 'Failed to create journal entry.';
   
       // Displaying the error message using Swal
-      console.log(errorMessage)
+      console.log(error.response.data)
       Swal.fire({
         title: 'Error!',
         text: errorMessage,
