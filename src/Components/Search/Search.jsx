@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import ReactSearchBox from "react-search-box";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { DateRangePicker } from 'rsuite';
 import './Search.scss';
 import dayjs from 'dayjs';
@@ -11,7 +8,6 @@ import { useEffect } from 'react';
 import { set } from 'rsuite/esm/internals/utils/date';
 import happy from '../../Assets/happy 1.svg'
 import { motion } from 'framer-motion';
-import blure from '../../Assets/blur2.svg'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
 import search from '../../Assets/search_page.svg'
 import green_colored from '../../Assets/New folder/happy-1.svg'
@@ -20,17 +16,12 @@ import blue from '../../Assets/New folder/sad-1 1.svg'
 import blue_colored from '../../Assets/New folder/sad-1.svg'
 import yellow from '../../Assets/New folder/Normal-1.svg'
 import resetEmotions from '../../Assets/resetemotion.svg'
-import yellow_colored from '../../Assets/New folder/Normal-1 1.svg'
-
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
-import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
-
+import happy from '../../Assets/happy 1.svg'
+import normal from '../../Assets/Normal 1.svg'
+import sad from '../../Assets/sad image.svg'
 export default function Search() {
-  // State for storing search input
   const [query, setQuery] = useState('');
   const [first, setFirst] = useState(false);
-  // State for storing date range
   const {base ,setBase}=useBaseUrl()
   const [journals,setJournals]=useState([])
   const [dateRange, setDateRange] = useState([null, null]);
@@ -38,17 +29,11 @@ export default function Search() {
   useEffect(() => {
     handleSearch();
   }, [query, dateRange,emotion]);
-
-
 async function handleSearch() {
   console.log(emotion)
-    // console.log(query,dateRange)
+  
     const params = {};
-    // params.query = 'kkk';
     if (query) params.Query = query;
-    // dateRange[0]='2024-6-18';
-    // dateRange[1]='2024-6-25';
-    // console.log(dateRange[0],dateRange[1],"kkkk")
     if(dateRange!==null){
     if (dateRange[0] && dateRange[1]) {
         params.StartDate = dayjs(dateRange[0]).format('YYYY-M-DD');
@@ -71,7 +56,7 @@ async function handleSearch() {
         console.log("respones",response)
     } catch (error) {
         console.error('Error fetching data:', error);
-        // Handle errors
+        
     }
     
 };
