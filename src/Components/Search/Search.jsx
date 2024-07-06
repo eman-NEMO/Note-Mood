@@ -16,7 +16,7 @@ import blue from '../../Assets/New folder/sad-1 1.svg'
 import blue_colored from '../../Assets/New folder/sad-1.svg'
 import yellow from '../../Assets/New folder/Normal-1.svg'
 import resetEmotions from '../../Assets/resetemotion.svg'
-import happy from '../../Assets/happy 1.svg'
+
 import normal from '../../Assets/Normal 1.svg'
 import sad from '../../Assets/sad image.svg'
 export default function Search() {
