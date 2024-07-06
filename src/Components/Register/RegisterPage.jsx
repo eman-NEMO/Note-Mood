@@ -110,7 +110,7 @@ export default function RegisterPage() {
                 className={`form-control bold ${formik.errors.fullName && formik.touched.fullName ? 'input-error' : ''}`}
                 id="Name"
                 name="fullName"
-                placeholder='Eman ibrahim'
+                placeholder='User Name '
                 value={formik.values.fullName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -130,7 +130,7 @@ export default function RegisterPage() {
             className={`form-control bold ${formik.errors.email && formik.touched.email ? 'input-error' : ''}`}
             id="email"
             name="email"
-            placeholder='emanelkaser@gmail.com'
+            placeholder='user@gnail.com'
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -200,7 +200,7 @@ export default function RegisterPage() {
         </select>
         {formik.touched.country && formik.errors.country && (
                 <div className="text-danger small mt-1">
-                <h6><span>*!</span>{formik.errors.password}</h6>
+                <h6><span>*!</span>{formik.errors.country}</h6>
             </div>
         )}
     </div>
