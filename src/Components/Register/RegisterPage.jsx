@@ -107,7 +107,7 @@ export default function RegisterPage() {
             <label htmlFor="Name" className="form-label mainColor bold">Name</label>
             <input
                 type="text"
-                className={`form-control bold ${formik.errors.fullName && formik.touched.fullName ? 'input-error' : ''}`}
+                className={`form-control ${formik.errors.fullName && formik.touched.fullName ? 'input-error' : ''}`}
                 id="Name"
                 name="fullName"
                 placeholder='User Name '
@@ -127,10 +127,10 @@ export default function RegisterPage() {
         <label htmlFor="email" className="form-label mainColor ">Email</label>
         <input
             type="email"
-            className={`form-control bold ${formik.errors.email && formik.touched.email ? 'input-error' : ''}`}
+            className={`form-control  ${formik.errors.email && formik.touched.email ? 'input-error' : ''}`}
             id="email"
             name="email"
-            placeholder='user@gnail.com'
+            placeholder='user@gmail.com'
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -186,7 +186,7 @@ export default function RegisterPage() {
     <div>
         <label htmlFor='country' className='form-label mainColor bold'>Country</label>
         <select
-            className={`w-100 form-select bold-light ${formik.errors.country && formik.touched.country ? 'input-error' : ''}`}
+            className={`w-100 form-select  ${formik.errors.country && formik.touched.country ? 'input-error' : ''}`}
             name='country'
             id='country'
             value={formik.values.country}
@@ -210,7 +210,7 @@ export default function RegisterPage() {
         <div className='DateBirth d-flex justify-content-between bold'>
         <div className='birth'>
         <select
-                className={`form-select bold-light ${formik.errors.day && formik.touched.day ? 'input-error' : ''}`}
+                className={`form-select  ${formik.errors.day && formik.touched.day ? 'input-error' : ''}`}
                 name='day'
                 id='day'
                 value={formik.values.day}
@@ -230,7 +230,7 @@ export default function RegisterPage() {
         </div>
         <div className='birth'>
         <select
-                className={`form-select  bold-light d-flex ms-auto ${formik.errors.month && formik.touched.month ? 'input-error' : ''}`}
+                className={`form-select   d-flex ms-auto ${formik.errors.month && formik.touched.month ? 'input-error' : ''}`}
                 name='month'
                 id='month'
                 value={formik.values.month}
@@ -250,7 +250,7 @@ export default function RegisterPage() {
         </div>
          <div className='birth'>
          <select
-                className={`form-select  bold-light d-flex ms-auto ${formik.errors.year && formik.touched.year ? 'input-error' : ''}`}
+                className={`form-select   d-flex ms-auto ${formik.errors.year && formik.touched.year ? 'input-error' : ''}`}
                 name='year'
                 id='year'
                 value={formik.values.year}
@@ -275,7 +275,7 @@ export default function RegisterPage() {
         
             <label className='mainColor  '>Gender</label>
             <div className='d-flex row justify-content-between mt-1'>
-                <div className={`col-md-6 gender d-flex align-items-center rounded-1 bold-light ${formik.errors.gender && formik.touched.gender ? 'input-error' : ''}`}>
+                <div className={`col-md-6 gender d-flex align-items-center rounded-1  ${formik.errors.gender && formik.touched.gender ? 'input-error' : ''}`}>
                     <input
                         className='m-2'
                         type="radio"
@@ -287,7 +287,7 @@ export default function RegisterPage() {
                         onBlur={formik.handleBlur}
                     /> Male
                 </div>
-                <div className={`col-md-6 gender d-flex align-items-center rounded-1 bold-light ${formik.errors.gender && formik.touched.gender ? 'input-error' : ''}`}>
+                <div className={`col-md-6 gender d-flex align-items-center rounded-1  ${formik.errors.gender && formik.touched.gender ? 'input-error' : ''}`}>
                     <input
                         className='m-2'
                         type="radio"
