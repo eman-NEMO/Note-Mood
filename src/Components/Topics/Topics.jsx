@@ -137,9 +137,10 @@ export default function Topics() {
                   <h6>{topic.topicName}</h6>
                 </div>
                 <div className="col-md-9 col-lg-9 col-sm-12 col-12 d-flex align-items-center">
-                  <div className="me-2 mt-1 topics_pers_numJournals"><h6>{topic.percentage}%</h6></div>
+                  
+                  <div className="me-2 mt-1 topics_pers_numJournals"><h6>{Math.round(topic.percentage)}%</h6></div>
                   <div className="progress">
-                    <div className="progress-bar" role="progressbar" style={{ width: `${topic.percentage}%` }} aria-valuenow={topic.percentage} aria-valuemin={0} aria-valuemax={100} />
+                    <div className="progress-bar" role="progressbar" style={{ width: `${Math.round(topic.percentage)}%` }} aria-valuenow={topic.percentage} aria-valuemin={0} aria-valuemax={100} />
                   </div>
                   <div className="ms-3 mt-1 topics_pers_numJournals"><h6>In {topic.frequency} Journals</h6></div>
                 </div>
