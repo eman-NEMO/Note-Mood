@@ -15,7 +15,7 @@ import ChartPage from "./Components/Chart/ChartPage";
 import LayoutSide from "./Components/Layout/LayoutSide";
 import Report from "./Components/Report/Report";
 import Help from "./Components/Help/Help";
-import Settings from "./Components/Se/Settings";
+import Settings from "./Components/Setting/Settings";
 import ForgetPassword from "./Components/ForgetPassword.jsx/ForgetPassword.jsx";
 import JournalDetails from './Components/JournalDetails/JournalDetails'
 import ResetPassword from './Components/ResetPassword/ResetPassword'
