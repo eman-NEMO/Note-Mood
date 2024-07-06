@@ -2,7 +2,9 @@ import React from "react";
 
 import Form from "./Form";
 import Image from "./Image";
+import { Helmet } from "react-helmet";
 
+import logo from '../../Assets/logo-ver2.png'
 
 
 
@@ -41,6 +43,12 @@ export default function Login() {
     //         </motion.div>
     //     </>
     <>
+    <Helmet>
+      <link rel="icon" href={logo} sizes="10x10" />
+        <title >Login Page</title>
+       
+       
+      </Helmet>
  <div className="Login container " id="Login_id">
             <div className="row mt-5">
                     <Form />

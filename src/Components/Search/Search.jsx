@@ -16,7 +16,8 @@ import blue from '../../Assets/New folder/sad-1 1.svg'
 import blue_colored from '../../Assets/New folder/sad-1.svg'
 import yellow from '../../Assets/New folder/Normal-1.svg'
 import resetEmotions from '../../Assets/resetemotion.svg'
-
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
 import normal from '../../Assets/Normal 1.svg'
 import sad from '../../Assets/sad image.svg'
 export default function Search() {
@@ -142,6 +143,12 @@ const journalVariants = {
 
   return (
     <>
+          <Helmet>
+    <link rel="icon" href={logo} sizes="10x10" />
+        <title>Search Page</title>
+       
+       
+      </Helmet>
          <motion.div
     className='container '
     initial="out"

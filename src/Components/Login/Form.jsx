@@ -28,11 +28,11 @@ export default function Form() {
         password: Yup.string().matches(passwordRegex, 'At least 8 characters,one uppercase,one lowercase,one digit').required('password is required'),
     })
    async function loginSubmit(values){
-       // console.log(values)
+       console.log(values)
 
        setIsloading(true)
        let{data}= await  axios.post(`${base}/api/Auth/login`,values).catch((error)=>{
-       
+       console.log(error)
         Swal.fire({
             title: 'Error!',
             text: error.response.data || 'Something went wrong!', // Customize based on your API response

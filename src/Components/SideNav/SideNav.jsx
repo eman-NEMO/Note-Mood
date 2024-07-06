@@ -1,7 +1,7 @@
 import React from 'react';
 import './SideBar.scss';
 import journal from '../../Assets/jouranl.svg'
-import logo from '../../Assets/logo-ver2.png'
+
 import help from '../../Assets/help.svg'
 import setting from '../../Assets/profile1.svg'
 import chart from '../../Assets/chart.svg'
@@ -27,7 +27,9 @@ import log_out from '../../Assets/log-out.svg'
 import log_out_colored from '../../Assets/logout_colored.svg'
 import { UserContext } from '../../Context/UserContext.js'
 import { useContext } from 'react';
-// import { Navigate } from 'react-router-dom';
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
+
 import { useNavigate } from 'react-router-dom'
 import { useJournals } from '../../Context/JournalContext.js';
 import { CircularProgress } from '@mui/material'; // Example using MUI
@@ -56,12 +58,7 @@ export default function SideNav() {
         {  icon: log_out, iconActive: log_out_colored, text: "Log Out" },
       
     ]
-    // function logOut(){
-    //   localStorage.removeItem('userToken')
-    //       setUserToken(null)
-    //   // localStorage.setItem('userId',null)
-    //     navigate('/')
-    // }
+
     function logOut() {
       setZIndex(true)
       setLogoutLoading(true); // Start loading
@@ -78,6 +75,12 @@ export default function SideNav() {
   
 
     return( <>
+      <Helmet>
+    <link rel="icon" href={logo} sizes="10x10" />
+        {/* <title>NavBar Page</title> */}
+       
+       
+      </Helmet>
    <div className='Side_Nav_ID over'>
    {clos? <Sidebar
             className={`custom-sidebar custom-menu ${collapsed ? 'collapsed' : 'expanded'}`}

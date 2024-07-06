@@ -23,9 +23,10 @@ import { useBaseUrl } from '../../Context/BaseUrlContext';
 import { motion } from 'framer-motion';
 import empty_img from '../../Assets/ERROR-report.svg'
 import './Report.scss';
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
 const YourComponent = () => {
   const {base ,setBase}=useBaseUrl()
-  const aspectImages = [report1, report2, report3];
   const {ReportPageData,setReportPageData}=useBaseUrl()
   const {closeTimePopReport,setTimePopReport}=useBaseUrl()
 
@@ -42,19 +43,7 @@ const YourComponent = () => {
     'Weather and related': weather,
     'Education and related': Education
   };
-  const categoryImageSize = {
-    'Person and related': report1,
-    'Food and related': food,
-    'Fashion and related': Fashion,
-    'Places and related': report3,
-    'Online Activities and related': online_act,
-    'Entertainment and related': Entertainment,
-    'Time and related': time,
-    'Activities and related': report2,
-    'Community and related': Community,
-    'Weather and related': weather,
-    'Education and related': Education
-  };
+  
   const getBackgroundColor = (highestSentimentName) => {
     switch (highestSentimentName) {
       case 'Positive':
@@ -102,7 +91,7 @@ const YourComponent = () => {
 
   const getSentimentPercentage = (sentiments, sentimentName) => {
     const sentiment = sentiments.find(s => s.sentimentName === sentimentName);
-    return sentiment ? sentiment.percentage : 0;
+    return sentiment ? Math.round(sentiment.percentage) : 0;
   };
 
   const getHighestSentiment = (sentiments) => {
@@ -129,6 +118,12 @@ const YourComponent = () => {
         variants={pageTransition}
         transition={{ type: "tween", duration: .7, delay: .5 }}
       >
+           <Helmet>
+    <link rel="icon" href={logo} sizes="10x10" />
+        <title>Report Page</title>
+       
+       
+      </Helmet>
     <div className="container py-2" id='Report_page'>
       <div className='col-md-12 col-xl-12 col-lg-12 col-sm-12 col-12 d-flex'>
         <img src={reportPageLogo} alt="" className='Report_Icon_size' />

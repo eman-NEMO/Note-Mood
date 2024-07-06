@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import {useBaseUrl} from '../../Context/BaseUrlContext'
 import { useNavigate } from 'react-router-dom';
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
 export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
@@ -88,6 +90,13 @@ async function ResetPassword(values) {
     onSubmit:ResetPassword
 })
   return (
+    <>
+    <Helmet>
+    <link rel="icon" href={logo} sizes="10x10" />
+        <title>Reset Password Page</title>
+       
+       
+      </Helmet>
     <div className='container '  id='Reset_page'>
     <div className='d-flex justify-content-center align-items-center margin_top'>
             <div className='text-center'><div className=''><img src={key} alt="" className='spinning-image' /></div>
@@ -164,5 +173,6 @@ async function ResetPassword(values) {
                 </div>  
     
         </div>
+        </>
   )
 }

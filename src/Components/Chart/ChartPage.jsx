@@ -10,6 +10,8 @@ import { delay, motion } from 'framer-motion';
 import PopUpChart from './PopUpChart';
 import { useBaseUrl } from '../../Context/BaseUrlContext';
 import empty_img from '../../Assets/ERROR-chart.svg'
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
 export default function ChartPage ()  {
   const {closeTimePop,setTimePop}=useBaseUrl()
   const {LineChartData,setLineChartData}=useBaseUrl()
@@ -36,6 +38,12 @@ export default function ChartPage ()  {
         variants={pageTransition}
         transition={{ type: "tween", duration: .7, delay: .5 }}
       >
+           <Helmet>
+    <link rel="icon" href={logo} sizes="10x10" />
+        <title>Chart Page</title>
+       
+       
+      </Helmet>
     <div id='Chart_page'>
     <div className='row mt-3' >
       <div className='col-md-12 col-xl-12 col-lg-12 col-sm-12 col-12 d-flex'>

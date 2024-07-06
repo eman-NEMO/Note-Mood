@@ -19,9 +19,9 @@ import { useIdJournal } from '../../Context/IdContext'
 import noNote from '../../Assets/no-notes 11.svg'
 
 import 'aos/dist/aos.css';
-
+import logo from '../../Assets/logo-ver2.png'
 import 'rsuite/dist/rsuite.min.css'; 
-
+import { Helmet } from 'react-helmet';
 import { addDays } from 'date-fns';
 import search from '../../Assets/search.svg'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
@@ -121,10 +121,13 @@ export default function JournalPage() {
 
   return (
     <>
+       <Helmet>
+    
+        <title>Journal Page</title>
+       <link rel="icon" href={logo} sizes="10x10" />
+       
+      </Helmet>
 
-      {/* <Helmet>
-        <body className="JournalPageBody "   />
-      </Helmet> */}
       <motion.div
         className='container '
         initial="out"

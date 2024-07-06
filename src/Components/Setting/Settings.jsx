@@ -18,6 +18,8 @@ import { motion } from 'framer-motion';
 import young_girl from '../../Assets/young-girl.png'
 import young_boy from '../../Assets/young-boy.png'
 import { useBaseUrl } from '../../Context/BaseUrlContext.js';
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet'
 function ProfilePage() {
   const [showPassword, setShowPassword] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
@@ -232,35 +234,11 @@ const variants = {
   }, []);
 
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     fullName: '',
-  //     email: '',
-  //     country: '',
-  //     gender: '',
-  //     // other fields as necessary
-  //   },
-  //   validationSchema: Yup.object({
-  //     fullName: Yup.string().required('Full name is required'),
-  //     email: Yup.string().email('Invalid email address').required('Email is required'),
-  //     // other validations as necessary
-  //   }),
-  //   onSubmit: values => {
-  //     console.log('Form data', values);
-  //     // Perform submission logic here
-  //   },
-  // });
  
-//  function print(){
-//   console.log("wdw")
-// }
 
   return (
     <>
-            {/* <div className='background'></div>
-            <div className='background1'></div>
-            <div className='background2'></div>
-            <div className='background3'></div> */}
+        
     <motion.div
     className='container '
     initial="out"
@@ -270,7 +248,12 @@ const variants = {
     variants={pageTransition} 
     transition={{ type: "tween", duration: .7 ,delay:.5 }}
   >
-
+        <Helmet>
+    <link rel="icon" href={logo} sizes="10x10" />
+        <title>Profile Page</title>
+       
+       
+      </Helmet>
     <div className='container Setting_page' id='Profile_id'>
   
          <div className='row mt-3'>

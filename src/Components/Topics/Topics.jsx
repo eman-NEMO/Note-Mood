@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import side_girl from '../../Assets/Frame 43.svg';
 import './Topics.scss';
 import axios from 'axios';
@@ -112,9 +112,9 @@ export default function Topics() {
     transition={{ type: "tween", duration: .7, delay: .5 }}
   >
     <Helmet>
-    <link rel="icon" href={topic_page_logo} sizes="10x10" />
+    <link rel="icon" href={logo} sizes="10x10" />
         <title>Topics Page</title>
-        {/* <meta name="description" content="Detailed description of the page for SEO" /> */}
+       
        
       </Helmet>
     <div className="topics-container " id='topics-container'>

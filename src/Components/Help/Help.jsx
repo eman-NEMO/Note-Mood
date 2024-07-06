@@ -8,10 +8,6 @@ import know_yourself from '../../Assets/know_yourself.svg'
 import helpCenter from  '../../Assets/helpCenter.svg'
 import './Help.scss'
 import "animate.css/animate.compat.css"
-import ScrollAnimation from 'react-animate-on-scroll';
-import write_journal_explain from '../../Assets/writeJournal_explanation.svg'
-import new_journal_help from '../../Assets/newJournal_help.svg'
-import save_button_help from '../../Assets/saveButton_help.svg'
 import help_journal from '../../Assets/help_journal.svg'
 import help_update_delete from '../../Assets/help_update_delete.svg'
 import help_content from '../../Assets/help_journal_content.svg'
@@ -24,7 +20,8 @@ import happy from '../../Assets/happy 1.svg'
 import normal from '../../Assets/Normal 1.svg'
 import sad from '../../Assets/sad image.svg'
 import { useEffect,useState,useRef } from 'react'
-
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet'
 export default function Help() {
   const [isAccordionVisible, setIsAccordionVisible] = useState(false);
   const accordionRef = useRef(null);
@@ -101,6 +98,12 @@ export default function Help() {
     variants={pageTransition} 
     transition={{ type: "tween", duration: .7 ,delay:.3 }}
   >
+            <Helmet>
+    <link rel="icon" href={logo} sizes="10x10" />
+        <title>Help Page</title>
+       
+       
+      </Helmet>
 <div className='container ' id='Main_Help_page'>
 <div className=' container conscroll '>
     <div className='mainCon'>

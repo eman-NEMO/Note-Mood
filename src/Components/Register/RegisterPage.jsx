@@ -13,6 +13,8 @@ import { useFormik } from "formik";
 import Header from '../Header/Header.jsx';
 // import './Register.scss'
 import { motion } from 'framer-motion';
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
 export default function RegisterPage() {
     // const [showPassword, setShowPassword] = useState(false);
     const { data, Days, mon, year, } = useData();
@@ -82,6 +84,12 @@ export default function RegisterPage() {
 
     return (
         <>
+<Helmet>
+<link rel="icon" href={logo} sizes="10x10" />
+        <title>Register Page</title>
+       
+       
+   </Helmet>
 
 {/* <motion.div
       initial="out"

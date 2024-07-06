@@ -9,6 +9,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
 export default function ForgetPassword() {
   const {base ,setBase}=useBaseUrl()
 
@@ -103,6 +105,12 @@ export default function ForgetPassword() {
     variants={pageTransition} 
     transition={{ type: "tween", duration: .7 ,delay:.4 }}
   >
+      <Helmet>
+      <link rel="icon" href={logo} sizes="10x10" />
+        <title>Forget Password Page</title>
+       
+       
+      </Helmet>
     
     <div className='container ' id='Foreget_page'>
 <div className='d-flex justify-content-center align-items-center margin_top'>

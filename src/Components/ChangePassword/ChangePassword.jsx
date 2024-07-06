@@ -10,6 +10,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {useBaseUrl} from '../../Context/BaseUrlContext'
+import logo from '../../Assets/logo-ver2.png'
+import { Helmet } from 'react-helmet';
 export default function ChangePassword() {
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
@@ -141,6 +143,12 @@ const pageTransition = {
     variants={pageTransition} 
     transition={{ type: "tween", duration: .7 ,delay:.3 }}
   >
+      <Helmet>
+      <link rel="icon" href={logo} sizes="10x10" />
+        <title>Change Password Page</title>
+       
+       
+      </Helmet>
     <div className='container '  id='Change_page'>
     <div className='d-flex justify-content-center align-items-center margin_top'>
             <div className='text-center'><div className=''><img src={key} alt="" className='spinning-image ' /></div>
