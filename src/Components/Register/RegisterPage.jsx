@@ -1,54 +1,20 @@
 import React, { useEffect } from 'react'
 import Style from './Register.module.css'
 import { useState } from 'react';
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import '../../Styles/register.scss'
 import RegsterUpImg from './RegsterUpImg';
 import RegisterHaveacount from './RegisterHaveacount';
 import RegisterDownImg from './RegisterDownImg';
 import { useData, useSignUpForm } from './Functions.js';
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import Header from '../Header/Header.jsx';
-// import './Register.scss'
 import { motion } from 'framer-motion';
 import logo from '../../Assets/logo-ver2.png'
 import { Helmet } from 'react-helmet';
 export default function RegisterPage() {
-    // const [showPassword, setShowPassword] = useState(false);
+
     const { data, Days, mon, year, } = useData();
     const [showPassword, setShowPassword] = useState(false);
     const {formik ,isloading}=useSignUpForm()
-    // {console.log(formik.fullName)}
-    const pageTransition = {
-        in: {
-          opacity: 1,
-          x: 0
-        },
-        out: {
-          opacity: 0,
-        //   y: "100%"
-        }
-      };
-
-    const pageVariants = {
-        in: {
-          opacity: 1,
-          x: 0
-        },
-        out: {
-          opacity: 0,
-         // x: "-100%"
-        }
-      };
-      
-    //   const pageTransition = {
-    //     type: "tween",
-    //     ease: "anticipate",
-    //     duration: 1  // Increase duration to 1.5 seconds
-    //   };
-
     const variants = {
         fromTop: {
             hidden: { opacity: 0, y: -50 },
@@ -71,17 +37,6 @@ export default function RegisterPage() {
             visible: { opacity: 1, x: 0 }
         }
     };
-    // useEffect(() => {
-    //     // Set the body style on component mount
-    //     document.body.style.overflow = 'hidden';
-    
-    //     // Revert the body style on component unmount
-    //     return () => {
-    //       document.body.style.overflow = 'hidden';
-    //     };
-    //   }, []);
-    
-
     return (
         <>
 <Helmet>
@@ -90,15 +45,6 @@ export default function RegisterPage() {
        
        
    </Helmet>
-
-{/* <motion.div
-      initial="out"
-      animate="in"
-      exit="out"
-     // variants={pageVariants}
-      variants={pageTransition} 
-      transition={{ type: "tween", duration: .1 }}
-    > */}
 <div className='container register mt-3 position-relative' id='regester_id'>
 
                 <form className='' onSubmit={formik.handleSubmit}>

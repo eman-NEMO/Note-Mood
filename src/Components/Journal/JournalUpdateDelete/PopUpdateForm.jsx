@@ -35,11 +35,11 @@ export default function PopUpdateForm() {
        // State to store the journal data
        const [update,setUpdate]=useState(false)
        const [isLoading, setisLoading] = useState(false);
-    const [specError, setSpecError] = useState(null); 
+    
  
 
     
-    //   console.log(id)
+   
 
 
     const validationSchema = Yup.object().shape({
@@ -135,7 +135,7 @@ export default function PopUpdateForm() {
                  setJournals(prevJournals => prevJournals.map(journal => 
                   journal.id === updatedJournal.id ? updatedJournal : journal
                 ));
-                 // adjust this depending on how the response is structured
+                
             
                  setCloseUpdate(false)
                  Swal.fire({
@@ -144,7 +144,7 @@ export default function PopUpdateForm() {
                    icon: 'success',
                    confirmButtonText: 'Ok'
                })
-            //  setClose(true)
+            
      
                 
              }
@@ -172,12 +172,12 @@ export default function PopUpdateForm() {
             title: 'Delete',
             text: 'Are you sure to Delete?',
             icon: 'warning',
-            showCancelButton: true,  // This gives user a way to cancel the operation
+            showCancelButton: true,  
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         });
-        //setCloseUpdate(false)
+        
         if(result.value){
            try {
              const response = await axios.delete(`${base}/api/Entry/Delete`,{

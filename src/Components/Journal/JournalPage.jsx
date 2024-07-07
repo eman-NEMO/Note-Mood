@@ -27,10 +27,6 @@ import search from '../../Assets/search.svg'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
 export default function JournalPage() {
   const {base ,setBase}=useBaseUrl()
- 
-  const [expanded, setExpanded] = useState(false);
-  const [showOptions, setShowOptions] = useState(false);
-  // const { popUp, setPopUp } = useData();
   const { journals, setJournals, zIndex, setZIndex } = useJournals();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -53,11 +49,11 @@ export default function JournalPage() {
         }
 
       });
-      //console.log(response)
-      return response.data; // Return the response data
+     
+      return response.data; 
     } catch (error) {
-      console.error('Error fetching journals:', error);
-      throw error; // Handle errors or re-throw as needed
+      // console.error('Error fetching journals:', error);
+      throw error; 
     }
   }
   let navigate = useNavigate()
@@ -72,12 +68,12 @@ export default function JournalPage() {
     setLoading(true);
     getJournals()
       .then(data => {
-        setJournals(data); // Set the fetched journals to state
+        setJournals(data); 
         setLoading(false);
-        // console.log(data)
+     
       })
       .catch(error => {
-        console.error('Failed to fetch journals:', error);
+        // console.error('Failed to fetch journals:', error);
         setError(error);
         setLoading(false);
       });
@@ -97,7 +93,7 @@ export default function JournalPage() {
       case 'Neutral':
         return normal;
       default:
-        return normal; // Default image if none of the cases match
+        return normal; 
     }
   }
 
@@ -105,7 +101,7 @@ export default function JournalPage() {
 
     setId(ID)
     setCloseUpdate(true)
-    console.log(ID)
+    
   }
 
   const pageTransition = {
@@ -133,7 +129,7 @@ export default function JournalPage() {
         initial="out"
         animate="in"
         exit="out"
-        // variants={pageVariants}
+      
         variants={pageTransition}
         transition={{ type: "tween", duration: .7, delay: .5 }}
       >
@@ -161,7 +157,7 @@ export default function JournalPage() {
                     viewport={{ once: false }}
                     variants={journalVariants}
                     onClick={() => handleJournalClick(journal.id)}
-                  // className='journal_1 mt-2 j_1_color'
+                
                   >
                     <div >
                       <div className={` mt-1 mt-3  ${journal.overallSentiment === "Positive" ? "journal_positive" :
