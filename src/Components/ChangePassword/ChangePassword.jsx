@@ -29,12 +29,9 @@ export default function ChangePassword() {
     console.log(values)
     let message="";
     // setIsloading(true)
-    let response = await  axios.post(`${base}/api/Auth/ChangePassword`,values,{
-        headers: {
-            'Authorization': `Bearer ${token}`,
-          
-            }
-    }).catch((error)=>{
+    let response = await  axios.post(`${base}/api/Auth/ChangePassword`,values
+       
+    ).catch((error)=>{
      console.log("errors",error.response.data)
  
     if(error.response.data==="Invalid email"){
