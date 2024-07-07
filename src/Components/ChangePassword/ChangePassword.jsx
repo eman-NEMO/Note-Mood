@@ -219,7 +219,7 @@ const pageTransition = {
  <label htmlFor="NewPassword" className={`form-label NameColor`}> New Password</label>
     <div className="d-flex position-relative">
         <input
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword1 ? 'text' : 'password'}
             className={`form-control label ${formik.errors.NewPassword&&formik.touched.NewPassword  ? 'input-error' : ''}`}
             id="NewPassword"
             placeholder="***********"
@@ -245,7 +245,7 @@ const pageTransition = {
        <label htmlFor="ConfirmPassword" className={`form-label NameColor`}> Confirm Password</label>
     <div className="d-flex position-relative">
         <input
-            type={showPassword ? 'text' : 'ResetPassword'}
+            type={showPassword2 ? 'text' : 'ResetPassword'}
             className={`form-control label ${formik.errors.ConfirmPassword&&formik.touched.ConfirmPassword  ? 'input-error' : ''}`}
             id="ConfirmPassword"
             placeholder="***********"

@@ -27,9 +27,7 @@ const {ResetPassToken,setRestPassToken}=useBaseUrl()
 
 
 async function ResetPassword(values) {
-  console.log(values);
-  console.log(token)
-  console.log(email)
+
   setIsloading(true); // Assuming setIsLoading updates a loading state
 
   try {
@@ -144,7 +142,7 @@ async function ResetPassword(values) {
     <label htmlFor="ResetPassword" className={`form-label NameColor`}> Confirm Password</label>
     <div className="d-flex position-relative">
         <input
-            type={showPassword ? 'text' : 'ResetPassword'}
+            type={showPassword1 ? 'text' : 'ResetPassword'}
             className={`form-control label ${formik.errors.ResetPassword&&formik.touched.ResetPassword  ? 'input-error' : ''}`}
             id="ResetPassword"
             placeholder="***********"
