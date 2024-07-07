@@ -19,8 +19,8 @@ export default function ChangePassword() {
   const [isloading,setIsloading]=useState(false)
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const email = queryParams.get('email');
-  const token = queryParams.get('token');
+  
+  const token = localStorage.getItem('userToken')
   const [err,setError]=useState(null)
   const {base ,setBase}=useBaseUrl()
   let navigate =useNavigate()
@@ -29,9 +29,12 @@ export default function ChangePassword() {
     console.log(values)
     let message="";
     // setIsloading(true)
-    let response = await  axios.post(`${base}/api/Auth/ChangePassword`,values
-       
-    ).catch((error)=>{
+    let response = await  axios.post(`${base}/api/Auth/ChangePassword`,values,{
+        headers: {
+            'Authorization': `Bearer ${token}`,
+          
+            }
+    }).catch((error)=>{
      console.log("errors",error.response.data)
  
     if(error.response.data==="Invalid email"){
