@@ -12,10 +12,38 @@ import { useBaseUrl } from '../../Context/BaseUrlContext';
 import empty_img from '../../Assets/ERROR-chart.svg'
 import logo from '../../Assets/logo-ver2.png'
 import { Helmet } from 'react-helmet';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 export default function ChartPage ()  {
   const {closeTimePop,setTimePop}=useBaseUrl()
   const {LineChartData,setLineChartData}=useBaseUrl()
   const {show,setshow}=useBaseUrl()
+  const {bool,setBool}=useBaseUrl()
+  const showPersistentToast = () => {
+    toast.info((
+      <div>
+        Check this Test : 
+        <a href="https://thiswayup.org.au/take-a-test-tool/" target="_blank" rel="noopener noreferrer">
+          Take a Test
+        </a>
+      </div>
+    ), {
+      position: "top-right",
+      autoClose: false,  // Prevents the toast from closing automatically
+      closeOnClick: false,  // Prevents the toast from closing when other parts are clicked
+      pauseOnHover: true,
+      draggable: true,  // Allows the toast to be dragged
+      progress: undefined,
+      closeOnClick: false, // Ensures toast does not close when clicked anywhere else
+      closeButton: true // Ensures that the close button is visible and functional
+    });
+  };
+  useEffect(() => {
+    if (bool) {
+      showPersistentToast();
+    }
+  }, []);
   const pageTransition = {
     in: {
       opacity: 1,
@@ -44,7 +72,9 @@ export default function ChartPage ()  {
        
        
       </Helmet>
+  
     <div id='Chart_page'>
+    <ToastContainer />
     <div className='row mt-3' >
       <div className='col-md-12 col-xl-12 col-lg-12 col-sm-12 col-12 d-flex'>
         <img src={chartPageLogo} alt="" className='chart_Icon_size' />
@@ -60,6 +90,7 @@ export default function ChartPage ()  {
       </div>
       <div className='row d-flex justify-content-center container'>
        <MoodLineChart/>
+  
       </div>
       <div className='row container ' >
       <DonutChart/>

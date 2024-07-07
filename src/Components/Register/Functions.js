@@ -6,13 +6,14 @@ import { UserContext } from '../../Context/UserContext.js'
 import {  useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
+import { toast } from 'react-toastify';
 const useData = () => {
   const [data, setData] = useState([]);
   const [Days, setDays] = useState([]);
   const [mon, setMon] = useState([]);
   const [year, setYear] = useState([]);
 
-  // const {base ,setBase}=useBaseUrl()
+
 
   const daysOfMonth = Array.from({ length: 31 }, (_, i) => i + 1);
 
@@ -82,37 +83,47 @@ const useSignUpForm = () => {
 
 
 async function  Submit(vales){
-  // const {base ,setBase}=useBaseUrl()
-  console.log(vales)
-  // vales.month=2;
+  
     setIsloading(true)
      let{data}= await  axios.post(`https://notemoodapibackend.azurewebsites.net/api/Auth/register`,vales).catch((error)=>{
-      console.log(error.response)
+      let message="";
+      if(error.response.data==='Email already exists'){
+         message=error.response.data;
+      }
+      else{
+          if(error.response.data.errors){
+            
+            if (error.response && error.response.data && error.response.data.errors) {
+              message = Object.keys(error.response.data.errors).reduce((acc, key) => {
+                  return acc + error.response.data.errors[key] + "\n";
+              }, "");
+            }
+          }
+      }
+ 
       Swal.fire({
         title: 'Error!',
-        text: error.response.data || 'Something went wrong!', // Customize based on your API response
+        text: message || 'Something went wrong!', // Customize based on your API response
         icon: 'error',
         confirmButtonText: 'Try Again'
         
     });
-    // setError(error.response.data);
-   
-   
-    // console.log(error.response.data)
-    // setError(error.response.data)
+ 
      setIsloading(false)
        }
        )
-       console.log(data)
+      //  console.log(data)
        if (data.message === 'Registration successful') {
+        let message=data.message +' Please check inbox to confirm email'
         Swal.fire({
             title: 'Success!',
-            text: data.message,
+            text: message,
             icon: 'success',
             confirmButtonText: 'Ok'
         }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.setItem('userToken', data.token);
+              
                 setUserToken(data.token);
                 setError(false);
                 setIsloading(false);
@@ -121,6 +132,10 @@ async function  Submit(vales){
         });
     }
   }
+
+
+
+
   const formik = useFormik({
     initialValues: {
       fullName: "",

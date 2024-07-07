@@ -140,7 +140,7 @@ export default function PopUpdateForm() {
                  setCloseUpdate(false)
                  Swal.fire({
                    title: 'Success!',
-                   text: 'Added Successfully',
+                   text: 'Updated Successfully',
                    icon: 'success',
                    confirmButtonText: 'Ok'
                })

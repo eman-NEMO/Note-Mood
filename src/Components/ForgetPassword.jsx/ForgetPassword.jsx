@@ -11,10 +11,11 @@ import Swal from 'sweetalert2'
 import {useBaseUrl} from '../../Context/BaseUrlContext'
 import logo from '../../Assets/logo-ver2.png'
 import { Helmet } from 'react-helmet';
+
 export default function ForgetPassword() {
   const {base ,setBase}=useBaseUrl()
 
-
+    const {ResetPassToken,setRestPassToken}=useBaseUrl()
     const pageTransition = {
         in: {
           opacity: 1,
@@ -40,7 +41,7 @@ export default function ForgetPassword() {
        
          Swal.fire({
              title: 'Error!',
-             text: error.response.data || 'Something went wrong!', // Customize based on your API response
+             text: error.response.data|| 'Something went wrong!', // Customize based on your API response
              icon: 'error',
              confirmButtonText: 'Try Again'
          });
@@ -63,9 +64,12 @@ export default function ForgetPassword() {
          console.log(response)
  
          if (response.status === 200 || response.status===204) {
+          console.log(response.data.token)
+          localStorage.setItem('ResetToken',response.data.token)
+          // setRestPassToken(response.data.token)
              Swal.fire({
                  title: 'Success!',
-                 text: response.data,
+                 text: response.data.message,
                  icon: 'success',
                  confirmButtonText: 'Ok'
              }).then((result) => {

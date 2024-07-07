@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-
 import Layout from "./Components/Layout/Layout";
 import Footer from "./Components/Footer/Footer";
 import SideNav from "./Components/SideNav/SideNav";
@@ -9,7 +8,7 @@ import Header from "./Components/Header/Header";
 import RegisterPage from "./Components/Register/RegisterPage";
 import Home from "./Components/Journal/JournalPage";
 import JournalPage from "./Components/Journal/JournalPage";
-import PopUp from "./Components/Journal/JournalPopUp/PopUp";
+
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ChartPage from "./Components/Chart/ChartPage";
 import LayoutSide from "./Components/Layout/LayoutSide";
@@ -42,7 +41,7 @@ function App() {
      
     ]},
     {path:'forgetPassword',element:<ForgetPassword/>},
-    {path:'search',element:<Search/>},
+    {path:'search',element:<ProtectedRoute><Search/></ProtectedRoute>},
     {path:'changePassword',element:<ProtectedRoute><ChangePassword/></ProtectedRoute>},
     {path:'api/Auth/ResetPassword',element:<ResetPassword/>},
    

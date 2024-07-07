@@ -18,7 +18,8 @@ export default function ResetPassword() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const email = queryParams.get('email');
-  const token = queryParams.get('token');
+  const token = localStorage.getItem('ResetToken');
+const {ResetPassToken,setRestPassToken}=useBaseUrl()
   const [err,setError]=useState(null)
   let navigate =useNavigate()
   const {base ,setBase}=useBaseUrl()
@@ -27,6 +28,8 @@ export default function ResetPassword() {
 
 async function ResetPassword(values) {
   console.log(values);
+  console.log(token)
+  console.log(email)
   setIsloading(true); // Assuming setIsLoading updates a loading state
 
   try {

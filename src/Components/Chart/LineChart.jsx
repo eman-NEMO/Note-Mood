@@ -13,11 +13,13 @@ const MoodLineChart = () => {
   const imagesLoaded = useRef({ positive: null, neutral: null, negative: null });
   const {LineChartData,setLineChartData}=useBaseUrl()
   const {show,setshow}=useBaseUrl()
+  const {bool,setBool}=useBaseUrl()
      const {base ,setBase}=useBaseUrl()
   useEffect(() => {
 
     loadImages();
     fetchData();
+    fetchBool()
   }, []);
 
 
@@ -72,7 +74,24 @@ const MoodLineChart = () => {
       console.error("Failed to fetch mood data:", error);
     }
   };
-
+  const fetchBool = async () => {
+    const token = localStorage.getItem('userToken');
+    try {
+      const response = await axios.get(`${base}/api/Sentiment/test`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      // console.log(response.data.flag)
+      if (response.data) {
+        setBool(response.data.flag)
+       
+      } 
+      else{
+        console.error("Failed to fetch mood data:");
+      }
+    } catch (error) {
+      console.error("Failed to fetch mood data:", error);
+    }
+  };
   const processChartData = (data) => {
     const dates = data.map(item => item.date);
     const sentiments = data.map(item => ({
