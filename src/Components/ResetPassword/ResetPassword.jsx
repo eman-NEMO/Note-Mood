@@ -38,7 +38,7 @@ async function ResetPassword(values) {
           email: email,
       });
 
-      console.log(response.data);
+      
       if (response.status === 200 || response.status === 204) {
           Swal.fire({
               title: 'Success!',
@@ -142,7 +142,7 @@ async function ResetPassword(values) {
     <label htmlFor="ResetPassword" className={`form-label NameColor`}> Confirm Password</label>
     <div className="d-flex position-relative">
         <input
-            type={showPassword1 ? 'text' : 'ResetPassword'}
+            type={showPassword1 ? 'text' : 'password'}
             className={`form-control label ${formik.errors.ResetPassword&&formik.touched.ResetPassword  ? 'input-error' : ''}`}
             id="ResetPassword"
             placeholder="***********"
