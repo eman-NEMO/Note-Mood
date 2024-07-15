@@ -1,45 +1,17 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
-//import reportWebVitals from './reportWebVitals';
-import {ReactQueryDevtools} from "react-query/devtools"
 import { QueryClient, QueryClientProvider } from 'react-query';
-// import bootstrap
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "@fortawesome/fontawesome-free/css/all.min.css"
-// import font awesome 
-//import '@fortawesome/fontawesome-free/css/all.min.css';
-import  {JournalProvider}  from './Context/JournalContext';
-import UserContextProvider from './Context/UserContext';
-import {JournalCloseContextProvider }from './Context/JournalCloseContext.js'
-import { JournalCloseUpdateProvider } from './Context/JournalCloseUpdate.js';
 
-import {IdContextProvider} from './Context/IdContext.js'
-import {BaseUrlProvider} from './Context/BaseUrlContext.js'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let queryClient=new QueryClient()
 root.render(
-  // <React.StrictMode>
-  <QueryClientProvider client={queryClient}> 
-     <BaseUrlProvider>
-  <JournalProvider>
-  <JournalCloseUpdateProvider>
-    <IdContextProvider>
-    <JournalCloseContextProvider>
  
-   <UserContextProvider>
        <App />
-   </UserContextProvider>
-   
-   </JournalCloseContextProvider>
-   </IdContextProvider>
-   </JournalCloseUpdateProvider>
-  </JournalProvider>
-  </BaseUrlProvider>  
-  {/* <ReactQueryDevtools  position='bottom-right'/> */}
-   
   
-  </QueryClientProvider>
  
 );
 
