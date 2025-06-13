@@ -14,6 +14,19 @@ Users can write personal journals, and our system processes these entries to:
 - Visualize emotional trends over time in a meaningful way.
 
 ---
+## 📸 Screenshot From Deployed Demo 
+
+| Login    | New Journal    | Charts         |
+|----------|----------------|----------------|
+| ![Dashboard](screenshots/login.png) | ![Topics](screenshots/AddNewJournal.png) | ![Emotions](./screenshots/Journals.png) | 
+
+---
+
+| Login    | New Journal    | Charts         |
+|----------|----------------|----------------|
+| ![Dashboard](screenshots/help.png) | ![Topics](screenshots/category.png) | ![Emotions](./screenshots/charts.png) | 
+
+---
 
 ## 🧠 How It Works
 
@@ -44,21 +57,6 @@ Users can write personal journals, and our system processes these entries to:
 - **Machine Learning**: Sentiment & Aspect Analysis Models
 - **Deployment**: Azure + GitHub Actions
 - **Other tools**: Hangfire, Lucene Search, JWT Authentication
-
----
-
-## 📸 Screenshot From Deployed Demo 
-
-| Login    | New Journal    | Charts         |
-|----------|----------------|----------------|
-| ![Dashboard](screenshots/login.png) | ![Topics](screenshots/AddNewJournal.png) | ![Emotions](./screenshots/Journals.png) | 
-
----
-
-| Login    | New Journal    | Charts         |
-|----------|----------------|----------------|
-| ![Dashboard](screenshots/help.png) | ![Topics](screenshots/category.png) | ![Emotions](./screenshots/charts.png) | 
-
 
 ---
 
