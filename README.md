@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Note Mood 🧠💬
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A smart journaling web application that empowers users to understand, track, and reflect on their emotions using AI-powered sentiment and aspect analysis.
 
-## Available Scripts
+## 📰 About the Project
 
-In the project directory, you can run:
+**Note Mood** is a graduation project featured in [Al-Watan newspaper](https://alwan.elwatannews.com/news/details/7451400/note-mood) 🎓.  
+It aims to foster emotional awareness and mental well-being by analyzing users’ daily journals using advanced machine learning techniques.
 
-### `npm start`
+Users can write personal journals, and our system processes these entries to:
+- Analyze the overall mood (positive, negative, neutral).
+- Extract **aspects** (e.g., "Work", "Family", "Health") and identify the sentiment toward each.
+- Identify the most **frequent topics** in their life.
+- Visualize emotional trends over time in a meaningful way.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧠 How It Works
 
-### `npm test`
+1. **Sentiment Analysis Model** analyzes the mood of each journal entry.
+2. **Attention-based Aspect Extraction Model** detects specific entities and topics discussed.
+3. Each aspect is then analyzed for individual sentiment.
+4. Comprehensive **charts** and **reports** are generated to help users understand emotional triggers.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🌟 Key Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ✍️ Write and store daily journals.
+- 🔍 Search through journal entries.
+- 📈 View emotional trends with visual charts.
+- 📊 Aspect-based sentiment analysis.
+- 📚 Topic extraction from journals.
+- 🧾 Daily and overall emotion summaries.
+- 🛠️ Admin panel to manage and edit estimated analysis timings.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tech Stack
 
-### `npm run eject`
+- **Frontend**: React.js
+- **Backend**: ASP.NET Core + Entity Framework
+- **Database**: SQL Server (Azure-hosted)
+- **Machine Learning**: Sentiment & Aspect Analysis Models
+- **Deployment**: Azure + GitHub Actions
+- **Other tools**: Hangfire, Lucene Search, JWT Authentication
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📸 Screenshots
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Dashboard | Emotional Chart | Topics Analysis |
+|----------|----------------|----------------|
+| ![Dashboard](screenshots/dashboard.png) | ![Emotions](screenshots/emotion-chart.png) | ![Topics](screenshots/topics-analysis.png) |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📽 Demo Video
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> 🎥 You can watch a short video demo of the app [here](https://drive.google.com/your-demo-link)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📄 Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+All documentation including system architecture, dataset details, and ML model explanation is available here:  
+[📁 Documentation Drive Folder](https://drive.google.com/drive/folders/1rtO5elqI6k6FjgXNKQtXfAkA437AlHFW)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📌 Deployment
 
-### Making a Progressive Web App
+The backend hosting was deployed on a free tier which has now expired. However, you can view detailed screenshots and the full design experience above.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
