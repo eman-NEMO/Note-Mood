@@ -51,7 +51,7 @@ Users can write personal journals, and our system processes these entries to:
 
 | Dashboard | Emotional Chart | Topics Analysis |
 |----------|----------------|----------------|
-| ![Dashboard](screenshots/dashboard.png) | ![Emotions](screenshots/emotion-chart.png) | ![Topics](screenshots/topics-analysis.png) |
+| ![Dashboard](screenshots/dashboard.png) | ![Emotions](./screenshots/charts.png) | ![Topics](screenshots/topics-analysis.png) |
 
 ---
 
