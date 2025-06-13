@@ -16,13 +16,13 @@ Users can write personal journals, and our system processes these entries to:
 ---
 ## 📸 Screenshot From Deployed Demo 
 
-| Login    | New Journal    | Charts         |
+| Login    | New Journal    | Journals       |
 |----------|----------------|----------------|
 | ![Dashboard](screenshots/login.png) | ![Topics](screenshots/AddNewJournal.png) | ![Emotions](./screenshots/Journals.png) | 
 
 ---
 
-| Login    | New Journal    | Charts         |
+| Help     | category       | Charts         |
 |----------|----------------|----------------|
 | ![Dashboard](screenshots/help.png) | ![Topics](screenshots/category.png) | ![Emotions](./screenshots/charts.png) | 
 
