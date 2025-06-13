@@ -47,11 +47,18 @@ Users can write personal journals, and our system processes these entries to:
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshot From Deployed Demo 
 
-| Dashboard | Emotional Chart | Topics Analysis |
+| Login    | New Journal    | Charts         |
 |----------|----------------|----------------|
-| ![Dashboard](screenshots/dashboard.png) | ![Emotions](./screenshots/charts.png) | ![Topics](screenshots/topics-analysis.png) |
+| ![Dashboard](screenshots/login.png) | ![Topics](screenshots/AddNewJournal.png) | ![Emotions](./screenshots/charts.png) | 
+
+===
+
+| Login    | New Journal    | Charts         |
+|----------|----------------|----------------|
+| ![Dashboard](screenshots/help.png) | ![Topics](screenshots/category.png) | ![Emotions](./screenshots/placesPe.png) | 
+
 
 ---
 
