@@ -51,13 +51,13 @@ Users can write personal journals, and our system processes these entries to:
 
 | Login    | New Journal    | Charts         |
 |----------|----------------|----------------|
-| ![Dashboard](screenshots/login.png) | ![Topics](screenshots/AddNewJournal.png) | ![Emotions](./screenshots/charts.png) | 
+| ![Dashboard](screenshots/login.png) | ![Topics](screenshots/AddNewJournal.png) | ![Emotions](./screenshots/placesPe.png) | 
 
 ===
 
 | Login    | New Journal    | Charts         |
 |----------|----------------|----------------|
-| ![Dashboard](screenshots/help.png) | ![Topics](screenshots/category.png) | ![Emotions](./screenshots/placesPe.png) | 
+| ![Dashboard](screenshots/help.png) | ![Topics](screenshots/category.png) | ![Emotions](./screenshots/charts.png) | 
 
 
 ---
