@@ -1,22 +1,91 @@
-# Note Mood
+# Note Mood 🧠💬
 
-This is an article written about a project in Alwatan journal.
-https://alwan.elwatannews.com/news/details/7451400/note-mood?fbclid=IwY2xjawEce81leHRuA2FlbQIxMQABHawnbO7EcAvk_kyPGNAJStFZlL5cbR3ZpPw6l5FFXBMNRg7JK8Yh1Ttbmg_aem_FOjctkzo_ncLMSTCgOibMA#goog_rewarded 
+> A smart journaling web application that empowers users to understand, track, and reflect on their emotions using AI-powered sentiment and aspect analysis.
 
-Note Mood addresses this challenge by fostering self-awareness through a journaling application. This application leverages machine learning to analyze user-written journals,extracting and classifying entities (e.g., "Person: John") and sentiment (e.g., "Positive"). Beyond basic analysis, Note Mood empowers users with comprehensive visualizations.Daily emotional trends are depicted graphically, revealing the frequency and percentage of positive, negative, and neutral entries over time. Additionally, the application identifies frequently recurring topics and analyzes the sentiment associated with each. This multifaceted approach equips users with a deeper understanding of their emotional landscape and the factors influencing it. By promoting self-reflection and emotional intelligence, Note Mood empowers individuals to navigate the complexities of modern life with greater clarity and purpose. In order to achieve our goal, we take the journals of users and analyzed them, printing the overall mood to the user based on their journal using the sentiment analysis model. Then, using the Attention-based aspect extraction model, we extract all the aspects from the journals and present them to the user as the reasons for their overall mood. After
-extracting the aspects, we also determine the sentiment of each aspect. Additionally, we extract the main topics of the journal using the same Attention-based aspect extraction model, providing deeper insights into the content. We developed our web application using React, with its main purpose to help people understand and manage their emotions effectively.
+## 📰 About the Project
 
-## Features 
- 1.Journaling
- 2. Search for journaling
- 3.View the emotional analysis report
- 4. View Emotional Analysis Chart
- 5. View Topics Analysis
- 6.View Journal’s Overall Emotion
- 6.Edit Report’s Estimation Time
+**Note Mood** is a graduation project featured in [Al-Watan newspaper](https://alwan.elwatannews.com/news/details/7451400/note-mood) 🎓.  
+It aims to foster emotional awareness and mental well-being by analyzing users’ daily journals using advanced machine learning techniques.
 
- ### Documentation
+Users can write personal journals, and our system processes these entries to:
+- Analyze the overall mood (positive, negative, neutral).
+- Extract **aspects** (e.g., "Work", "Family", "Health") and identify the sentiment toward each.
+- Identify the most **frequent topics** in their life.
+- Visualize emotional trends over time in a meaningful way.
 
- https://drive.google.com/drive/folders/1rtO5elqI6k6FjgXNKQtXfAkA437AlHFW 
- 
-  
+---
+
+## 🧠 How It Works
+
+1. **Sentiment Analysis Model** analyzes the mood of each journal entry.
+2. **Attention-based Aspect Extraction Model** detects specific entities and topics discussed.
+3. Each aspect is then analyzed for individual sentiment.
+4. Comprehensive **charts** and **reports** are generated to help users understand emotional triggers.
+
+---
+
+## 🌟 Key Features
+
+- ✍️ Write and store daily journals.
+- 🔍 Search through journal entries.
+- 📈 View emotional trends with visual charts.
+- 📊 Aspect-based sentiment analysis.
+- 📚 Topic extraction from journals.
+- 🧾 Daily and overall emotion summaries.
+- 🛠️ Admin panel to manage and edit estimated analysis timings.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js
+- **Backend**: ASP.NET Core + Entity Framework
+- **Database**: SQL Server (Azure-hosted)
+- **Machine Learning**: Sentiment & Aspect Analysis Models
+- **Deployment**: Azure + GitHub Actions
+- **Other tools**: Hangfire, Lucene Search, JWT Authentication
+
+---
+
+## 📸 Screenshots
+
+| Dashboard | Emotional Chart | Topics Analysis |
+|----------|----------------|----------------|
+| ![Dashboard](screenshots/dashboard.png) | ![Emotions](screenshots/emotion-chart.png) | ![Topics](screenshots/topics-analysis.png) |
+
+---
+
+## 📽 Demo Video
+
+> 🎥 You can watch a short video demo of the app [here](https://drive.google.com/your-demo-link)
+
+---
+
+## 📄 Documentation
+
+All documentation including system architecture, dataset details, and ML model explanation is available here:  
+[📁 Documentation Drive Folder](https://drive.google.com/drive/folders/1rtO5elqI6k6FjgXNKQtXfAkA437AlHFW)
+
+---
+
+## 📌 Deployment
+
+The backend hosting was deployed on a free tier which has now expired. However, you can view detailed screenshots and the full design experience above.
+
+---
+
+## 👨‍💻 Authors
+
+- Eman Ibrahim – Frontend Development & Integration
+- [Your Team Members if any]
+
+---
+
+## 📬 Contact
+
+If you’d like to know more or get in touch:
+- LinkedIn: [linkedin.com/in/your-link](#)
+- Email: your.email@example.com
+
+---
+
