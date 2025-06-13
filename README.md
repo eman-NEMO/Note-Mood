@@ -72,20 +72,7 @@ All documentation including system architecture, dataset details, and ML model e
 
 The backend hosting was deployed on a free tier which has now expired. However, you can view detailed screenshots and the full design experience above.
 
----
 
-## 👨‍💻 Authors
 
-- Eman Ibrahim – Frontend Development & Integration
-- [Your Team Members if any]
 
----
-
-## 📬 Contact
-
-If you’d like to know more or get in touch:
-- LinkedIn: [linkedin.com/in/your-link](#)
-- Email: your.email@example.com
-
----
 
