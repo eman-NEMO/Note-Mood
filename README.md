@@ -14,6 +14,11 @@ Users can write personal journals, and our system processes these entries to:
 - Visualize emotional trends over time in a meaningful way.
 
 ---
+## 📽 Demo Video
+
+> 🎥 You can watch a short video demo of the app [here](https://drive.google.com/file/d/1SXTkjoKjMaT983itYRbXSfV9zdYCLmbF/view?usp=drive_link)
+
+---
 ## 📸 Screenshot From Deployed Demo 
 
 | Login    | New Journal    | Journals       |
@@ -45,7 +50,6 @@ Users can write personal journals, and our system processes these entries to:
 - 📊 Aspect-based sentiment analysis.
 - 📚 Topic extraction from journals.
 - 🧾 Daily and overall emotion summaries.
-- 🛠️ Admin panel to manage and edit estimated analysis timings.
 
 ---
 
@@ -60,12 +64,6 @@ Users can write personal journals, and our system processes these entries to:
 
 ---
 
-## 📽 Demo Video
-
-> 🎥 You can watch a short video demo of the app [here](https://drive.google.com/your-demo-link)
-
----
-
 ## 📄 Documentation
 
 All documentation including system architecture, dataset details, and ML model explanation is available here:  
@@ -75,7 +73,7 @@ All documentation including system architecture, dataset details, and ML model e
 
 ## 📌 Deployment
 
-The backend hosting was deployed on a free tier which has now expired. However, you can view detailed screenshots and the full design experience above.
+Fron End deployed on vercel ,The backend hosting was deployed on a free tier which has now expired. However, you can view detailed screenshots and the full design experience above.
 
 
 
